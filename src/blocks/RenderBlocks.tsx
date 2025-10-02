@@ -9,6 +9,7 @@ import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { ColumnsTwoBlock } from '@/blocks/sections/ColumnsTwoBlock/Component'
 import { HeadlineBlock } from './basic/HeadlineBlock/Component'
+import { TextCompositionBlock } from './basic/TextCompositionBlock/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -18,6 +19,7 @@ const blockComponents = {
   mediaBlock: MediaBlock,
   ColumnsTwoBlock: ColumnsTwoBlock,
   HeadlineBlock: HeadlineBlock,
+  TextCompositionBlock: TextCompositionBlock,
 }
 
 export const RenderBlocks: React.FC<{

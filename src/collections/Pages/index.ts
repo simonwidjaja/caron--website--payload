@@ -17,6 +17,7 @@ import {
 } from '@payloadcms/plugin-seo/fields'
 
 import { ColumnsTwoBlockConfig } from '@/blocks/sections/ColumnsTwoBlock/config'
+import { CallToAction } from '@/blocks/CallToAction/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -72,7 +73,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [ColumnsTwoBlockConfig],
+              blocks: [ColumnsTwoBlockConfig, CallToAction],
               required: true,
               admin: {
                 initCollapsed: true,

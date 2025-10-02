@@ -1,9 +1,15 @@
 import { Block } from "payload";
 import { HeadlineBlock } from "./basic/HeadlineBlock/Component";
 import { HeadlineBlockConfig } from "./basic/HeadlineBlock/config";
+import { TextCompositionBlock } from "./basic/TextCompositionBlock/Component";
+import { TextCompositionBlockConfig } from "./basic/TextCompositionBlock/config";
+
+// Only content go here
+// Section blocks go to collection (e.g. Page)  
 
 export const contentBlocks = [
   { config: HeadlineBlockConfig, component: HeadlineBlock },
+  { config: TextCompositionBlockConfig, component: TextCompositionBlock },
 ];
 
 
