@@ -281,7 +281,53 @@ export interface Page {
         blockName?: string | null;
         blockType: 'ColumnsTwoBlock';
       }
-    | CallToActionBlock
+    | {
+        /**
+         * Add content blocks to this section
+         */
+        content?:
+          | (
+              | {
+                  headline?: string | null;
+                  /**
+                   * Choose the headline size
+                   */
+                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'HeadlineBlock';
+                }
+              | {
+                  rich?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  headline?: string | null;
+                  /**
+                   * Choose the headline size
+                   */
+                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'TextCompositionBlock';
+                }
+            )[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'SectionDefaultBlock';
+      }
   )[];
   meta?: {
     title?: string | null;
@@ -482,54 +528,6 @@ export interface User {
       }[]
     | null;
   password?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CallToActionBlock".
- */
-export interface CallToActionBlock {
-  richText?: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  links?:
-    | {
-        link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?:
-            | ({
-                relationTo: 'pages';
-                value: string | Page;
-              } | null)
-            | ({
-                relationTo: 'posts';
-                value: string | Post;
-              } | null);
-          url?: string | null;
-          label: string;
-          /**
-           * Choose how the link should be rendered.
-           */
-          appearance?: ('default' | 'outline') | null;
-        };
-        id?: string | null;
-      }[]
-    | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'cta';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1039,7 +1037,33 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-        cta?: T | CallToActionBlockSelect<T>;
+        SectionDefaultBlock?:
+          | T
+          | {
+              content?:
+                | T
+                | {
+                    HeadlineBlock?:
+                      | T
+                      | {
+                          headline?: T;
+                          size?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    TextCompositionBlock?:
+                      | T
+                      | {
+                          rich?: T;
+                          headline?: T;
+                          size?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
       };
   meta?:
     | T
@@ -1054,30 +1078,6 @@ export interface PagesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CallToActionBlock_select".
- */
-export interface CallToActionBlockSelect<T extends boolean = true> {
-  richText?: T;
-  links?:
-    | T
-    | {
-        link?:
-          | T
-          | {
-              type?: T;
-              newTab?: T;
-              reference?: T;
-              url?: T;
-              label?: T;
-              appearance?: T;
-            };
-        id?: T;
-      };
-  id?: T;
-  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

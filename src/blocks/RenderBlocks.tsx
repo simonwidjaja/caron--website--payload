@@ -8,6 +8,7 @@ import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { ColumnsTwoBlock } from '@/blocks/sections/ColumnsTwoBlock/Component'
+import { SectionDefaultBlock } from '@/blocks/sections/SectionDefaultBlock/Component'
 import { HeadlineBlock } from './basic/HeadlineBlock/Component'
 import { TextCompositionBlock } from './basic/TextCompositionBlock/Component'
 
@@ -18,6 +19,7 @@ const blockComponents = {
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
   ColumnsTwoBlock: ColumnsTwoBlock,
+  SectionDefaultBlock: SectionDefaultBlock,
   HeadlineBlock: HeadlineBlock,
   TextCompositionBlock: TextCompositionBlock,
 }
