@@ -17,15 +17,17 @@ export const TextCompositionBlockConfig: Block = {
   },
   fields: [
     {
-      name: 'rich',
-      type: 'richText',
-    },
+      name: 'metaTitle',
+      type: 'text',
+      localized: true,
+    },    
     {
       type: 'row',
       fields: [
         {
           name: 'headline',
           type: 'text',
+          localized: true,
           admin: {
             width: '70%',
           },
@@ -33,32 +35,15 @@ export const TextCompositionBlockConfig: Block = {
         {
           name: 'size',
           type: 'select',
+          localized: true,
           defaultValue: 'h2',
           options: [
-            {
-              label: 'Huge',
-              value: 'huge',
-            },
-            {
-              label: 'H1',
-              value: 'h1',
-            },
-            {
-              label: 'H2',
-              value: 'h2',
-            },
-            {
-              label: 'H3',
-              value: 'h3',
-            },
-            {
-              label: 'H4',
-              value: 'h4',
-            },
-            {
-              label: 'H5',
-              value: 'h5',
-            },
+            { label: 'Huge', value: 'huge'},
+            { label: 'H1', value: 'h1'},
+            { label: 'H2', value: 'h2'},
+            { label: 'H3', value: 'h3'},
+            { label: 'H4', value: 'h4'},
+            { label: 'H5', value: 'h5'},
           ],
           admin: {
             width: '30%',
@@ -67,6 +52,11 @@ export const TextCompositionBlockConfig: Block = {
           },
         },
       ],
+    },
+    {
+      name: 'body',
+      type: 'richText',
+      localized: true,
     },
   ],
 }

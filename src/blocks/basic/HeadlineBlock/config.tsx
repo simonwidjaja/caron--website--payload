@@ -22,6 +22,7 @@ export const HeadlineBlockConfig: Block = {
         {
           name: 'headline',
           type: 'text',
+          localized: true,
           admin: {
             width: '70%',
           },

@@ -65,6 +65,10 @@ export default buildConfig({
   collections: [Pages, Posts, Media, Categories, Users],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
+  localization: {
+    locales: ['de', 'en'],
+    defaultLocale: 'de',
+  },
   plugins: [
     ...plugins,
     // storage-adapter-placeholder

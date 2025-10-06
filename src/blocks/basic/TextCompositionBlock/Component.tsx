@@ -2,16 +2,18 @@ import RichTextCustom from '@/components/RichTextCustom'
 import React from 'react'
 
 type Props = {
-  rich?: any
+  metaTitle?: string
   headline?: string
+  body?: any
   size?: 'huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
   className?: string
 }
 
 export const TextCompositionBlock: React.FC<Props> = (props) => {
   const {
-    rich,
+    metaTitle,
     headline,
+    body,
     size = 'h2',
     className
   } = props
@@ -46,9 +48,10 @@ export const TextCompositionBlock: React.FC<Props> = (props) => {
   const sizeClasses = getSizeClasses(size)
 
   const content = (
-    <Tag className={`text-composition-block ${sizeClasses} ${className || ''}`}>
-      <RichTextCustom data={rich} />
-      {headline}
+    <Tag className={`TextCompositionBlock ${sizeClasses} ${className || ''}`}>
+      {metaTitle && <div className="metaTitle">{metaTitle}</div>}
+      {headline && <div className="headline">{headline}</div>}
+      {body && <RichTextCustom data={body} />}
     </Tag>
   )
 

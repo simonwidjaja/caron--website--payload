@@ -18,6 +18,7 @@ import {
 
 import { ColumnsTwoBlockConfig } from '@/blocks/sections/ColumnsTwoBlock/config'
 import { SectionDefaultBlockConfig } from '@/blocks/sections/SectionDefaultBlock/config'
+import { FullWidthBlockConfig } from '@/blocks/sections/FullWidthBlock/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -73,7 +74,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [ColumnsTwoBlockConfig, SectionDefaultBlockConfig],
+              blocks: [ColumnsTwoBlockConfig, SectionDefaultBlockConfig, FullWidthBlockConfig],
               required: true,
               admin: {
                 initCollapsed: true,

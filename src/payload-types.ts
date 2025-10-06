@@ -108,7 +108,7 @@ export interface Config {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
   };
-  locale: null;
+  locale: 'de' | 'en';
   user: User & {
     collection: 'users';
   };
@@ -209,7 +209,13 @@ export interface Page {
                   blockType: 'HeadlineBlock';
                 }
               | {
-                  rich?: {
+                  metaTitle?: string | null;
+                  headline?: string | null;
+                  /**
+                   * Choose the headline size
+                   */
+                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
+                  body?: {
                     root: {
                       type: string;
                       children: {
@@ -224,11 +230,6 @@ export interface Page {
                     };
                     [k: string]: unknown;
                   } | null;
-                  headline?: string | null;
-                  /**
-                   * Choose the headline size
-                   */
-                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'TextCompositionBlock';
@@ -251,7 +252,13 @@ export interface Page {
                   blockType: 'HeadlineBlock';
                 }
               | {
-                  rich?: {
+                  metaTitle?: string | null;
+                  headline?: string | null;
+                  /**
+                   * Choose the headline size
+                   */
+                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
+                  body?: {
                     root: {
                       type: string;
                       children: {
@@ -266,11 +273,6 @@ export interface Page {
                     };
                     [k: string]: unknown;
                   } | null;
-                  headline?: string | null;
-                  /**
-                   * Choose the headline size
-                   */
-                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'TextCompositionBlock';
@@ -298,7 +300,13 @@ export interface Page {
                   blockType: 'HeadlineBlock';
                 }
               | {
-                  rich?: {
+                  metaTitle?: string | null;
+                  headline?: string | null;
+                  /**
+                   * Choose the headline size
+                   */
+                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
+                  body?: {
                     root: {
                       type: string;
                       children: {
@@ -313,11 +321,6 @@ export interface Page {
                     };
                     [k: string]: unknown;
                   } | null;
-                  headline?: string | null;
-                  /**
-                   * Choose the headline size
-                   */
-                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'TextCompositionBlock';
@@ -327,6 +330,54 @@ export interface Page {
         id?: string | null;
         blockName?: string | null;
         blockType: 'SectionDefaultBlock';
+      }
+    | {
+        /**
+         * Add content blocks to this full-width section
+         */
+        content?:
+          | (
+              | {
+                  headline?: string | null;
+                  /**
+                   * Choose the headline size
+                   */
+                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'HeadlineBlock';
+                }
+              | {
+                  metaTitle?: string | null;
+                  headline?: string | null;
+                  /**
+                   * Choose the headline size
+                   */
+                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
+                  body?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'TextCompositionBlock';
+                }
+            )[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'FullWidthBlock';
       }
   )[];
   meta?: {
@@ -1006,9 +1057,10 @@ export interface PagesSelect<T extends boolean = true> {
                     TextCompositionBlock?:
                       | T
                       | {
-                          rich?: T;
+                          metaTitle?: T;
                           headline?: T;
                           size?: T;
+                          body?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1027,9 +1079,10 @@ export interface PagesSelect<T extends boolean = true> {
                     TextCompositionBlock?:
                       | T
                       | {
-                          rich?: T;
+                          metaTitle?: T;
                           headline?: T;
                           size?: T;
+                          body?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1054,9 +1107,38 @@ export interface PagesSelect<T extends boolean = true> {
                     TextCompositionBlock?:
                       | T
                       | {
-                          rich?: T;
+                          metaTitle?: T;
                           headline?: T;
                           size?: T;
+                          body?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        FullWidthBlock?:
+          | T
+          | {
+              content?:
+                | T
+                | {
+                    HeadlineBlock?:
+                      | T
+                      | {
+                          headline?: T;
+                          size?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    TextCompositionBlock?:
+                      | T
+                      | {
+                          metaTitle?: T;
+                          headline?: T;
+                          size?: T;
+                          body?: T;
                           id?: T;
                           blockName?: T;
                         };
