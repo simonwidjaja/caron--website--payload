@@ -28,11 +28,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body>
         <Providers>
-          <AdminBar
-            adminBarProps={{
-              preview: isEnabled,
-            }}
-          />
+          {/* Only show AdminBar in development or when explicitly enabled */}
+          {(process.env.NODE_ENV === 'development' || process.env.SHOW_ADMIN_BAR === 'true') && (
+            <AdminBar
+              adminBarProps={{
+                preview: isEnabled,
+              }}
+            />
+          )}
 
           <Header />
           {children}

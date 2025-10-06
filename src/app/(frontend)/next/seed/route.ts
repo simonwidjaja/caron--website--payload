@@ -16,6 +16,11 @@ export async function POST(): Promise<Response> {
     return new Response('Action forbidden.', { status: 403 })
   }
 
+  // Additional safeguard: Only allow seeding in development or explicitly enabled
+  if (process.env.NODE_ENV === 'production' && process.env.ALLOW_SEEDING !== 'true') {
+    return new Response('Seeding disabled in production.', { status: 403 })
+  }
+
   try {
     // Create a Payload request object to pass to the Local API for transactions
     // At this point you should pass in a user, locale, and any other context you need for the Local API
