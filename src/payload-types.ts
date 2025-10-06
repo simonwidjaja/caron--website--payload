@@ -214,7 +214,7 @@ export interface Page {
                   /**
                    * Choose the headline size
                    */
-                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
+                  headlineSize?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
                   body?: {
                     root: {
                       type: string;
@@ -257,7 +257,7 @@ export interface Page {
                   /**
                    * Choose the headline size
                    */
-                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
+                  headlineSize?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
                   body?: {
                     root: {
                       type: string;
@@ -305,7 +305,7 @@ export interface Page {
                   /**
                    * Choose the headline size
                    */
-                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
+                  headlineSize?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
                   body?: {
                     root: {
                       type: string;
@@ -353,7 +353,7 @@ export interface Page {
                   /**
                    * Choose the headline size
                    */
-                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
+                  headlineSize?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
                   body?: {
                     root: {
                       type: string;
@@ -1059,7 +1059,7 @@ export interface PagesSelect<T extends boolean = true> {
                       | {
                           metaTitle?: T;
                           headline?: T;
-                          size?: T;
+                          headlineSize?: T;
                           body?: T;
                           id?: T;
                           blockName?: T;
@@ -1081,7 +1081,7 @@ export interface PagesSelect<T extends boolean = true> {
                       | {
                           metaTitle?: T;
                           headline?: T;
-                          size?: T;
+                          headlineSize?: T;
                           body?: T;
                           id?: T;
                           blockName?: T;
@@ -1109,7 +1109,7 @@ export interface PagesSelect<T extends boolean = true> {
                       | {
                           metaTitle?: T;
                           headline?: T;
-                          size?: T;
+                          headlineSize?: T;
                           body?: T;
                           id?: T;
                           blockName?: T;
@@ -1137,7 +1137,7 @@ export interface PagesSelect<T extends boolean = true> {
                       | {
                           metaTitle?: T;
                           headline?: T;
-                          size?: T;
+                          headlineSize?: T;
                           body?: T;
                           id?: T;
                           blockName?: T;

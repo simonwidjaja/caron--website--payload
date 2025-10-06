@@ -5,7 +5,7 @@ type Props = {
   metaTitle?: string
   headline?: string
   body?: any
-  size?: 'huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
+  headlineSize?: 'huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
   className?: string
 }
 
@@ -14,14 +14,14 @@ export const TextCompositionBlock: React.FC<Props> = (props) => {
     metaTitle,
     headline,
     body,
-    size = 'h2',
+    headlineSize = 'h2',
     className
   } = props
 
   if (!headline) return null
 
-  const getSizeClasses = (size: string) => {
-    switch (size) {
+  const getSizeClasses = (headlineSize: string) => {
+    switch (headlineSize) {
       case 'huge':
         return 'text-6xl md:text-8xl font-bold'
       case 'h1':
@@ -39,20 +39,24 @@ export const TextCompositionBlock: React.FC<Props> = (props) => {
     }
   }
 
-  const getSemanticTag = (size: string) => {
-    if (size === 'huge') return 'h1'
-    return size as 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
+  const getSemanticTag = (headlineSize: string) => {
+    if (headlineSize === 'huge') return 'h1'
+    return headlineSize as 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
   }
 
-  const Tag = getSemanticTag(size)
-  const sizeClasses = getSizeClasses(size)
+  const HeadlineTag = getSemanticTag(headlineSize)
+  const sizeClasses = getSizeClasses(headlineSize)
 
   const content = (
-    <Tag className={`TextCompositionBlock ${sizeClasses} ${className || ''}`}>
-      {metaTitle && <div className="metaTitle">{metaTitle}</div>}
-      {headline && <div className="headline">{headline}</div>}
-      {body && <RichTextCustom data={body} />}
-    </Tag>
+    <div className={`TextCompositionBlock ${className || ''}`}>
+      {metaTitle && <div className="metaTitle text-sm text-gray-600 uppercase tracking-wide mb-2">{metaTitle}</div>}
+      {headline && (
+        <HeadlineTag className={`headline ${sizeClasses} mb-4`}>
+          {headline}
+        </HeadlineTag>
+      )}
+      {body && typeof(body) === 'string' ? body : <RichTextCustom data={body} />}
+    </div>
   )
 
   return content

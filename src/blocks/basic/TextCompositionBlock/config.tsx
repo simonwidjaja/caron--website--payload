@@ -33,7 +33,7 @@ export const TextCompositionBlockConfig: Block = {
           },
         },
         {
-          name: 'size',
+          name: 'headlineSize',
           type: 'select',
           localized: true,
           defaultValue: 'h2',

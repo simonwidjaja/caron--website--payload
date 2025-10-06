@@ -15,7 +15,7 @@ import { CodeBlock, CodeBlockProps } from '@/blocks/Code/Component'
 
 import type {
   BannerBlock as BannerBlockProps,
-  CallToActionBlock as CTABlockProps,
+  // CallToActionBlock as CTABlockProps,
   MediaBlock as MediaBlockProps,
 } from '@/payload-types'
 import { BannerBlock } from '@/blocks/Banner/Component'
@@ -24,7 +24,8 @@ import { cn } from '@/utilities/ui'
 
 type NodeTypes =
   | DefaultNodeTypes
-  | SerializedBlockNode<CTABlockProps | MediaBlockProps | BannerBlockProps | CodeBlockProps>
+  // | SerializedBlockNode<CTABlockProps | MediaBlockProps | BannerBlockProps | CodeBlockProps>
+  | SerializedBlockNode<MediaBlockProps | BannerBlockProps | CodeBlockProps>
 
 const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
   const { value, relationTo } = linkNode.fields.doc!
@@ -69,11 +70,12 @@ export default function RichTextCustom(props: Props) {
       converters={jsxConverters}
       className={cn(
         'payload-richtext',
-        {
-          container: enableGutter,
-          'max-w-none': !enableGutter,
-          'mx-auto prose md:prose-md dark:prose-invert': enableProse,
-        },
+        // simonsays: with our custom sections this is not needed
+        // {
+        //   container: enableGutter,
+        //   'max-w-none': !enableGutter,
+        //   'mx-auto prose md:prose-md dark:prose-invert': enableProse,
+        // },
         className,
       )}
       {...rest}
