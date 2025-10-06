@@ -7,9 +7,6 @@ import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
-import { ColumnsTwoBlock } from '@/blocks/sections/ColumnsTwoBlock/Component'
-import { SectionDefaultBlock } from '@/blocks/sections/SectionDefaultBlock/Component'
-import { FullWidthBlock } from '@/blocks/sections/FullWidthBlock/Component'
 import { HeadlineBlock } from './basic/HeadlineBlock/Component'
 import { TextCompositionBlock } from './basic/TextCompositionBlock/Component'
 
@@ -19,15 +16,12 @@ const blockComponents = {
   cta: CallToActionBlock,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
-  ColumnsTwoBlock: ColumnsTwoBlock,
-  SectionDefaultBlock: SectionDefaultBlock,
-  FullWidthBlock: FullWidthBlock,
   HeadlineBlock: HeadlineBlock,
   TextCompositionBlock: TextCompositionBlock,
 }
 
 export const RenderBlocks: React.FC<{
-  blocks: Page['layout'][0][]
+  blocks: any
 }> = (props) => {
   const { blocks } = props
 
@@ -38,14 +32,14 @@ export const RenderBlocks: React.FC<{
       <Fragment>
         {blocks.map((block, index) => {
           const { blockType } = block
+          JSON.stringify(blockType)
 
           if (blockType && blockType in blockComponents) {
-            const Block = blockComponents[blockType]
+            const Block = blockComponents[blockType as keyof typeof blockComponents]
 
             if (Block) {
               return (
                 <div className="" key={index}>
-                  {/* @ts-expect-error there may be some mismatch between the expected types here */}
                   <Block {...block} disableInnerContainer />
                 </div>
               )

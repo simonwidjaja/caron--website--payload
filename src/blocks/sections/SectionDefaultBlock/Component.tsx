@@ -11,9 +11,19 @@ export const SectionDefaultBlock: React.FC<SectionDefaultBlockProps> = ({
 }) => {
   return (
     <SectionDefault>
-      {content && content.length > 0 && (
-        <RenderBlocks blocks={content} />
-      )}
+      {
+        content && content.length > 0 && (
+          content[0].blockType 
+            /* Content is array of plain config objects */
+            ? <RenderBlocks blocks={content} />
+            /* Content is array of react components (code usage) */
+            : content.map((item, index) => (
+                <React.Fragment key={index}>
+                  {item}
+                </React.Fragment>
+              ))
+        )
+      }
     </SectionDefault>
   )
 }

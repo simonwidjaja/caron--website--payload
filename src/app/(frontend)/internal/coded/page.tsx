@@ -15,29 +15,37 @@ export default function CodedPage() {
       
       <SectionDefaultBlock content={[
         {
-          type: 'textComposition',
+          blockType: 'TextCompositionBlock',
           metaTitle: 'Internal Documentation',
-          headline: 'Section Default',
+          headline: 'Configs',
           headlineSize: 'h2',
           body: 'This is a section wrapper that provides default padding and centering for its content. It is useful for creating consistent layouts across different pages and sections of the website.',
         },
         {
-          type: 'textComposition',
+          blockType: 'TextCompositionBlock',
           metaTitle: 'Internal Documentation',
           headline: 'Usage',
           headlineSize: 'h3',
           body: 'To use the Section Default component, simply wrap your content within the SectionDefaultBlock component. You can pass any valid React nodes as children, including text, images, and other components.',
         },
+      ]} />
+
+
+      <SectionDefaultBlock content={[
+        <TextCompositionBlock
+          metaTitle="Internal Documentation"
+          headline="Real components"
+          headlineSize="h2"
+          body="Hello world"
+        />,
+        <TextCompositionBlock
+          metaTitle="Internal Documentation"
+          headline="Design System"
+          headlineSize="h2"
+          body="Hello world"
+        />
       ]} >
-
       </SectionDefaultBlock>
-
-      <TextCompositionBlock
-        metaTitle="Internal Documentation"
-        headline="Design System"
-        headlineSize="h2"
-        body="Hello world"
-      />
 
     </article>
   )

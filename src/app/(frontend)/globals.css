@@ -109,5 +109,16 @@ html[data-theme='light'] {
   .container {
     margin-bottom: -1px;
   }
+  h1 {
+    @apply font-bold;
+    font-size: clamp(1.5rem, 2.5vw, 2.25rem); /* Min 24px, scales with viewport, max 36px */
+  }
+  h2 {
+    @apply font-bold;
+    font-size: clamp(1.25rem, 2vw, 1.75rem); /* Min 20px, scales with viewport, max 28px */
+  }
+  h3 {
+    @apply font-bold;
+    font-size: clamp(1rem, 1.5vw, 1.25rem); /* Min 16px, scales with viewport, max 20px */
+  }
 }
-
