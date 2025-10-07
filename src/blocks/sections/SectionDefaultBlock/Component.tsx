@@ -1,6 +1,6 @@
 import { RenderBlocks } from '@/blocks/RenderBlocks'
 import SectionDefault from '@/components/sections/SectionDefault'
-// import { applyClassesAndStyles } from '@/utilities/classesAndStyles'
+import { applyClassesAndStyles } from '@/utilities/classesAndStyles'
 import React from 'react'
 
 type SectionDefaultBlockProps = {
@@ -10,22 +10,16 @@ type SectionDefaultBlockProps = {
     cssClasses?: string
     styles?: string
   }
-  // _className?: string // Legacy support
 }
 
 export const SectionDefaultBlock: React.FC<SectionDefaultBlockProps> = ({ 
   content,
   classesAndStyles,
-  // _className, 
 }) => {
-  // Apply new classesAndStyles system
-  // const styleProps = applyClassesAndStyles(classesAndStyles, _className)
-  const styleProps = classesAndStyles?.cssClasses;
-  const idProp = classesAndStyles?.cssId ? { id: classesAndStyles.cssId } : {}
+  // Apply classesAndStyles using the utility function
+  const { id, className } = applyClassesAndStyles(classesAndStyles)
   return (
-    // <SectionDefault {...idProp} className={classesAndStyles?.cssClasses} {...styleProps}>
-    <SectionDefault {...idProp} className={classesAndStyles?.cssClasses}>
-      {idProp?.id}
+    <SectionDefault id={id} className={className}>
       {
         content && content.length > 0 && (
           content[0].blockType 
@@ -39,11 +33,11 @@ export const SectionDefaultBlock: React.FC<SectionDefaultBlockProps> = ({
               ))
         )
       }
-
-      <hr/>
-      {classesAndStyles?.styles && typeof classesAndStyles.styles === 'string' && (
+      {/* Render scoped CSS if provided */}
+      {classesAndStyles?.styles && classesAndStyles?.cssId && (
         <style>{`#${classesAndStyles.cssId} { ${classesAndStyles.styles} }`}</style>
       )}
     </SectionDefault>
+
   )
 }

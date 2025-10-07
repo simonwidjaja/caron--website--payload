@@ -58,7 +58,7 @@ export const classesAndStylesField = (options?: {
         defaultValue: '',
         admin: {
           language: 'css',
-          description: 'This is scoped CSS that applies only to this component',
+          description: 'This is scoped CSS that applies only to this instance',
           // width: '50%',
         },
         validate: (value: string | null | undefined, args: any) => {

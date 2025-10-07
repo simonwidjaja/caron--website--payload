@@ -315,7 +315,7 @@ export interface Page {
            */
           cssClasses?: string | null;
           /**
-           * This is scoped CSS that applies only to this component
+           * This is scoped CSS that applies only to this instance
            */
           styles?: string | null;
         };

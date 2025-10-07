@@ -28,6 +28,27 @@ const config = {
     //colors
     'bg-accent',
     'text-destructive',
+
+    // 1. Padding Classes (p-*, pt-*, pb-*, px-*, py-*)
+    {
+      // Matches: p-0 to p-12, px-0 to px-12, etc.
+      pattern: /^(p|pt|pb|pl|pr|px|py)-(0|0\.5|1|1\.5|2|2\.5|3|3\.5|4|5|6|7|8|9|10|11|12)$/,
+      variants: ['sm', 'md', 'lg'], // Include responsive variants for these
+    },
+    
+    // 2. Margin Classes (m-*, mt-*, mb-*, mx-*, my-*)
+    {
+      // Matches: m-0 to m-12, mt-0 to mt-12, etc.
+      pattern: /^(m|mt|mb|ml|mr|mx|my)-(0|0\.5|1|1\.5|2|2\.5|3|3\.5|4|5|6|7|8|9|10|11|12|auto)$/,
+      variants: ['sm', 'md', 'lg'], // Include responsive variants for these
+    },
+    
+    // 3. Negative Margin Classes (Optional, but often needed)
+    {
+      // Matches: -m-1, -mt-2, etc.
+      pattern: /^-(m|mt|mb|ml|mr|mx|my)-(0\.5|1|1\.5|2|2\.5|3|3\.5|4|5|6|7|8|9|10|11|12)$/,
+      variants: ['sm', 'md', 'lg'],
+    },    
   ],
   theme: {
     container: {

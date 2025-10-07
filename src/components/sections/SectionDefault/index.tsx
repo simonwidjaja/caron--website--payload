@@ -26,7 +26,7 @@ export default function SectionDefault ({ id, className, pt, children }: Section
       `}></div>
 
       {/* Content */}
-      <div className={`flex-auto min-h-[40px] ${pt?.content?.className}`}>
+      <div className={`SectionDefault-mainColumn flex-auto min-h-[40px] ${pt?.content?.className}`}>
         {children}
       </div>
 
