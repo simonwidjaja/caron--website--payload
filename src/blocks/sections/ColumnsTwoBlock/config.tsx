@@ -47,22 +47,29 @@ export const ColumnsTwoBlockConfig: Block = {
           label: 'Layout and Styles',
           fields: [
             {
-              name: 'paddingCol1',
-              label: 'Padding Column 1',
-              type: 'checkbox',
-              defaultValue: true,
-              admin: {
-                description: 'Enable or disable default padding for the first column',
-              },
-            },
-            {
-              name: 'paddingCol2',
-              label: 'Padding Column 2',
-              type: 'checkbox',
-              defaultValue: true,
-              admin: {
-                description: 'Enable or disable default padding for the second column',
-              },
+              type: 'row',
+              fields: [
+                {
+                  name: 'paddingCol1',
+                  label: 'Padding Column 1',
+                  type: 'checkbox',
+                  defaultValue: true,
+                  admin: {
+                    description: 'Enable or disable default padding for the first column',
+                    width: '50%',
+                  },
+                },
+                {
+                  name: 'paddingCol2',
+                  label: 'Padding Column 2',
+                  type: 'checkbox',
+                  defaultValue: true,
+                  admin: {
+                    description: 'Enable or disable default padding for the second column',
+                    width: '50%',
+                  },
+                },
+              ],
             },
             classesAndStylesField({
               description: 'Customize the appearance of this section',

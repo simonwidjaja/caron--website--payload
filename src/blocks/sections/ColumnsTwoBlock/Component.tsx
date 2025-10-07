@@ -22,7 +22,7 @@ export const ColumnsTwoBlock: React.FC<ColumnsTwoBlockProps> = ({
   col2,
   paddingCol1 = true,
   paddingCol2 = true,
-  id = Math.random().toString(36).substring(2, 15), // Generate a random id if not provided
+  id,
   className,
   classesAndStyles,
 }) => {
@@ -56,7 +56,7 @@ export const ColumnsTwoBlock: React.FC<ColumnsTwoBlockProps> = ({
       </div>
       {/* Render scoped CSS if provided */}
       {classesAndStyles?.styles && (
-        <style>{`#${classesAndStyles.cssId || id} { ${classesAndStyles.styles} }`}</style>
+        <style>{`#${classesAndStyles.cssId} { ${classesAndStyles.styles} }`}</style>
       )}
     </SectionDefault>
   )
