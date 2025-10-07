@@ -11,7 +11,9 @@ export const classesAndStylesField = (options?: {
   const {
     name = 'classesAndStyles',
     label = 'Classes and Styles',
+    required = false,
     classesPlaceholder = 'Enter CSS classes (e.g., "mb-4 text-center")',
+    stylesPlaceholder = '{"padding": "1rem", "backgroundColor": "#f5f5f5"}',
     description = 'Add custom CSS classes and inline styles'
   } = options || {}
 

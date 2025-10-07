@@ -250,6 +250,31 @@ export interface Page {
                 }
             )[]
           | null;
+        /**
+         * Enable or disable default padding for the first column
+         */
+        paddingCol1?: boolean | null;
+        /**
+         * Enable or disable default padding for the second column
+         */
+        paddingCol2?: boolean | null;
+        /**
+         * Customize the appearance of this section
+         */
+        classesAndStyles?: {
+          /**
+           * Unique identifier for the component (without #)
+           */
+          cssId?: string | null;
+          /**
+           * Space-separated CSS classes (e.g., "mb-4 text-center bg-gray-100")
+           */
+          cssClasses?: string | null;
+          /**
+           * This is scoped CSS that applies only to this instance
+           */
+          styles?: string | null;
+        };
         id?: string | null;
         blockName?: string | null;
         blockType: 'ColumnsTwoBlock';
@@ -1083,6 +1108,15 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
+                  };
+              paddingCol1?: T;
+              paddingCol2?: T;
+              classesAndStyles?:
+                | T
+                | {
+                    cssId?: T;
+                    cssClasses?: T;
+                    styles?: T;
                   };
               id?: T;
               blockName?: T;

@@ -1,6 +1,6 @@
 import type { Block } from 'payload'
 import ContentBlockList from '@/blocks/ContentBlockList'
-import { classesAndStylesField } from '@/fields/cms/classesAndStyles'
+import { classesAndStylesField } from '@/fields/cms/classesAndStylesField'
 
 
 /**
@@ -16,15 +16,6 @@ export const SectionDefaultBlockConfig: Block = {
     group: 'sections',
   },
   fields: [
-    // {
-    //   name: 'content',
-    //   type: 'blocks',
-    //   blocks: ContentBlockList.getBlockConfigs(),
-    //   admin: {
-    //     description: 'Add content blocks to this section',
-    //   },
-    // },
-
     {
       type: 'tabs',
       tabs: [
@@ -57,6 +48,5 @@ export const SectionDefaultBlockConfig: Block = {
         },
       ],
     },
-
   ],
 }

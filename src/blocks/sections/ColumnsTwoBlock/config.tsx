@@ -1,5 +1,6 @@
-import ContentBlockList from '@/blocks/ContentBlockList'
 import type { Block } from 'payload'
+import ContentBlockList from '@/blocks/ContentBlockList'
+import { classesAndStylesField } from '@/fields/cms/classesAndStylesField'
 
 /**
  * Config
@@ -15,24 +16,60 @@ export const ColumnsTwoBlockConfig: Block = {
   },  
   fields: [
     {
-      name: 'col1',
-      type: 'blocks',
-      blocks: [
-        ...ContentBlockList.getBlockConfigs()
+      type: 'tabs',
+      tabs: [
+        {
+          label: 'Content',
+          fields: [
+            {
+              name: 'col1',
+              type: 'blocks',
+              blocks: [
+                ...ContentBlockList.getBlockConfigs()
+              ],
+              admin: {
+                description: 'Content blocks for the first column',
+              },
+            },
+            {
+              name: 'col2',
+              type: 'blocks',
+              blocks: [
+                ...ContentBlockList.getBlockConfigs()
+              ],
+              admin: {
+                description: 'Content blocks for the second column',
+              },
+            },
+          ],
+        },
+        {
+          label: 'Layout and Styles',
+          fields: [
+            {
+              name: 'paddingCol1',
+              label: 'Padding Column 1',
+              type: 'checkbox',
+              defaultValue: true,
+              admin: {
+                description: 'Enable or disable default padding for the first column',
+              },
+            },
+            {
+              name: 'paddingCol2',
+              label: 'Padding Column 2',
+              type: 'checkbox',
+              defaultValue: true,
+              admin: {
+                description: 'Enable or disable default padding for the second column',
+              },
+            },
+            classesAndStylesField({
+              description: 'Customize the appearance of this section',
+            }),
+          ],
+        },
       ],
-      admin: {
-        description: 'Content blocks for the first column',
-      },
-    },
-    {
-      name: 'col2',
-      type: 'blocks',
-      blocks: [
-        ...ContentBlockList.getBlockConfigs()
-      ],
-      admin: {
-        description: 'Content blocks for the second column',
-      },
     },
   ],
 }
