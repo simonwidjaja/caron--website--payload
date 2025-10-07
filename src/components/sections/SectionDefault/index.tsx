@@ -1,4 +1,5 @@
 interface SectionDefaultProps {
+  id?: string;
   className?: string;
   pt?: {
     content?: {
@@ -8,11 +9,11 @@ interface SectionDefaultProps {
   children: React.ReactNode;
 }
 
-export default function SectionDefault ({ className, pt, children }: SectionDefaultProps) {
+export default function SectionDefault ({ id, className, pt, children }: SectionDefaultProps) {
   return (
 
     // For full width remove container class
-    <section className={`SectionDefault container border-y border-[hsl(var(--grid-color))] flex flex-1 justify-stretch overflow-clip ${className}`}>
+    <section id={id} className={`SectionDefault container border-y border-[hsl(var(--grid-color))] flex flex-1 justify-stretch overflow-clip ${className}`}>
       
       {/* Stripes left */}
       <div className={`

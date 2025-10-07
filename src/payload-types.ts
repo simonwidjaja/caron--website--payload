@@ -255,9 +255,6 @@ export interface Page {
         blockType: 'ColumnsTwoBlock';
       }
     | {
-        /**
-         * Add content blocks to this section
-         */
         content?:
           | (
               | {
@@ -305,6 +302,23 @@ export interface Page {
                 }
             )[]
           | null;
+        /**
+         * Customize the appearance of this section
+         */
+        classesAndStyles?: {
+          /**
+           * Unique identifier for the component (without #)
+           */
+          cssId?: string | null;
+          /**
+           * Space-separated CSS classes (e.g., "mb-4 text-center bg-gray-100")
+           */
+          cssClasses?: string | null;
+          /**
+           * This is scoped CSS that applies only to this component
+           */
+          styles?: string | null;
+        };
         id?: string | null;
         blockName?: string | null;
         blockType: 'SectionDefaultBlock';
@@ -1101,6 +1115,13 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
+                  };
+              classesAndStyles?:
+                | T
+                | {
+                    cssId?: T;
+                    cssClasses?: T;
+                    styles?: T;
                   };
               id?: T;
               blockName?: T;
