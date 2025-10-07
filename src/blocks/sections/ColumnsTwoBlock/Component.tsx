@@ -12,7 +12,7 @@ export const ColumnsTwoBlock: React.FC<ColumnsTwoBlockProps> = ({
   col2, 
 }) => {
   return (
-    <SectionDefault>
+    <SectionDefault padding={false}>
       <div className={
         'columns-two-block'
       }>
