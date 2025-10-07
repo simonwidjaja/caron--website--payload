@@ -16,7 +16,7 @@ export default function DesignSystemPage() {
         {
           blockType: 'HeadlineBlock',
           headline: 'Design System',
-          size: 'h1',
+          size: 'huge',
         },
       ]} />
 

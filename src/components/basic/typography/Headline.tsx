@@ -18,7 +18,7 @@ export default function Headline(props:HeadlineProps){
   const getSizeClasses = (size: string) => {
     switch (size) {
       case 'huge':
-        return 'font-bold'
+        return 'text-6xl font-bold'
       case 'h1':
         return 'font-bold'
       case 'h2':
@@ -39,14 +39,23 @@ export default function Headline(props:HeadlineProps){
     return size as 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
   }
 
-  const Tag = getSemanticTag(size)
   const sizeClasses = getSizeClasses(size)
+  const baseClassName = `Headline ${sizeClasses} ${className || ''}`
 
-  const content = (
-    <Tag className={`headline-block ${sizeClasses} ${className || ''}`}>
-      #C# {headline}
-    </Tag>
-  )
-
-  return content
+  // Return the appropriate JSX element directly
+  switch (size) {
+    case 'huge':
+    case 'h1':
+      return <h1 className={baseClassName}>{headline}</h1>
+    case 'h2':
+      return <h2 className={baseClassName}>{headline}</h2>
+    case 'h3':
+      return <h3 className={baseClassName}>{headline}</h3>
+    case 'h4':
+      return <h4 className={baseClassName}>{headline}</h4>
+    case 'h5':
+      return <h5 className={baseClassName}>{headline}</h5>
+    default:
+      return <h2 className={baseClassName}>{headline}</h2>
+  }
 }

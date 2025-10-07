@@ -3,12 +3,15 @@ import { HeadlineBlock } from "./basic/HeadlineBlock/Component";
 import { HeadlineBlockConfig } from "./basic/HeadlineBlock/config";
 import { TextCompositionBlock } from "./basic/TextCompositionBlock/Component";
 import { TextCompositionBlockConfig } from "./basic/TextCompositionBlock/config";
+import { TextBlockConfig } from "./basic/TextBlock/config";
+import { TextBlock } from "./basic/TextBlock/Component";
 
-// Only content go here
+// Only content blocks go here
 // Section blocks go to collection (e.g. Page)  
 
 export const contentBlocks = [
   { config: HeadlineBlockConfig, component: HeadlineBlock },
+  { config: TextBlockConfig, component: TextBlock },
   { config: TextCompositionBlockConfig, component: TextCompositionBlock },
 ];
 

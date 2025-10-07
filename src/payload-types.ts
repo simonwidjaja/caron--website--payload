@@ -209,6 +209,13 @@ export interface Page {
                   blockType: 'HeadlineBlock';
                 }
               | {
+                  text?: string | null;
+                  size?: ('lg' | 'md' | 'sm' | 'xs') | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'TextBlock';
+                }
+              | {
                   metaTitle?: string | null;
                   headline?: string | null;
                   /**
@@ -250,6 +257,13 @@ export interface Page {
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'HeadlineBlock';
+                }
+              | {
+                  text?: string | null;
+                  size?: ('lg' | 'md' | 'sm' | 'xs') | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'TextBlock';
                 }
               | {
                   metaTitle?: string | null;
@@ -300,6 +314,13 @@ export interface Page {
                   blockType: 'HeadlineBlock';
                 }
               | {
+                  text?: string | null;
+                  size?: ('lg' | 'md' | 'sm' | 'xs') | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'TextBlock';
+                }
+              | {
                   metaTitle?: string | null;
                   headline?: string | null;
                   /**
@@ -346,6 +367,13 @@ export interface Page {
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'HeadlineBlock';
+                }
+              | {
+                  text?: string | null;
+                  size?: ('lg' | 'md' | 'sm' | 'xs') | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'TextBlock';
                 }
               | {
                   metaTitle?: string | null;
@@ -1054,6 +1082,14 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
+                    TextBlock?:
+                      | T
+                      | {
+                          text?: T;
+                          size?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
                     TextCompositionBlock?:
                       | T
                       | {
@@ -1072,6 +1108,14 @@ export interface PagesSelect<T extends boolean = true> {
                       | T
                       | {
                           headline?: T;
+                          size?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    TextBlock?:
+                      | T
+                      | {
+                          text?: T;
                           size?: T;
                           id?: T;
                           blockName?: T;
@@ -1104,6 +1148,14 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
+                    TextBlock?:
+                      | T
+                      | {
+                          text?: T;
+                          size?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
                     TextCompositionBlock?:
                       | T
                       | {
@@ -1128,6 +1180,14 @@ export interface PagesSelect<T extends boolean = true> {
                       | T
                       | {
                           headline?: T;
+                          size?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    TextBlock?:
+                      | T
+                      | {
+                          text?: T;
                           size?: T;
                           id?: T;
                           blockName?: T;
