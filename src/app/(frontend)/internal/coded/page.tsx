@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 export default function CodedPage() {
   return (
     <article className="">
-          
-      
-      <SectionDefaultBlock content={[
+
+
+      <SectionDefaultBlock classesAndStyles={{cssClasses: ''}} content={[
         {
           blockType: 'TextCompositionBlock',
           metaTitle: 'Internal Documentation',

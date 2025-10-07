@@ -303,6 +303,10 @@ export interface Page {
             )[]
           | null;
         /**
+         * Enable or disable default padding for main column
+         */
+        padding?: boolean | null;
+        /**
          * Customize the appearance of this section
          */
         classesAndStyles?: {
@@ -1116,6 +1120,7 @@ export interface PagesSelect<T extends boolean = true> {
                           blockName?: T;
                         };
                   };
+              padding?: T;
               classesAndStyles?:
                 | T
                 | {

@@ -41,6 +41,15 @@ export const SectionDefaultBlockConfig: Block = {
         {
           label: 'Layout and Styles',
           fields: [
+            {
+              name: 'padding',
+              label: 'Padding',
+              type: 'checkbox',
+              defaultValue: true,
+              admin: {
+                description: 'Enable or disable default padding for main column',
+              },
+            },
             classesAndStylesField({
               description: 'Customize the appearance of this section',
             }),

@@ -1,6 +1,9 @@
+import { cn } from "@/utilities/ui";
+
 interface SectionDefaultProps {
   id?: string;
   className?: string;
+  padding?: boolean;
   pt?: {
     content?: {
       className?: string;
@@ -9,12 +12,11 @@ interface SectionDefaultProps {
   children: React.ReactNode;
 }
 
-export default function SectionDefault ({ id, className, pt, children }: SectionDefaultProps) {
+export default function SectionDefault ({ id, className, padding=true, pt, children }: SectionDefaultProps) {
   return (
 
     // For full width remove container class
     <section id={id} className={`SectionDefault container border-y border-[hsl(var(--grid-color))] flex flex-1 justify-stretch overflow-clip ${className}`}>
-      
       {/* Stripes left */}
       <div className={`
         w-10 flex-none
@@ -26,7 +28,10 @@ export default function SectionDefault ({ id, className, pt, children }: Section
       `}></div>
 
       {/* Content */}
-      <div className={`SectionDefault-mainColumn flex-auto min-h-[40px] ${pt?.content?.className}`}>
+      <div className={cn(
+        `SectionDefault-mainColumn flex-auto min-h-[40px] ${pt?.content?.className}`,
+        padding ? 'px-3 py-2 md:px-6 md:py-4' : '',
+      )}>
         {children}
       </div>
 

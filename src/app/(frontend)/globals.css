@@ -121,4 +121,9 @@ html[data-theme='light'] {
     @apply font-bold;
     font-size: clamp(1rem, 1.5vw, 1.25rem); /* Min 16px, scales with viewport, max 20px */
   }
+  p {
+    @apply leading-relaxed;
+    font-size: clamp(0.875rem, 1.25vw, 1rem); /* Min 14px, scales with viewport, max 16px */  
+    margin-bottom: 1em;
+  }
 }
