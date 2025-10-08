@@ -1,27 +1,29 @@
-import { Media } from '@/components/Media'
+import Image, { type PayloadImageSize } from '@/components/basic/media/Image'
 import type { Media as MediaType } from '@/payload-types'
 import React from 'react'
 
 type ImageBlockProps = {
   image?: MediaType | string | number | null
   alt?: string
+  size?: PayloadImageSize
 }
 
 export const ImageBlock: React.FC<ImageBlockProps> = ({ 
   image,
   alt,
+  size = 'large',
 }) => {
-  if (!image) {
+  // Only render if we have a valid media object
+  if (!image || typeof image !== 'object') {
     return null
   }
 
   return (
-    <div className="image-block">
-      <Media
-        resource={image}
-        size="square"
+    <div className="image-block w-full">
+      <Image
+        media={image}
+        size={size}
         alt={alt}
-        className="w-full"
         imgClassName="w-full h-auto object-cover"
       />
     </div>

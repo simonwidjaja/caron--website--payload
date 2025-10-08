@@ -207,6 +207,10 @@ export interface Page {
                    * Alt text for accessibility (describe the image)
                    */
                   alt?: string | null;
+                  /**
+                   * Choose which image size to display
+                   */
+                  size?: ('thumbnail' | 'square' | 'small' | 'medium' | 'large' | 'xlarge' | 'original') | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'ImageBlock';
@@ -270,6 +274,10 @@ export interface Page {
                    * Alt text for accessibility (describe the image)
                    */
                   alt?: string | null;
+                  /**
+                   * Choose which image size to display
+                   */
+                  size?: ('thumbnail' | 'square' | 'small' | 'medium' | 'large' | 'xlarge' | 'original') | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'ImageBlock';
@@ -360,6 +368,10 @@ export interface Page {
                    * Alt text for accessibility (describe the image)
                    */
                   alt?: string | null;
+                  /**
+                   * Choose which image size to display
+                   */
+                  size?: ('thumbnail' | 'square' | 'small' | 'medium' | 'large' | 'xlarge' | 'original') | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'ImageBlock';
@@ -449,6 +461,10 @@ export interface Page {
                    * Alt text for accessibility (describe the image)
                    */
                   alt?: string | null;
+                  /**
+                   * Choose which image size to display
+                   */
+                  size?: ('thumbnail' | 'square' | 'small' | 'medium' | 'large' | 'xlarge' | 'original') | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'ImageBlock';
@@ -1156,6 +1172,7 @@ export interface PagesSelect<T extends boolean = true> {
                       | {
                           image?: T;
                           alt?: T;
+                          size?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1194,6 +1211,7 @@ export interface PagesSelect<T extends boolean = true> {
                       | {
                           image?: T;
                           alt?: T;
+                          size?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1247,6 +1265,7 @@ export interface PagesSelect<T extends boolean = true> {
                       | {
                           image?: T;
                           alt?: T;
+                          size?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1299,6 +1318,7 @@ export interface PagesSelect<T extends boolean = true> {
                       | {
                           image?: T;
                           alt?: T;
+                          size?: T;
                           id?: T;
                           blockName?: T;
                         };
