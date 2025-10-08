@@ -5,6 +5,8 @@ import { TextCompositionBlock } from "./basic/TextCompositionBlock/Component";
 import { TextCompositionBlockConfig } from "./basic/TextCompositionBlock/config";
 import { TextBlockConfig } from "./basic/TextBlock/config";
 import { TextBlock } from "./basic/TextBlock/Component";
+import { ImageBlockConfig } from "./basic/ImageBlock/config";
+import { ImageBlock } from "./basic/ImageBlock/Component";
 
 // Only content blocks go here
 // Section blocks go to collection (e.g. Page)  
@@ -13,6 +15,7 @@ export const contentBlocks = [
   { config: HeadlineBlockConfig, component: HeadlineBlock },
   { config: TextBlockConfig, component: TextBlock },
   { config: TextCompositionBlockConfig, component: TextCompositionBlock },
+  { config: ImageBlockConfig, component: ImageBlock },
 ];
 
 

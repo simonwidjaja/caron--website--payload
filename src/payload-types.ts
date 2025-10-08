@@ -198,6 +198,19 @@ export interface Page {
                   blockName?: string | null;
                   blockType: 'TextCompositionBlock';
                 }
+              | {
+                  /**
+                   * Select an image to display
+                   */
+                  image: string | Media;
+                  /**
+                   * Alt text for accessibility (describe the image)
+                   */
+                  alt?: string | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'ImageBlock';
+                }
             )[]
           | null;
         /**
@@ -247,6 +260,19 @@ export interface Page {
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'TextCompositionBlock';
+                }
+              | {
+                  /**
+                   * Select an image to display
+                   */
+                  image: string | Media;
+                  /**
+                   * Alt text for accessibility (describe the image)
+                   */
+                  alt?: string | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'ImageBlock';
                 }
             )[]
           | null;
@@ -325,6 +351,19 @@ export interface Page {
                   blockName?: string | null;
                   blockType: 'TextCompositionBlock';
                 }
+              | {
+                  /**
+                   * Select an image to display
+                   */
+                  image: string | Media;
+                  /**
+                   * Alt text for accessibility (describe the image)
+                   */
+                  alt?: string | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'ImageBlock';
+                }
             )[]
           | null;
         /**
@@ -401,8 +440,42 @@ export interface Page {
                   blockName?: string | null;
                   blockType: 'TextCompositionBlock';
                 }
+              | {
+                  /**
+                   * Select an image to display
+                   */
+                  image: string | Media;
+                  /**
+                   * Alt text for accessibility (describe the image)
+                   */
+                  alt?: string | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'ImageBlock';
+                }
             )[]
           | null;
+        /**
+         * Enable or disable default padding for this section
+         */
+        padding?: boolean | null;
+        /**
+         * Customize the appearance of this section
+         */
+        classesAndStyles?: {
+          /**
+           * Unique identifier for the component (without #)
+           */
+          cssId?: string | null;
+          /**
+           * Space-separated CSS classes (e.g., "mb-4 text-center bg-gray-100")
+           */
+          cssClasses?: string | null;
+          /**
+           * This is scoped CSS that applies only to this instance
+           */
+          styles?: string | null;
+        };
         id?: string | null;
         blockName?: string | null;
         blockType: 'FullWidthBlock';
@@ -1078,6 +1151,14 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
+                    ImageBlock?:
+                      | T
+                      | {
+                          image?: T;
+                          alt?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
                   };
               col2?:
                 | T
@@ -1105,6 +1186,14 @@ export interface PagesSelect<T extends boolean = true> {
                           headline?: T;
                           headlineSize?: T;
                           body?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    ImageBlock?:
+                      | T
+                      | {
+                          image?: T;
+                          alt?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1153,6 +1242,14 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
+                    ImageBlock?:
+                      | T
+                      | {
+                          image?: T;
+                          alt?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
                   };
               padding?: T;
               classesAndStyles?:
@@ -1197,6 +1294,22 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
+                    ImageBlock?:
+                      | T
+                      | {
+                          image?: T;
+                          alt?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              padding?: T;
+              classesAndStyles?:
+                | T
+                | {
+                    cssId?: T;
+                    cssClasses?: T;
+                    styles?: T;
                   };
               id?: T;
               blockName?: T;

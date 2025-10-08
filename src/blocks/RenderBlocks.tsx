@@ -10,6 +10,7 @@ import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { HeadlineBlock } from './basic/HeadlineBlock/Component'
 import { TextCompositionBlock } from './basic/TextCompositionBlock/Component'
 import { TextBlock } from './basic/TextBlock/Component'
+import { ImageBlock } from './basic/ImageBlock/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -21,6 +22,7 @@ const blockComponents = {
   HeadlineBlock: HeadlineBlock,
   TextCompositionBlock: TextCompositionBlock,
   TextBlock: TextBlock,
+  ImageBlock: ImageBlock,
 }
 
 export const RenderBlocks: React.FC<{
