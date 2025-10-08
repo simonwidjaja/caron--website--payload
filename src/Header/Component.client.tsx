@@ -8,6 +8,7 @@ import type { Header } from '@/payload-types'
 
 import { Logo } from '@/components/Logo/Logo'
 import { HeaderNav } from './Nav'
+import { LanguageSwitcher } from './LanguageSwitcher'
 
 interface HeaderClientProps {
   data: Header
@@ -31,11 +32,14 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 
   return (
     <header className="container relative z-20   " {...(theme ? { 'data-theme': theme } : {})}>
-      <div className="py-8 flex justify-between">
+      <div className="py-8 flex justify-between items-center">
         <Link href="/">
           <Logo loading="eager" priority="high" className="" />
         </Link>
-        <HeaderNav data={data} />
+        <div className="flex items-center gap-6">
+          <LanguageSwitcher />
+          <HeaderNav data={data} />
+        </div>
       </div>
     </header>
   )
