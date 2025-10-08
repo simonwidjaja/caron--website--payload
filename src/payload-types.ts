@@ -163,14 +163,14 @@ export interface Page {
                   size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: 'HeadlineBlock';
+                  blockType: 'headlineBlock';
                 }
               | {
                   text?: string | null;
                   size?: ('lg' | 'md' | 'sm' | 'xs') | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: 'TextBlock';
+                  blockType: 'textBlock';
                 }
               | {
                   metaTitle?: string | null;
@@ -196,7 +196,7 @@ export interface Page {
                   } | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: 'TextCompositionBlock';
+                  blockType: 'textCompositionBlock';
                 }
               | {
                   /**
@@ -221,9 +221,10 @@ export interface Page {
                   maxHeight?: number | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: 'ImageBlock';
+                  blockType: 'imageBlock';
                 }
               | SpacerBlock
+              | ButtonBlock
             )[]
           | null;
         /**
@@ -239,14 +240,14 @@ export interface Page {
                   size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: 'HeadlineBlock';
+                  blockType: 'headlineBlock';
                 }
               | {
                   text?: string | null;
                   size?: ('lg' | 'md' | 'sm' | 'xs') | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: 'TextBlock';
+                  blockType: 'textBlock';
                 }
               | {
                   metaTitle?: string | null;
@@ -272,7 +273,7 @@ export interface Page {
                   } | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: 'TextCompositionBlock';
+                  blockType: 'textCompositionBlock';
                 }
               | {
                   /**
@@ -297,9 +298,10 @@ export interface Page {
                   maxHeight?: number | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: 'ImageBlock';
+                  blockType: 'imageBlock';
                 }
               | SpacerBlock
+              | ButtonBlock
             )[]
           | null;
         col1Padding?: boolean | null;
@@ -342,14 +344,14 @@ export interface Page {
                   size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: 'HeadlineBlock';
+                  blockType: 'headlineBlock';
                 }
               | {
                   text?: string | null;
                   size?: ('lg' | 'md' | 'sm' | 'xs') | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: 'TextBlock';
+                  blockType: 'textBlock';
                 }
               | {
                   metaTitle?: string | null;
@@ -375,7 +377,7 @@ export interface Page {
                   } | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: 'TextCompositionBlock';
+                  blockType: 'textCompositionBlock';
                 }
               | {
                   /**
@@ -400,9 +402,10 @@ export interface Page {
                   maxHeight?: number | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: 'ImageBlock';
+                  blockType: 'imageBlock';
                 }
               | SpacerBlock
+              | ButtonBlock
             )[]
           | null;
         col1Padding?: boolean | null;
@@ -444,14 +447,14 @@ export interface Page {
                   size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: 'HeadlineBlock';
+                  blockType: 'headlineBlock';
                 }
               | {
                   text?: string | null;
                   size?: ('lg' | 'md' | 'sm' | 'xs') | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: 'TextBlock';
+                  blockType: 'textBlock';
                 }
               | {
                   metaTitle?: string | null;
@@ -477,7 +480,7 @@ export interface Page {
                   } | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: 'TextCompositionBlock';
+                  blockType: 'textCompositionBlock';
                 }
               | {
                   /**
@@ -502,9 +505,10 @@ export interface Page {
                   maxHeight?: number | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: 'ImageBlock';
+                  blockType: 'imageBlock';
                 }
               | SpacerBlock
+              | ButtonBlock
             )[]
           | null;
         /**
@@ -662,7 +666,25 @@ export interface SpacerBlock {
     | '300px';
   id?: string | null;
   blockName?: string | null;
-  blockType: 'SpacerBlock';
+  blockType: 'spacerBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ButtonBlock".
+ */
+export interface ButtonBlock {
+  label: string;
+  variant: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link';
+  size: 'default' | 'sm' | 'lg' | 'icon';
+  link: {
+    type: 'internal' | 'external';
+    internalLink?: (string | null) | Page;
+    externalLink?: string | null;
+    newTab?: boolean | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'buttonBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1201,7 +1223,7 @@ export interface PagesSelect<T extends boolean = true> {
               col1?:
                 | T
                 | {
-                    HeadlineBlock?:
+                    headlineBlock?:
                       | T
                       | {
                           headline?: T;
@@ -1209,7 +1231,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
-                    TextBlock?:
+                    textBlock?:
                       | T
                       | {
                           text?: T;
@@ -1217,7 +1239,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
-                    TextCompositionBlock?:
+                    textCompositionBlock?:
                       | T
                       | {
                           metaTitle?: T;
@@ -1227,7 +1249,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
-                    ImageBlock?:
+                    imageBlock?:
                       | T
                       | {
                           image?: T;
@@ -1238,12 +1260,13 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
-                    SpacerBlock?: T | SpacerBlockSelect<T>;
+                    spacerBlock?: T | SpacerBlockSelect<T>;
+                    buttonBlock?: T | ButtonBlockSelect<T>;
                   };
               col2?:
                 | T
                 | {
-                    HeadlineBlock?:
+                    headlineBlock?:
                       | T
                       | {
                           headline?: T;
@@ -1251,7 +1274,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
-                    TextBlock?:
+                    textBlock?:
                       | T
                       | {
                           text?: T;
@@ -1259,7 +1282,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
-                    TextCompositionBlock?:
+                    textCompositionBlock?:
                       | T
                       | {
                           metaTitle?: T;
@@ -1269,7 +1292,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
-                    ImageBlock?:
+                    imageBlock?:
                       | T
                       | {
                           image?: T;
@@ -1280,7 +1303,8 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
-                    SpacerBlock?: T | SpacerBlockSelect<T>;
+                    spacerBlock?: T | SpacerBlockSelect<T>;
+                    buttonBlock?: T | ButtonBlockSelect<T>;
                   };
               col1Padding?: T;
               col1VerticalAlign?: T;
@@ -1306,7 +1330,7 @@ export interface PagesSelect<T extends boolean = true> {
               content?:
                 | T
                 | {
-                    HeadlineBlock?:
+                    headlineBlock?:
                       | T
                       | {
                           headline?: T;
@@ -1314,7 +1338,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
-                    TextBlock?:
+                    textBlock?:
                       | T
                       | {
                           text?: T;
@@ -1322,7 +1346,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
-                    TextCompositionBlock?:
+                    textCompositionBlock?:
                       | T
                       | {
                           metaTitle?: T;
@@ -1332,7 +1356,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
-                    ImageBlock?:
+                    imageBlock?:
                       | T
                       | {
                           image?: T;
@@ -1343,7 +1367,8 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
-                    SpacerBlock?: T | SpacerBlockSelect<T>;
+                    spacerBlock?: T | SpacerBlockSelect<T>;
+                    buttonBlock?: T | ButtonBlockSelect<T>;
                   };
               col1Padding?: T;
               col1VerticalAlign?: T;
@@ -1365,7 +1390,7 @@ export interface PagesSelect<T extends boolean = true> {
               content?:
                 | T
                 | {
-                    HeadlineBlock?:
+                    headlineBlock?:
                       | T
                       | {
                           headline?: T;
@@ -1373,7 +1398,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
-                    TextBlock?:
+                    textBlock?:
                       | T
                       | {
                           text?: T;
@@ -1381,7 +1406,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
-                    TextCompositionBlock?:
+                    textCompositionBlock?:
                       | T
                       | {
                           metaTitle?: T;
@@ -1391,7 +1416,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
-                    ImageBlock?:
+                    imageBlock?:
                       | T
                       | {
                           image?: T;
@@ -1402,7 +1427,8 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
-                    SpacerBlock?: T | SpacerBlockSelect<T>;
+                    spacerBlock?: T | SpacerBlockSelect<T>;
+                    buttonBlock?: T | ButtonBlockSelect<T>;
                   };
               padding?: T;
               classesAndStyles?:
@@ -1436,6 +1462,25 @@ export interface PagesSelect<T extends boolean = true> {
  */
 export interface SpacerBlockSelect<T extends boolean = true> {
   size?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ButtonBlock_select".
+ */
+export interface ButtonBlockSelect<T extends boolean = true> {
+  label?: T;
+  variant?: T;
+  size?: T;
+  link?:
+    | T
+    | {
+        type?: T;
+        internalLink?: T;
+        externalLink?: T;
+        newTab?: T;
+      };
   id?: T;
   blockName?: T;
 }

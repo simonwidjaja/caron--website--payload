@@ -1,11 +1,11 @@
 import type { Block } from 'payload'
 
 export const SpacerBlockConfig: Block = {
-  slug: 'SpacerBlock',
+  slug: 'spacerBlock',
   interfaceName: 'SpacerBlock',
   labels: {
-    singular: 'Spacer Block',
-    plural: 'Spacer Blocks',
+    singular: 'Spacer',
+    plural: 'Spacers',
   },
   admin: {
     group: 'basic', 

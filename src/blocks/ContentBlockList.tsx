@@ -9,6 +9,8 @@ import { ImageBlockConfig } from "./basic/ImageBlock/config";
 import { ImageBlock } from "./basic/ImageBlock/Component";
 import { SpacerBlockConfig } from "./basic/SpacerBlock/config";
 import { SpacerBlock } from "./basic/SpacerBlock/Component";
+import { ButtonBlockConfig } from "./basic/ButtonBlock/config";
+import { ButtonBlock } from "./basic/ButtonBlock/Component";
 
 // Only content blocks go here
 // Section blocks go to collection (e.g. Page)  
@@ -19,6 +21,7 @@ export const contentBlocks = [
   { config: TextCompositionBlockConfig, component: TextCompositionBlock },
   { config: ImageBlockConfig, component: ImageBlock },
   { config: SpacerBlockConfig, component: SpacerBlock },
+  { config: ButtonBlockConfig, component: ButtonBlock },
 ];
 
 

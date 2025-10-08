@@ -4,7 +4,7 @@ import type { Block } from 'payload'
  * Config
  */
 export const TextCompositionBlockConfig: Block = {
-  slug: 'TextCompositionBlock',
+  slug: 'textCompositionBlock',
   labels: {
     singular: 'Text Composition',
     plural: 'Text Compositions',

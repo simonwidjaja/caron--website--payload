@@ -12,6 +12,7 @@ import { TextCompositionBlock } from './basic/TextCompositionBlock/Component'
 import { TextBlock } from './basic/TextBlock/Component'
 import { ImageBlock } from './basic/ImageBlock/Component'
 import { SpacerBlock } from './basic/SpacerBlock/Component'
+import { ButtonBlock } from './basic/ButtonBlock/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -20,11 +21,12 @@ const blockComponents = {
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
   // Basic
-  HeadlineBlock: HeadlineBlock,
-  TextCompositionBlock: TextCompositionBlock,
-  TextBlock: TextBlock,
-  ImageBlock: ImageBlock,
-  SpacerBlock: SpacerBlock,
+  headlineBlock: HeadlineBlock,
+  textCompositionBlock: TextCompositionBlock,
+  textBlock: TextBlock,
+  imageBlock: ImageBlock,
+  spacerBlock: SpacerBlock,
+  buttonBlock: ButtonBlock,
 }
 
 export const RenderBlocks: React.FC<{

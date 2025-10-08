@@ -4,7 +4,7 @@ import type { Block } from 'payload'
  * Config
  */
 export const TextBlockConfig: Block = {
-  slug: 'TextBlock',
+  slug: 'textBlock',
   labels: {
     singular: 'Text ',
     plural: 'Texts',

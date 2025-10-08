@@ -1,7 +1,7 @@
 import type { Block } from 'payload'
 
 export const ImageBlockConfig: Block = {
-  slug: 'ImageBlock',
+  slug: 'imageBlock',
   labels: {
     singular: 'Image',
     plural: 'Images',

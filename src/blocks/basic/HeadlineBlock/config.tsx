@@ -4,7 +4,7 @@ import type { Block } from 'payload'
  * Config
  */
 export const HeadlineBlockConfig: Block = {
-  slug: 'HeadlineBlock',
+  slug: 'headlineBlock',
   labels: {
     singular: 'Headline',
     plural: 'Headlines',
