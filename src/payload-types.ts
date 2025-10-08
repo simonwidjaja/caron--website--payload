@@ -300,14 +300,14 @@ export interface Page {
                 }
             )[]
           | null;
-        /**
-         * Enable or disable default padding for the first column
-         */
-        paddingCol1?: boolean | null;
-        /**
-         * Enable or disable default padding for the second column
-         */
-        paddingCol2?: boolean | null;
+        col1Padding?: boolean | null;
+        col1VerticalAlign?: ('top' | 'center' | 'bottom') | null;
+        col1HorizontalAlign?: ('left' | 'center' | 'right') | null;
+        col1CssClasses?: string | null;
+        col2Padding?: boolean | null;
+        col2VerticalAlign?: ('top' | 'center' | 'bottom') | null;
+        col2HorizontalAlign?: ('left' | 'center' | 'right') | null;
+        col2CssClasses?: string | null;
         /**
          * Customize the appearance of this section
          */
@@ -402,10 +402,10 @@ export interface Page {
                 }
             )[]
           | null;
-        /**
-         * Enable or disable default padding for main column
-         */
-        padding?: boolean | null;
+        col1Padding?: boolean | null;
+        col1VerticalAlign?: ('top' | 'center' | 'bottom') | null;
+        col1HorizontalAlign?: ('left' | 'center' | 'right') | null;
+        col1CssClasses?: string | null;
         /**
          * Customize the appearance of this section
          */
@@ -1252,8 +1252,14 @@ export interface PagesSelect<T extends boolean = true> {
                           blockName?: T;
                         };
                   };
-              paddingCol1?: T;
-              paddingCol2?: T;
+              col1Padding?: T;
+              col1VerticalAlign?: T;
+              col1HorizontalAlign?: T;
+              col1CssClasses?: T;
+              col2Padding?: T;
+              col2VerticalAlign?: T;
+              col2HorizontalAlign?: T;
+              col2CssClasses?: T;
               classesAndStyles?:
                 | T
                 | {
@@ -1308,7 +1314,10 @@ export interface PagesSelect<T extends boolean = true> {
                           blockName?: T;
                         };
                   };
-              padding?: T;
+              col1Padding?: T;
+              col1VerticalAlign?: T;
+              col1HorizontalAlign?: T;
+              col1CssClasses?: T;
               classesAndStyles?:
                 | T
                 | {

@@ -1,6 +1,7 @@
 import type { Block } from 'payload'
 import ContentBlockList from '@/blocks/ContentBlockList'
 import { classesAndStylesField } from '@/fields/cms/classesAndStylesField'
+import { containerLayoutField } from '@/fields/cms/containerLayoutField'
 
 
 /**
@@ -32,15 +33,9 @@ export const SectionDefaultBlockConfig: Block = {
         {
           label: 'Layout and Styles',
           fields: [
-            {
-              name: 'padding',
-              label: 'Padding',
-              type: 'checkbox',
-              defaultValue: true,
-              admin: {
-                description: 'Enable or disable default padding for main column',
-              },
-            },
+            ...containerLayoutField({
+              namePrefix: 'col1',
+            }),                
             classesAndStylesField({
               description: 'Customize the appearance of this section',
             }),

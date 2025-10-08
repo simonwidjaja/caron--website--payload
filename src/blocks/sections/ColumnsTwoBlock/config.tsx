@@ -1,6 +1,7 @@
 import type { Block } from 'payload'
 import ContentBlockList from '@/blocks/ContentBlockList'
 import { classesAndStylesField } from '@/fields/cms/classesAndStylesField'
+import { containerLayoutField } from '@/fields/cms/containerLayoutField'
 
 /**
  * Config
@@ -50,24 +51,30 @@ export const ColumnsTwoBlockConfig: Block = {
               type: 'row',
               fields: [
                 {
-                  name: 'paddingCol1',
-                  label: 'Padding Column 1',
-                  type: 'checkbox',
-                  defaultValue: true,
+                  type: 'collapsible',
+                  label: 'Column 1',
                   admin: {
-                    description: 'Enable or disable default padding for the first column',
                     width: '50%',
+                    initCollapsed: false,
                   },
+                  fields: [
+                    ...containerLayoutField({
+                      namePrefix: 'col1',
+                    }),
+                  ],
                 },
                 {
-                  name: 'paddingCol2',
-                  label: 'Padding Column 2',
-                  type: 'checkbox',
-                  defaultValue: true,
+                  type: 'collapsible',
+                  label: 'Column 2',
                   admin: {
-                    description: 'Enable or disable default padding for the second column',
                     width: '50%',
+                    initCollapsed: false,
                   },
+                  fields: [
+                    ...containerLayoutField({
+                      namePrefix: 'col2',
+                    }),
+                  ],
                 },
               ],
             },

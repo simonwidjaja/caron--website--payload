@@ -31,8 +31,8 @@ const config = {
 
     // 1. Padding Classes (p-*, pt-*, pb-*, px-*, py-*)
     {
-      // Matches: p-0 to p-12, px-0 to px-12, etc.
-      pattern: /^(p|pt|pb|pl|pr|px|py)-(0|0\.5|1|1\.5|2|2\.5|3|3\.5|4|5|6|7|8|9|10|11|12)$/,
+      // Matches: p-0 to p-30, px-0 to px-30, etc.
+      pattern: /^(p|pt|pb|pl|pr|px|py)-(0|0\.5|1|1\.5|2|2\.5|3|3\.5|4|5|6|7|8|9|10|11|12|14|16|20|24|28|30)$/,
       variants: ['sm', 'md', 'lg'], // Include responsive variants for these
     },
     
