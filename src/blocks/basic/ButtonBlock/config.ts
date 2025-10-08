@@ -7,6 +7,9 @@ export const ButtonBlockConfig: Block = {
     singular: 'Button Block',
     plural: 'Button Blocks',
   },
+  admin: {
+    group: 'basic',
+  },  
   fields: [
     {
       name: 'label',

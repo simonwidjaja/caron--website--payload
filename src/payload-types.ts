@@ -225,6 +225,26 @@ export interface Page {
                 }
               | SpacerBlock
               | ButtonBlock
+              | {
+                  content: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'richTextBlock';
+                }
             )[]
           | null;
         /**
@@ -302,6 +322,26 @@ export interface Page {
                 }
               | SpacerBlock
               | ButtonBlock
+              | {
+                  content: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'richTextBlock';
+                }
             )[]
           | null;
         col1Padding?: boolean | null;
@@ -406,6 +446,26 @@ export interface Page {
                 }
               | SpacerBlock
               | ButtonBlock
+              | {
+                  content: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'richTextBlock';
+                }
             )[]
           | null;
         col1Padding?: boolean | null;
@@ -509,6 +569,26 @@ export interface Page {
                 }
               | SpacerBlock
               | ButtonBlock
+              | {
+                  content: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'richTextBlock';
+                }
             )[]
           | null;
         /**
@@ -1262,6 +1342,13 @@ export interface PagesSelect<T extends boolean = true> {
                         };
                     spacerBlock?: T | SpacerBlockSelect<T>;
                     buttonBlock?: T | ButtonBlockSelect<T>;
+                    richTextBlock?:
+                      | T
+                      | {
+                          content?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
                   };
               col2?:
                 | T
@@ -1305,6 +1392,13 @@ export interface PagesSelect<T extends boolean = true> {
                         };
                     spacerBlock?: T | SpacerBlockSelect<T>;
                     buttonBlock?: T | ButtonBlockSelect<T>;
+                    richTextBlock?:
+                      | T
+                      | {
+                          content?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
                   };
               col1Padding?: T;
               col1VerticalAlign?: T;
@@ -1369,6 +1463,13 @@ export interface PagesSelect<T extends boolean = true> {
                         };
                     spacerBlock?: T | SpacerBlockSelect<T>;
                     buttonBlock?: T | ButtonBlockSelect<T>;
+                    richTextBlock?:
+                      | T
+                      | {
+                          content?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
                   };
               col1Padding?: T;
               col1VerticalAlign?: T;
@@ -1429,6 +1530,13 @@ export interface PagesSelect<T extends boolean = true> {
                         };
                     spacerBlock?: T | SpacerBlockSelect<T>;
                     buttonBlock?: T | ButtonBlockSelect<T>;
+                    richTextBlock?:
+                      | T
+                      | {
+                          content?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
                   };
               padding?: T;
               classesAndStyles?:

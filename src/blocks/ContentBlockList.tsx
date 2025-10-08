@@ -11,6 +11,8 @@ import { SpacerBlockConfig } from "./basic/SpacerBlock/config";
 import { SpacerBlock } from "./basic/SpacerBlock/Component";
 import { ButtonBlockConfig } from "./basic/ButtonBlock/config";
 import { ButtonBlock } from "./basic/ButtonBlock/Component";
+import { RichTextBlockConfig } from "./basic/RichTextBlock/config";
+import { RichTextBlock } from "./basic/RichTextBlock/Component";
 
 // Only content blocks go here
 // Section blocks go to collection (e.g. Page)  
@@ -22,6 +24,7 @@ export const contentBlocks = [
   { config: ImageBlockConfig, component: ImageBlock },
   { config: SpacerBlockConfig, component: SpacerBlock },
   { config: ButtonBlockConfig, component: ButtonBlock },
+  { config: RichTextBlockConfig, component: RichTextBlock },
 ];
 
 

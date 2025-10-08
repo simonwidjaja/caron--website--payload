@@ -13,6 +13,7 @@ import { TextBlock } from './basic/TextBlock/Component'
 import { ImageBlock } from './basic/ImageBlock/Component'
 import { SpacerBlock } from './basic/SpacerBlock/Component'
 import { ButtonBlock } from './basic/ButtonBlock/Component'
+import { RichTextBlock } from './basic/RichTextBlock/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -27,6 +28,7 @@ const blockComponents = {
   imageBlock: ImageBlock,
   spacerBlock: SpacerBlock,
   buttonBlock: ButtonBlock,
+  richTextBlock: RichTextBlock,
 }
 
 export const RenderBlocks: React.FC<{
