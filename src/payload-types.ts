@@ -223,6 +223,7 @@ export interface Page {
                   blockName?: string | null;
                   blockType: 'ImageBlock';
                 }
+              | SpacerBlock
             )[]
           | null;
         /**
@@ -298,6 +299,7 @@ export interface Page {
                   blockName?: string | null;
                   blockType: 'ImageBlock';
                 }
+              | SpacerBlock
             )[]
           | null;
         col1Padding?: boolean | null;
@@ -400,6 +402,7 @@ export interface Page {
                   blockName?: string | null;
                   blockType: 'ImageBlock';
                 }
+              | SpacerBlock
             )[]
           | null;
         col1Padding?: boolean | null;
@@ -501,6 +504,7 @@ export interface Page {
                   blockName?: string | null;
                   blockType: 'ImageBlock';
                 }
+              | SpacerBlock
             )[]
           | null;
         /**
@@ -635,6 +639,30 @@ export interface Media {
       filename?: string | null;
     };
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SpacerBlock".
+ */
+export interface SpacerBlock {
+  size:
+    | '1px'
+    | '2px'
+    | '3px'
+    | '5px'
+    | '10px'
+    | '20px'
+    | '30px'
+    | '40px'
+    | '50px'
+    | '80px'
+    | '100px'
+    | '150px'
+    | '200px'
+    | '300px';
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'SpacerBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1210,6 +1238,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
+                    SpacerBlock?: T | SpacerBlockSelect<T>;
                   };
               col2?:
                 | T
@@ -1251,6 +1280,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
+                    SpacerBlock?: T | SpacerBlockSelect<T>;
                   };
               col1Padding?: T;
               col1VerticalAlign?: T;
@@ -1313,6 +1343,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
+                    SpacerBlock?: T | SpacerBlockSelect<T>;
                   };
               col1Padding?: T;
               col1VerticalAlign?: T;
@@ -1371,6 +1402,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
+                    SpacerBlock?: T | SpacerBlockSelect<T>;
                   };
               padding?: T;
               classesAndStyles?:
@@ -1397,6 +1429,15 @@ export interface PagesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SpacerBlock_select".
+ */
+export interface SpacerBlockSelect<T extends boolean = true> {
+  size?: T;
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
