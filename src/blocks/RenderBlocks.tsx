@@ -44,9 +44,9 @@ export const RenderBlocks: React.FC<{
 
             if (Block) {
               return (
-                <div className="" key={index}>
+                <Fragment key={index}>
                   <Block {...block} disableInnerContainer />
-                </div>
+                </Fragment>
               )
             }
           }

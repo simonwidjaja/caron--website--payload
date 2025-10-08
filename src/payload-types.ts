@@ -208,9 +208,17 @@ export interface Page {
                    */
                   alt?: string | null;
                   /**
-                   * Choose which image size to display
+                   * Choose which image size to use
                    */
                   size?: ('thumbnail' | 'square' | 'small' | 'medium' | 'large' | 'xlarge' | 'original') | null;
+                  /**
+                   * Maximum width in pixels (optional)
+                   */
+                  maxWidth?: number | null;
+                  /**
+                   * Maximum height in pixels (optional)
+                   */
+                  maxHeight?: number | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'ImageBlock';
@@ -275,9 +283,17 @@ export interface Page {
                    */
                   alt?: string | null;
                   /**
-                   * Choose which image size to display
+                   * Choose which image size to use
                    */
                   size?: ('thumbnail' | 'square' | 'small' | 'medium' | 'large' | 'xlarge' | 'original') | null;
+                  /**
+                   * Maximum width in pixels (optional)
+                   */
+                  maxWidth?: number | null;
+                  /**
+                   * Maximum height in pixels (optional)
+                   */
+                  maxHeight?: number | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'ImageBlock';
@@ -369,9 +385,17 @@ export interface Page {
                    */
                   alt?: string | null;
                   /**
-                   * Choose which image size to display
+                   * Choose which image size to use
                    */
                   size?: ('thumbnail' | 'square' | 'small' | 'medium' | 'large' | 'xlarge' | 'original') | null;
+                  /**
+                   * Maximum width in pixels (optional)
+                   */
+                  maxWidth?: number | null;
+                  /**
+                   * Maximum height in pixels (optional)
+                   */
+                  maxHeight?: number | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'ImageBlock';
@@ -462,9 +486,17 @@ export interface Page {
                    */
                   alt?: string | null;
                   /**
-                   * Choose which image size to display
+                   * Choose which image size to use
                    */
                   size?: ('thumbnail' | 'square' | 'small' | 'medium' | 'large' | 'xlarge' | 'original') | null;
+                  /**
+                   * Maximum width in pixels (optional)
+                   */
+                  maxWidth?: number | null;
+                  /**
+                   * Maximum height in pixels (optional)
+                   */
+                  maxHeight?: number | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'ImageBlock';
@@ -1173,6 +1205,8 @@ export interface PagesSelect<T extends boolean = true> {
                           image?: T;
                           alt?: T;
                           size?: T;
+                          maxWidth?: T;
+                          maxHeight?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1212,6 +1246,8 @@ export interface PagesSelect<T extends boolean = true> {
                           image?: T;
                           alt?: T;
                           size?: T;
+                          maxWidth?: T;
+                          maxHeight?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1266,6 +1302,8 @@ export interface PagesSelect<T extends boolean = true> {
                           image?: T;
                           alt?: T;
                           size?: T;
+                          maxWidth?: T;
+                          maxHeight?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1319,6 +1357,8 @@ export interface PagesSelect<T extends boolean = true> {
                           image?: T;
                           alt?: T;
                           size?: T;
+                          maxWidth?: T;
+                          maxHeight?: T;
                           id?: T;
                           blockName?: T;
                         };

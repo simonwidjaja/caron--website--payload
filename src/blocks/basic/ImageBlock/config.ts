@@ -62,8 +62,31 @@ export const ImageBlockConfig: Block = {
         },
       ],
       admin: {
-        description: 'Choose which image size to display',
+        description: 'Choose which image size to use',
       },
+    },
+    {
+      type: 'row',
+      fields: [
+        {
+          name: 'maxWidth',
+          label: 'Max Width',
+          type: 'number',
+          admin: {
+            description: 'Maximum width in pixels (optional)',
+            width: '50%',
+          },
+        },
+        {
+          name: 'maxHeight',
+          label: 'Max Height',
+          type: 'number',
+          admin: {
+            description: 'Maximum height in pixels (optional)',
+            width: '50%',
+          },
+        },
+      ],
     },
   ],
 }
