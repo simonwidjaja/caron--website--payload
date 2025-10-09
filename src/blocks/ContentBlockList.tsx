@@ -32,10 +32,11 @@ export default class ContentBlockList {
   static getBlockConfigs(): Block[] {
     return this.getBlocks().map(block => block.config);
   }
-  static getBlockComponents(): Block[] {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  static getBlockComponents(): any[] {
     return this.getBlocks().map(block => block.component);
   }
-  static getBlocks(): any[] {
+  static getBlocks(): typeof contentBlocks {
     // IDEA: Consider filtering with whitelist or blacklist if needed
     return contentBlocks;
   }

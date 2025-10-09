@@ -4,7 +4,9 @@ import { cn } from '@/utilities/ui'
 import React from 'react'
 
 type ColumnsTwoBlockProps = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   col1?: any[]
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   col2?: any[]
   col1Padding?: boolean
   col1CssClasses?: string

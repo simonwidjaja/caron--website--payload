@@ -7,6 +7,7 @@ import {
 import { SerializedLinkNode } from '@payloadcms/richtext-lexical'
 
 type RichTextBlockProps = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   content: any
 }
 

@@ -3,6 +3,7 @@ import { cn } from '@/utilities/ui'
 import React from 'react'
 
 type FullWidthBlockProps = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   content?: any[]
   padding?: boolean
   id?: string

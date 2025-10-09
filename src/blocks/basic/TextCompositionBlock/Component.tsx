@@ -5,6 +5,7 @@ import React from 'react'
 type Props = {
   metaTitle?: string
   headline?: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   body?: any
   headlineSize?: 'huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
   className?: string

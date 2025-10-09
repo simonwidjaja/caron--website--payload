@@ -57,6 +57,7 @@ export const classesAndStylesField = (options?: {
           description: 'This is scoped CSS that applies only to this instance',
           // width: '50%',
         },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         validate: (value: string | null | undefined, args: any) => {
           // If styles has content but no cssId is provided
           if (value && value.trim() !== '') {
