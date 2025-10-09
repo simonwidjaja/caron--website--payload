@@ -29,7 +29,6 @@ export default function DesignSystemPage() {
       </SectionDefault>
 
       <ColumnsTwoBlock
-        col2VerticalAlign = 'center'
         col1={[
           {
             blockType: 'textBlock',
@@ -71,32 +70,27 @@ export default function DesignSystemPage() {
       </SectionDefault>
 
      <ColumnsTwoBlock
-        col2VerticalAlign = 'center'
-        col1={[
-          <HeadlineBlock key="headline-h1" headline="Some headline (h1)" size="h1" />,
+        col1={
+          <>
+            <HeadlineBlock headline="Some headline (h1)" size="h1" />
+            <TextBlock text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'/>
+            <TextBlock text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'/>
+            <HeadlineBlock headline="Some headline (h2)" size="h2" />
+            <TextBlock text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'/>
+            <TextBlock text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'/>
+            <HeadlineBlock headline="Some headline (h3)" size="h3" />
+            <TextBlock text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'/>
+            <TextBlock text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'/>
+          </>
+        }
+        col2={<>
           <TextBlock 
-            key="text-1"
-            text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'
-          />,
-          <TextBlock 
-            key="text-2"
-            text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'
-          />,
-          <HeadlineBlock key="headline-h2-2" headline="Some headline (h2)" size="h2" />,
-          <TextBlock 
-            key="text-3"
-            text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'
-          />,
-        ]}
-        col2={[
-          <TextBlock 
-            key="43829478"
-            text='DESCRIPTION'
-          />,
-        ]}
+            text='Example of more complex text compositions with multiple headlines and paragraphs. This layout helps to visualize how different text elements interact within a two-column design, ensuring readability and aesthetic balance.'
+          />
+        </>}
       />
 
-
+      <SectionDefault></SectionDefault>
 
     </article>
   )

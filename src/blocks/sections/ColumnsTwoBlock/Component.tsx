@@ -4,10 +4,8 @@ import { cn } from '@/utilities/ui'
 import React from 'react'
 
 type ColumnsTwoBlockProps = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  col1?: any[]
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  col2?: any[]
+  col1?: Array<{ blockType: string; [key: string]: unknown } | React.ReactElement> | React.ReactElement
+  col2?: Array<{ blockType: string; [key: string]: unknown } | React.ReactElement> | React.ReactElement
   col1Padding?: boolean
   col1CssClasses?: string
   col1VerticalAlign?: 'top' | 'center' | 'bottom'
@@ -78,16 +76,21 @@ export const ColumnsTwoBlock: React.FC<ColumnsTwoBlockProps> = ({
               col1CssClasses
             )}
           >
-            {col1 && col1.length > 0 && (
-              col1[0].blockType === 'textBlock'
-              /* Content is array of plain config objects */
-              ? <RenderBlocks blocks={col1} />
-              /* Content is array of react components (code usage) */
-              : col1.map((item, index) => (
-                  <React.Fragment key={index}>
-                    {item}
-                  </React.Fragment>
-                ))              
+            {col1 && (
+              Array.isArray(col1) ? (
+                (col1[0] && typeof col1[0] === 'object' && 'blockType' in col1[0])
+                /* Content is array of plain config objects */
+                ? <RenderBlocks blocks={col1 as Array<{ blockType: string; [key: string]: unknown }>} />
+                /* Content is array of react components (code usage) */
+                : col1.map((item, index) => (
+                    <React.Fragment key={index}>
+                      {item as React.ReactElement}
+                    </React.Fragment>
+                  ))
+              ) : (
+                /* Content is a React fragment or single element */
+                col1
+              )
             )}
           </div>
           <div 
@@ -98,16 +101,21 @@ export const ColumnsTwoBlock: React.FC<ColumnsTwoBlockProps> = ({
               col2CssClasses
             )}
           >
-            {col2 && col2.length > 0 && (
-              col2[0].blockType === 'textBlock'
-              /* Content is array of plain config objects */
-              ? <RenderBlocks blocks={col2} />
-              /* Content is array of react components (code usage) */
-              : col2.map((item, index) => (
-                  <React.Fragment key={index}>
-                    {item}
-                  </React.Fragment>
-                ))              
+            {col2 && (
+              Array.isArray(col2) ? (
+                (col2[0] && typeof col2[0] === 'object' && 'blockType' in col2[0])
+                /* Content is array of plain config objects */
+                ? <RenderBlocks blocks={col2 as Array<{ blockType: string; [key: string]: unknown }>} />
+                /* Content is array of react components (code usage) */
+                : col2.map((item, index) => (
+                    <React.Fragment key={index}>
+                      {item as React.ReactElement}
+                    </React.Fragment>
+                  ))
+              ) : (
+                /* Content is a React fragment or single element */
+                col2
+              )
             )}
           </div>
         </div>
