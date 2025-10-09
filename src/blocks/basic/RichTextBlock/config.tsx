@@ -4,15 +4,8 @@ import {
   HeadingFeature,
   UnorderedListFeature,
   OrderedListFeature,
-  BlockquoteFeature,
   lexicalEditor,
-  BoldFeature,
-  ItalicFeature,
-  UnderlineFeature,
-  StrikethroughFeature,
-  ParagraphFeature,
   LinkFeature,
-  AlignFeature,
 } from '@payloadcms/richtext-lexical'
 
 /**
@@ -40,6 +33,11 @@ export const RichTextBlockConfig: Block = {
           FixedToolbarFeature(),
           HeadingFeature({
             enabledHeadingSizes: ['h2', 'h3', 'h4', 'h5', 'h6'],
+          }),
+          UnorderedListFeature(),
+          OrderedListFeature(),   
+          LinkFeature({
+            enabledCollections: ['pages'],
           }),
         ],
       })
