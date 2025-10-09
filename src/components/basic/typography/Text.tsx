@@ -1,17 +1,21 @@
 import React from 'react'
 
 export type TextProps = {
-  text: string
+  children?: React.ReactNode
+  text?: string
   size?: 'lg' | 'md' | 'sm' | 'xs'
   className?: string
 }
 
 export default function Text(props:TextProps){
   const {
+    children,
     text,
     size = 'md',
     className
   } = props
+
+  const content = text || children;
 
   const getSizeClasses = (size: string) => {
     switch (size) {
@@ -26,11 +30,9 @@ export default function Text(props:TextProps){
 
   const sizeClasses = getSizeClasses(size)
 
-  const content = (
+  return (
     <p className={`Text ${sizeClasses} ${className || ''}`}>
-      {text}
+      {content}
     </p>
   )
-
-  return content
 }

@@ -79,7 +79,15 @@ export const ColumnsTwoBlock: React.FC<ColumnsTwoBlockProps> = ({
             )}
           >
             {col1 && col1.length > 0 && (
-              <RenderBlocks blocks={col1} />
+              col1[0].blockType === 'textBlock'
+              /* Content is array of plain config objects */
+              ? <RenderBlocks blocks={col1} />
+              /* Content is array of react components (code usage) */
+              : col1.map((item, index) => (
+                  <React.Fragment key={index}>
+                    {item}
+                  </React.Fragment>
+                ))              
             )}
           </div>
           <div 
@@ -91,7 +99,15 @@ export const ColumnsTwoBlock: React.FC<ColumnsTwoBlockProps> = ({
             )}
           >
             {col2 && col2.length > 0 && (
-              <RenderBlocks blocks={col2} />
+              col2[0].blockType === 'textBlock'
+              /* Content is array of plain config objects */
+              ? <RenderBlocks blocks={col2} />
+              /* Content is array of react components (code usage) */
+              : col2.map((item, index) => (
+                  <React.Fragment key={index}>
+                    {item}
+                  </React.Fragment>
+                ))              
             )}
           </div>
         </div>

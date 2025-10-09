@@ -2,8 +2,7 @@ import type { Metadata } from 'next'
 import React from 'react'
 import SectionDefault from '@/components/sections/SectionDefault'
 import { TextCompositionBlock } from '@/blocks/basic/TextCompositionBlock/Component'
-import Link from 'next/link'
-import { Toc } from './shared/DsNav'
+import { BackLink } from '../shared/DsNav'
 
 export const metadata: Metadata = {
   title: 'Design System | Internal',
@@ -13,22 +12,29 @@ export const metadata: Metadata = {
 export default function DesignSystemPage() {
   return (
     <article className="">
+      
+      <BackLink />
 
       <SectionDefault>
         <TextCompositionBlock
           metaTitle="Caron Design System"
-          headline="Typography"
+          headline="The Grid"
           headlineSize="h1"
-          body="This page demonstrates the typography styles used in the Caron design system. It includes examples of different headline sizes and body text styles."
+          body="This page demonstrates the grid layout styles used in the Caron design system. It includes examples of different grid configurations and usage."
         >
         </TextCompositionBlock>
       </SectionDefault>
-
+      
       <SectionDefault></SectionDefault>
 
-      <Toc />
-
-      <SectionDefault></SectionDefault>
+      <SectionDefault>
+        <TextCompositionBlock
+          metaTitle="Grid"
+          headline="The Default Grid"
+          headlineSize="h2"
+        >
+        </TextCompositionBlock>
+      </SectionDefault>
 
     </article>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
 
 export type HeadlineProps = {
+  children?: React.ReactNode
   headline?: string
   size?: 'huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
   className?: string
@@ -9,11 +10,12 @@ export type HeadlineProps = {
 export default function Headline(props:HeadlineProps){
   const {
     headline,
+    children,
     size = 'h2',
     className
   } = props
 
-  if (!headline) return null
+  const content = headline || children;
 
   const getSizeClasses = (size: string) => {
     switch (size) {
@@ -41,16 +43,16 @@ export default function Headline(props:HeadlineProps){
   switch (size) {
     case 'huge':
     case 'h1':
-      return <h1 className={baseClassName}>{headline}</h1>
+      return <h1 className={baseClassName}>{content}</h1>
     case 'h2':
-      return <h2 className={baseClassName}>{headline}</h2>
+      return <h2 className={baseClassName}>{content}</h2>
     case 'h3':
-      return <h3 className={baseClassName}>{headline}</h3>
+      return <h3 className={baseClassName}>{content}</h3>
     case 'h4':
-      return <h4 className={baseClassName}>{headline}</h4>
+      return <h4 className={baseClassName}>{content}</h4>
     case 'h5':
-      return <h5 className={baseClassName}>{headline}</h5>
+      return <h5 className={baseClassName}>{content}</h5>
     default:
-      return <h2 className={baseClassName}>{headline}</h2>
+      return <h2 className={baseClassName}>{content}</h2>
   }
 }

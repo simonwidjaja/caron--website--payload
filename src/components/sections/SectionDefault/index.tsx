@@ -9,7 +9,7 @@ interface SectionDefaultProps {
       className?: string;
     };
   };
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export default function SectionDefault ({ id, className, padding=true, pt, children }: SectionDefaultProps) {
