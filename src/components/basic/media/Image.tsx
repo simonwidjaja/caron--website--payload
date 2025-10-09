@@ -81,7 +81,6 @@ export const Image: React.FC<ImageProps> = ({
   priority = false,
   loading,
   quality = 90,
-  className,
   imgClassName,
   pictureClassName,
   width: widthProp,

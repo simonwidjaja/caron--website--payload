@@ -31,24 +31,28 @@ export default function DesignSystemPage() {
 
       <SectionDefaultBlock content={[
         <TextCompositionBlock
+          key="real-components-h1"
           metaTitle="Internal Documentation"
           headline="Real components"
           headlineSize="h1"
           body="Hello world"
         />,
         <TextCompositionBlock
+          key="design-system-h2"
           metaTitle="Internal Documentation"
           headline="Design System"
           headlineSize="h2"
           body="Hello world"
         />,
         <TextCompositionBlock
+          key="design-system-h3"
           metaTitle="Internal Documentation"
           headline="Design System"
           headlineSize="h3"
           body="Hello world"
         />,
         <TextCompositionBlock
+          key="design-system-h4"
           metaTitle="Internal Documentation"
           headline="Design System"
           headlineSize="h4"

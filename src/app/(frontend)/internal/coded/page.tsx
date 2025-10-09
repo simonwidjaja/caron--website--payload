@@ -33,12 +33,14 @@ export default function CodedPage() {
 
       <SectionDefaultBlock content={[
         <TextCompositionBlock
+          key="real-components"
           metaTitle="Internal Documentation"
           headline="Real components"
           headlineSize="h2"
           body="Hello world"
         />,
         <TextCompositionBlock
+          key="design-system"
           metaTitle="Internal Documentation"
           headline="Design System"
           headlineSize="h2"

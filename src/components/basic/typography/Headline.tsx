@@ -34,11 +34,6 @@ export default function Headline(props:HeadlineProps){
     }
   }
 
-  const getSemanticTag = (size: string) => {
-    if (size === 'huge') return 'h1'
-    return size as 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
-  }
-
   const sizeClasses = getSizeClasses(size)
   const baseClassName = `Headline ${sizeClasses} ${className || ''}`
 
