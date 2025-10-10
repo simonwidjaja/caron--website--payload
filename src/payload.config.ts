@@ -66,7 +66,7 @@ export default buildConfig({
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   localization: {
-    locales: ['de', 'en'],
+    locales: ['de', 'en', 'fr'],
     defaultLocale: 'de',
   },
   plugins: [
