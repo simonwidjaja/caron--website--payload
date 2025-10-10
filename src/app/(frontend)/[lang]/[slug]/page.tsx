@@ -24,13 +24,16 @@ export async function generateStaticParams() {
     },
   })
 
+  const locales = ['de', 'en', 'fr']
+
   const params = pages.docs
-    ?.filter((doc) => {
-      return doc.slug !== 'home'
-    })
-    .map(({ slug }) => {
-      return { slug }
-    })
+    ?.filter((doc) => doc.slug !== 'home')
+    .flatMap(({ slug }) =>
+      locales.map((lang) => ({
+        slug,
+        lang,
+      })),
+    )
 
   return params
 }
@@ -38,7 +41,7 @@ export async function generateStaticParams() {
 type Args = {
   params: Promise<{
     slug?: string
-    lang?: "de" | "en" | "all" | undefined
+    lang?: 'de' | 'en' | 'all' | undefined
   }>
 }
 
@@ -73,7 +76,6 @@ export default async function Page({ params: paramsPromise }: Args) {
       {draft && <LivePreviewListener />}
 
       <RenderSectionBlocks blocks={layout} />
-
     </article>
   )
 }
@@ -89,24 +91,26 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
   return generateMeta({ doc: page })
 }
 
-const queryPageBySlug = cache(async ({ lang, slug }: { lang: "de" | "en" | "all" | undefined, slug: string }) => {
-  const { isEnabled: draft } = await draftMode()
+const queryPageBySlug = cache(
+  async ({ lang, slug }: { lang: 'de' | 'en' | 'all' | undefined; slug: string }) => {
+    const { isEnabled: draft } = await draftMode()
 
-  const payload = await getPayload({ config: configPromise })
+    const payload = await getPayload({ config: configPromise })
 
-  const result = await payload.find({
-    collection: 'pages',
-    draft,
-    limit: 1,
-    pagination: false,
-    overrideAccess: draft,
-    locale: lang,
-    where: {
-      slug: {
-        equals: slug,
+    const result = await payload.find({
+      collection: 'pages',
+      draft,
+      limit: 1,
+      pagination: false,
+      overrideAccess: draft,
+      locale: lang,
+      where: {
+        slug: {
+          equals: slug,
+        },
       },
-    },
-  })
+    })
 
-  return result.docs?.[0] || null
-})
+    return result.docs?.[0] || null
+  },
+)

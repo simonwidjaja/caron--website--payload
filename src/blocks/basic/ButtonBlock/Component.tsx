@@ -1,7 +1,9 @@
+'use client'
 import React from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import type { Page } from '@/payload-types'
+import { usePathname } from 'next/navigation'
 
 type ButtonBlockProps = {
   label: string
@@ -15,35 +17,39 @@ type ButtonBlockProps = {
   }
 }
 
-export const ButtonBlock: React.FC<ButtonBlockProps> = ({ 
+export const ButtonBlock: React.FC<ButtonBlockProps> = ({
   label,
   variant = 'default',
   size = 'default',
   link,
 }) => {
-  // Determine href based on link type
+  const pathname = usePathname()
+
+  // Detect current language (default to "de" if not found)
+  const pathSegments = pathname.split('/').filter(Boolean)
+  const currentLang = ['de', 'en', 'fr'].includes(pathSegments[0]) ? pathSegments[0] : 'de'
+
+  // Build the correct href
   const href = (() => {
     if (link.type === 'external') {
       return link.externalLink || '#'
     }
     if (link.type === 'internal' && typeof link.internalLink === 'object') {
-      return `/${link.internalLink.slug}` || '#'
+      return `/${currentLang}/${link.internalLink.slug}` || '#'
     }
     return '#'
   })()
 
   // Handle external links with newTab
-  const linkProps = link.newTab ? {
-    target: '_blank',
-    rel: 'noopener noreferrer'
-  } : {}
+  const linkProps = link.newTab
+    ? {
+        target: '_blank',
+        rel: 'noopener noreferrer',
+      }
+    : {}
 
   return (
-    <Button 
-      variant={variant} 
-      size={size}
-      asChild
-    >
+    <Button variant={variant} size={size} asChild>
       <Link href={href} {...linkProps}>
         {label}
       </Link>
