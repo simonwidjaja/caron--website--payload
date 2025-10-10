@@ -3,6 +3,13 @@ import React from 'react'
 import SectionDefault from '@/components/sections/SectionDefault'
 import { TextCompositionBlock } from '@/blocks/basic/TextCompositionBlock/Component'
 import { BackLink } from '../shared/DsNav'
+import { Barlow } from 'next/font/google'
+
+const barlow = Barlow({
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'Design System | Internal',
@@ -11,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function DesignSystemPage() {
   return (
-    <article className="">
+    <article className={barlow.className}>
       
       <BackLink />
 

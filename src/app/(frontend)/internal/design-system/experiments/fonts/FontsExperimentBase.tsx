@@ -1,28 +1,39 @@
-import type { Metadata } from 'next'
 import React from 'react'
 import SectionDefault from '@/components/sections/SectionDefault'
 import { TextCompositionBlock } from '@/blocks/basic/TextCompositionBlock/Component'
-import { BackLink } from '../shared/DsNav'
-import Text from '@/components/basic/typography/Text'
 import { ColumnsTwoBlock } from '@/blocks/sections/ColumnsTwoBlock/Component'
 import { TextBlock } from '@/blocks/basic/TextBlock/Component'
 import { HeadlineBlock } from '@/blocks/basic/HeadlineBlock/Component'
+import Link from 'next/link'
 
-export const metadata: Metadata = {
-  title: 'Design System | Internal',
-  description: 'Internal design system documentation and component showcase',
-}
+import { Allan } from 'next/font/google'
+import { Kalam } from 'next/font/google'
+import { cn } from '@/utilities/ui'
 
-export default function DesignSystemPage() {
+const secondFont = Allan({
+  weight: ['400'],
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+const thirdFont = Kalam({
+  weight: ['400'],
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+export default function FontsExperimentBase({className, fontName}: {className?: string, fontName?: string}) {
   return (
-    <article className="">
+    <article className={className}>
       
-      <BackLink />
+      <SectionDefault className="text-xs">
+        <Link href="/internal/design-system/experiments/fonts" className="opacity-20 hover:opacity-100">← Back to Fonts Experiments</Link>
+      </SectionDefault>
 
       <SectionDefault>
         <TextCompositionBlock
           metaTitle="Typography"
-          headline="Copy text"
+          headline={`Font: ${fontName}`}
           headlineSize="h2"
         >
         </TextCompositionBlock>
@@ -52,10 +63,31 @@ export default function DesignSystemPage() {
       <SectionDefault>
         <TextCompositionBlock
           metaTitle="Typography"
-          headline="Headlines"
-          headlineSize="h2"
+          headline="Interactive Experiences for better learning"
+          headlineSize="huge"
         >
         </TextCompositionBlock>
+        <TextBlock text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'/>
+        <TextBlock text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'/>        
+        <TextBlock 
+          className={cn(secondFont.className, ' text-xl [color:#a755da]')} 
+          text='Das sollten Sie sich nicht entgehen lassen!'
+        />
+      </SectionDefault>
+
+      <SectionDefault>
+        <TextCompositionBlock
+          metaTitle="Typography"
+          headline="Interactive Experiences for better learning"
+          headlineSize="huge"
+        >
+        </TextCompositionBlock>
+        <TextBlock text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'/>
+        <TextBlock text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'/>        
+        <TextBlock 
+          className={cn(thirdFont.className, ' text-xl [color:#a755da]')} 
+          text='Das sollten Sie sich nicht entgehen lassen!'
+        />
       </SectionDefault>
 
       <SectionDefault></SectionDefault>
