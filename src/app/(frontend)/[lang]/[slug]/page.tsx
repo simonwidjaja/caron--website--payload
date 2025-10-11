@@ -25,20 +25,32 @@ export async function generateStaticParams() {
   })
 
   interface PageDoc {
-    slug: string;
+    id: string;
+    slug?: string | null | undefined;
   }
 
   interface StaticParam {
+    lang: string;
     slug: string;
   }
 
-  const params: StaticParam[] = pages.docs
-    ?.filter((doc: PageDoc) => {
-      return doc.slug !== 'home'
-    })
-    .map(({ slug }: PageDoc): StaticParam => {
-      return { slug }
-    })
+  // Generate params for all languages
+  const locales = ['de', 'en'] // Only using configured locales for now
+  const params: StaticParam[] = []
+
+  for (const locale of locales) {
+    // Add home page for each locale
+    params.push({ lang: locale, slug: 'home' })
+    
+    // Add all other pages for each locale
+    pages.docs
+      ?.filter((doc: PageDoc) => doc.slug && doc.slug !== 'home')
+      .forEach(({ slug }: PageDoc) => {
+        if (slug) {
+          params.push({ lang: locale, slug })
+        }
+      })
+  }
 
   return params
 }

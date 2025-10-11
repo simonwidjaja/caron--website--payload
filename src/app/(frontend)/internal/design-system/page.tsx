@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import React from 'react'
 import SectionDefault from '@/components/sections/SectionDefault'
 import { TextCompositionBlock } from '@/blocks/basic/TextCompositionBlock/Component'
-import Link from 'next/link'
 import { Toc } from './shared/DsNav'
 
 export const metadata: Metadata = {
