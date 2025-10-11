@@ -12,6 +12,7 @@ import { ImageBlock } from './basic/ImageBlock/Component'
 import { SpacerBlock } from './basic/SpacerBlock/Component'
 import { ButtonBlock } from './basic/ButtonBlock/Component'
 import { RichTextBlock } from './basic/RichTextBlock/Component'
+import { SVGPathAnimation } from './wip/SVGPathAnimation/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -27,6 +28,7 @@ const blockComponents = {
   spacerBlock: SpacerBlock,
   buttonBlock: ButtonBlock,
   richTextBlock: RichTextBlock,
+  svgPathAnimation: SVGPathAnimation,
 }
 
 export const RenderBlocks: React.FC<{

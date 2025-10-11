@@ -245,6 +245,7 @@ export interface Page {
                   blockName?: string | null;
                   blockType: 'richTextBlock';
                 }
+              | SVGPathAnimationBlock
             )[]
           | null;
         /**
@@ -342,6 +343,7 @@ export interface Page {
                   blockName?: string | null;
                   blockType: 'richTextBlock';
                 }
+              | SVGPathAnimationBlock
             )[]
           | null;
         col1Padding?: boolean | null;
@@ -466,6 +468,7 @@ export interface Page {
                   blockName?: string | null;
                   blockType: 'richTextBlock';
                 }
+              | SVGPathAnimationBlock
             )[]
           | null;
         col1Padding?: boolean | null;
@@ -589,6 +592,7 @@ export interface Page {
                   blockName?: string | null;
                   blockType: 'richTextBlock';
                 }
+              | SVGPathAnimationBlock
             )[]
           | null;
         /**
@@ -765,6 +769,19 @@ export interface ButtonBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'buttonBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SVGPathAnimationBlock".
+ */
+export interface SVGPathAnimationBlock {
+  /**
+   * Optional CSS classes to apply to the SVG container
+   */
+  className?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'svgPathAnimation';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1349,6 +1366,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
+                    svgPathAnimation?: T | SVGPathAnimationBlockSelect<T>;
                   };
               col2?:
                 | T
@@ -1399,6 +1417,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
+                    svgPathAnimation?: T | SVGPathAnimationBlockSelect<T>;
                   };
               col1Padding?: T;
               col1VerticalAlign?: T;
@@ -1470,6 +1489,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
+                    svgPathAnimation?: T | SVGPathAnimationBlockSelect<T>;
                   };
               col1Padding?: T;
               col1VerticalAlign?: T;
@@ -1537,6 +1557,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
+                    svgPathAnimation?: T | SVGPathAnimationBlockSelect<T>;
                   };
               padding?: T;
               classesAndStyles?:
@@ -1589,6 +1610,15 @@ export interface ButtonBlockSelect<T extends boolean = true> {
         externalLink?: T;
         newTab?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SVGPathAnimationBlock_select".
+ */
+export interface SVGPathAnimationBlockSelect<T extends boolean = true> {
+  className?: T;
   id?: T;
   blockName?: T;
 }

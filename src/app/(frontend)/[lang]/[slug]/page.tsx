@@ -24,11 +24,19 @@ export async function generateStaticParams() {
     },
   })
 
-  const params = pages.docs
-    ?.filter((doc) => {
+  interface PageDoc {
+    slug: string;
+  }
+
+  interface StaticParam {
+    slug: string;
+  }
+
+  const params: StaticParam[] = pages.docs
+    ?.filter((doc: PageDoc) => {
       return doc.slug !== 'home'
     })
-    .map(({ slug }) => {
+    .map(({ slug }: PageDoc): StaticParam => {
       return { slug }
     })
 
