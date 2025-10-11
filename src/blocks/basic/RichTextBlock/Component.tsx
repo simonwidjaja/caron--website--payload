@@ -2,7 +2,7 @@ import React from 'react'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import { 
   LinkJSXConverter, 
-  JSXConvertersFunction 
+  JSXConverters 
 } from '@payloadcms/richtext-lexical/react'
 
 type RichTextBlockProps = {
@@ -34,7 +34,7 @@ const internalDocToHref = ({ linkNode }: { linkNode: { fields: { doc: { value: {
 }
 
 // JSX converters with link support
-const jsxConverters: JSXConvertersFunction = ({ defaultConverters }: { defaultConverters: any }) => ({
+const jsxConverters: JSXConverters = ({ defaultConverters }: { defaultConverters: Record<string, unknown> }) => ({
   ...defaultConverters,
   ...LinkJSXConverter({ internalDocToHref }),
 })
