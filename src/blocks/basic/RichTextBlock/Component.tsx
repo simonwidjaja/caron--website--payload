@@ -4,7 +4,6 @@ import {
   LinkJSXConverter, 
   JSXConvertersFunction 
 } from '@payloadcms/richtext-lexical/react'
-import { SerializedLinkNode } from '@payloadcms/richtext-lexical'
 
 type RichTextBlockProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -12,7 +11,7 @@ type RichTextBlockProps = {
 }
 
 // Function to convert internal doc links to href
-const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
+const internalDocToHref = ({ linkNode }: { linkNode: { fields: { doc: { value: { slug: string }, relationTo: string } } } }) => {
   const { value, relationTo } = linkNode.fields.doc!
   
   if (typeof value !== 'object') {
@@ -35,7 +34,7 @@ const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
 }
 
 // JSX converters with link support
-const jsxConverters: JSXConvertersFunction = ({ defaultConverters }) => ({
+const jsxConverters: JSXConvertersFunction = ({ defaultConverters }: { defaultConverters: any }) => ({
   ...defaultConverters,
   ...LinkJSXConverter({ internalDocToHref }),
 })

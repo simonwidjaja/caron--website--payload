@@ -108,7 +108,7 @@ export const ButtonBlockConfig: Block = {
           relationTo: 'pages',
           label: 'Internal Link',
           admin: {
-            condition: (data, siblingData) => siblingData?.type === 'internal',
+            condition: (_data: unknown, siblingData: { type?: string }) => siblingData?.type === 'internal',
           },
         },
         {
@@ -116,7 +116,7 @@ export const ButtonBlockConfig: Block = {
           type: 'text',
           label: 'External URL',
           admin: {
-            condition: (data, siblingData) => siblingData?.type === 'external',
+            condition: (_data: unknown, siblingData: { type?: string }) => siblingData?.type === 'external',
           },
         },
         {

@@ -22,4 +22,6 @@ Context: Payload CMS (3.59.1) with NextJS (15.4.4, with app router)
 
 ## New requirement
 
-### WIP
+### Implement
+
+* Create a utility getLocalisedURL
