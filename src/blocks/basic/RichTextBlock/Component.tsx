@@ -1,9 +1,17 @@
 import React from 'react'
 import { RichText } from '@payloadcms/richtext-lexical/react'
-import { 
-  LinkJSXConverter, 
-  JSXConverters 
-} from '@payloadcms/richtext-lexical/react'
+// import { 
+//   LinkJSXConverter, 
+// } from '@payloadcms/richtext-lexical/react'
+
+// type LinkNode = {
+//   fields: {
+//     doc?: {
+//       relationTo: string
+//       value: string | { slug: string; [key: string]: unknown }
+//     } | null
+//   }
+// }
 
 type RichTextBlockProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -11,32 +19,34 @@ type RichTextBlockProps = {
 }
 
 // Function to convert internal doc links to href
-const internalDocToHref = ({ linkNode }: { linkNode: { fields: { doc: { value: { slug: string }, relationTo: string } } } }) => {
-  const { value, relationTo } = linkNode.fields.doc!
+// const internalDocToHref = ({ linkNode }: { linkNode: LinkNode }) => {
+//   const doc = linkNode.fields.doc
   
-  if (typeof value !== 'object') {
-    throw new Error('Expected value to be an object')
-  }
+//   if (!doc || !doc.value || typeof doc.value !== 'object') {
+//     return '#'
+//   }
   
-  const slug = value.slug
+//   const slug = doc.value.slug
+//   const relationTo = doc.relationTo
   
-  // Handle different collection types
-  if (relationTo === 'posts') {
-    return `/posts/${slug}`
-  }
+//   // Handle different collection types
+//   if (relationTo === 'posts') {
+//     return `/posts/${slug}`
+//   }
   
-  if (relationTo === 'pages') {
-    return `/${slug}`
-  }
+//   if (relationTo === 'pages') {
+//     return `/${slug}`
+//   }
   
-  // Default fallback
-  return `/${slug}`
-}
+//   // Default fallback
+//   return `/${slug}`
+// }
 
 // JSX converters with link support
-const jsxConverters: JSXConverters = ({ defaultConverters }: { defaultConverters: Record<string, unknown> }) => ({
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const jsxConverters:any = ({ defaultConverters }:any) => ({
   ...defaultConverters,
-  ...LinkJSXConverter({ internalDocToHref }),
+  // ...LinkJSXConverter({ internalDocToHref }),
 })
 
 export const RichTextBlock: React.FC<RichTextBlockProps> = ({ content }) => {

@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react'
 
-import { ArchiveBlock } from '@/blocks/ArchiveBlock/Component'
 import { CallToActionBlock } from '@/blocks/CallToAction/Component'
-import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { HeadlineBlock } from './basic/HeadlineBlock/Component'
@@ -15,8 +13,6 @@ import { RichTextBlock } from './basic/RichTextBlock/Component'
 import { SVGPathAnimation } from './wip/SVGPathAnimation/Component'
 
 const blockComponents = {
-  archive: ArchiveBlock,
-  content: ContentBlock,
   cta: CallToActionBlock,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,

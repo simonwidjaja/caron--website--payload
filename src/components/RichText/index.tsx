@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+
 //!!!!!!
 //!!!!!!
 //!!!!!!
@@ -10,35 +13,33 @@
 
 
 import {
-  JSXConvertersFunction,
-  LinkJSXConverter,
   RichText as ConvertRichText,
 } from '@payloadcms/richtext-lexical/react'
 
 import { cn } from '@/utilities/ui'
 
 
-type LinkNode = {
-  fields: {
-    doc: {
-      value: { slug: string }
-      relationTo: string
-    }
-  }
-}
+// type LinkNode = {
+//   fields: {
+//     doc: {
+//       value: { slug: string }
+//       relationTo: string
+//     }
+//   }
+// }
 
-const internalDocToHref = ({ linkNode }: { linkNode: LinkNode }) => {
-  const { value, relationTo } = linkNode.fields.doc
-  if (typeof value !== 'object') {
-    throw new Error('Expected value to be an object')
-  }
-  const slug = value.slug
-  return relationTo === 'posts' ? `/posts/${slug}` : `/${slug}`
-}
+// const internalDocToHref = ({ linkNode }: { linkNode: LinkNode }) => {
+//   const { value, relationTo } = linkNode.fields.doc
+//   if (typeof value !== 'object') {
+//     throw new Error('Expected value to be an object')
+//   }
+//   const slug = value.slug
+//   return relationTo === 'posts' ? `/posts/${slug}` : `/${slug}`
+// }
 
-const jsxConverters: JSXConvertersFunction<Record<string, unknown>> = ({ defaultConverters }: { defaultConverters: Record<string, unknown> }) => ({
+const jsxConverters: any = ({ defaultConverters }: any) => ({
   ...defaultConverters,
-  ...LinkJSXConverter({ internalDocToHref }),
+  // ...LinkJSXConverter({ internalDocToHref }),
   blocks: {
     // banner: ({ node }) => <BannerBlock className="col-start-2 mb-4" {...node.fields} />,
     // mediaBlock: ({ node }) => (
@@ -56,7 +57,8 @@ const jsxConverters: JSXConvertersFunction<Record<string, unknown>> = ({ default
 })
 
 type Props = {
-  data: Record<string, unknown>
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  data: any
   enableGutter?: boolean
   enableProse?: boolean
 } & React.HTMLAttributes<HTMLDivElement>

@@ -28,7 +28,8 @@ export const RichTextBlockConfig: Block = {
       required: true,
       localized: true,
       editor: lexicalEditor({
-        features: ({ rootFeatures }: { rootFeatures: unknown[] }) => [
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        features: ({ rootFeatures }:any) => [
           ...rootFeatures,
           FixedToolbarFeature(),
           HeadingFeature({
