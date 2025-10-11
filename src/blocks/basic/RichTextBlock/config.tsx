@@ -28,7 +28,7 @@ export const RichTextBlockConfig: Block = {
       required: true,
       localized: true,
       editor: lexicalEditor({
-        features: ({ rootFeatures }) => [
+        features: ({ rootFeatures }: { rootFeatures: unknown[] }) => [
           ...rootFeatures,
           FixedToolbarFeature(),
           HeadingFeature({
