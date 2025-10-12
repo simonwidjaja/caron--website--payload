@@ -28,10 +28,11 @@ const blockComponents = {
 }
 
 export const RenderBlocks: React.FC<{
+   currentLanguage?: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   blocks: any
 }> = (props) => {
-  const { blocks } = props
+  const { blocks, currentLanguage } = props
 
   const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0
 
@@ -48,7 +49,7 @@ export const RenderBlocks: React.FC<{
             if (Block) {
               return (
                 <Fragment key={index}>
-                  <Block {...block} disableInnerContainer />
+                  <Block {...block} currentLanguage={currentLanguage} disableInnerContainer />
                 </Fragment>
               )
             }

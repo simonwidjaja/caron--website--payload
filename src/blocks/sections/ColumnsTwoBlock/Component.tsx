@@ -4,6 +4,7 @@ import { cn } from '@/utilities/ui'
 import React from 'react'
 
 type ColumnsTwoBlockProps = {
+  currentLanguage?: string
   col1?: Array<{ blockType: string; [key: string]: unknown } | React.ReactElement> | React.ReactElement
   col2?: Array<{ blockType: string; [key: string]: unknown } | React.ReactElement> | React.ReactElement
   col1Padding?: boolean
@@ -44,6 +45,7 @@ const getAlignmentClasses = (
 }
 
 export const ColumnsTwoBlock: React.FC<ColumnsTwoBlockProps> = ({ 
+  currentLanguage,
   col1, 
   col2,
   col1Padding = true,
@@ -80,7 +82,7 @@ export const ColumnsTwoBlock: React.FC<ColumnsTwoBlockProps> = ({
               Array.isArray(col1) ? (
                 (col1[0] && typeof col1[0] === 'object' && 'blockType' in col1[0])
                 /* Content is array of plain config objects */
-                ? <RenderBlocks blocks={col1 as Array<{ blockType: string; [key: string]: unknown }>} />
+                ? <RenderBlocks blocks={col1 as Array<{ blockType: string; [key: string]: unknown }>} currentLanguage={currentLanguage} />
                 /* Content is array of react components (code usage) */
                 : col1.map((item, index) => (
                     <React.Fragment key={index}>
@@ -105,7 +107,7 @@ export const ColumnsTwoBlock: React.FC<ColumnsTwoBlockProps> = ({
               Array.isArray(col2) ? (
                 (col2[0] && typeof col2[0] === 'object' && 'blockType' in col2[0])
                 /* Content is array of plain config objects */
-                ? <RenderBlocks blocks={col2 as Array<{ blockType: string; [key: string]: unknown }>} />
+                ? <RenderBlocks blocks={col2 as Array<{ blockType: string; [key: string]: unknown }>} currentLanguage={currentLanguage}  />
                 /* Content is array of react components (code usage) */
                 : col2.map((item, index) => (
                     <React.Fragment key={index}>

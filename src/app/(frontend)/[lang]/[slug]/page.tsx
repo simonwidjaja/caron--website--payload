@@ -92,7 +92,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 
       {draft && <LivePreviewListener />}
 
-      <RenderSectionBlocks blocks={layout} />
+      <RenderSectionBlocks blocks={layout} currentLanguage={lang} />
 
     </article>
   )
