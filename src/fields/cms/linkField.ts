@@ -15,6 +15,7 @@ export const linkField = (options?: {
   return {
     name,
     label,
+    interfaceName: 'Link',
     type: 'group',
     admin: {
       description,

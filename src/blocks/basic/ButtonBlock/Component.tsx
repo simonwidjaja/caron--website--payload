@@ -1,36 +1,27 @@
 import React from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import type { Page } from '@/payload-types'
+import type { Link as LinkType } from '@/payload-types'
+import { getLocalizedUrl } from '@/utilities/getLocalizedUrl'
 
 type ButtonBlockProps = {
+  currentLanguage?: string
   label: string
   variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link'
   size?: 'default' | 'sm' | 'lg' | 'icon'
-  link: {
-    type: 'internal' | 'external'
-    internalLink?: Page | string | number
-    externalLink?: string
-    newTab?: boolean
-  }
+  link: LinkType
 }
 
 export const ButtonBlock: React.FC<ButtonBlockProps> = ({ 
+  currentLanguage,
   label,
   variant = 'default',
   size = 'default',
   link,
 }) => {
-  // Determine href based on link type
-  const href = (() => {
-    if (link.type === 'external') {
-      return link.externalLink || '#'
-    }
-    if (link.type === 'internal' && typeof link.internalLink === 'object') {
-      return `/${link.internalLink.slug}` || '#'
-    }
-    return '#'
-  })()
+
+  // Determine href based on link type and current language
+  const href = getLocalizedUrl(link, currentLanguage)
 
   // Handle external links with newTab
   const linkProps = link.newTab ? {

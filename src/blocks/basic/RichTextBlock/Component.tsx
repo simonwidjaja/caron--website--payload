@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo } from 'react'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import { LinkJSXConverter } from '@payloadcms/richtext-lexical/react'
+import { getLocalizedUrlFromHref } from '@/utilities/getLocalizedUrl'
 
 type LinkNode = {
   fields: {
@@ -29,21 +30,20 @@ export const RichTextBlock: React.FC<RichTextBlockProps> = ({ content, currentLa
 
       const slug = doc.value.slug || doc.value.id
       const relationTo = doc.relationTo
-      // const prefix = currentLanguage && currentLanguage !== 'en' ? `/${currentLanguage}` : ''
+      let href;
 
       // Handle different collection types
       if (relationTo === 'posts') {
-        return `/posts/${slug}`
+        href = `/posts/${slug}`
       }
-
-      console.log('currentLanguage', currentLanguage);
-
-      if (relationTo === 'pages') {
-        return `/${slug}`
+      else if (relationTo === 'pages') {
+        href = `/${slug}`
       }
+      else {
+        return '#'
+      }
+      return getLocalizedUrlFromHref(href, currentLanguage);
 
-      // Default fallback
-      return `/${slug}`
     },
     [currentLanguage],
   )

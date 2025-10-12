@@ -760,18 +760,22 @@ export interface ButtonBlock {
   label: string;
   variant: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link';
   size: 'default' | 'sm' | 'lg' | 'icon';
-  /**
-   * Link to an internal page or external URL
-   */
-  link: {
-    type: 'internal' | 'external';
-    internalLink?: (string | null) | Page;
-    externalLink?: string | null;
-    newTab?: boolean | null;
-  };
+  link: Link;
   id?: string | null;
   blockName?: string | null;
   blockType: 'buttonBlock';
+}
+/**
+ * Link to an internal page or external URL
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Link".
+ */
+export interface Link {
+  type: 'internal' | 'external';
+  internalLink?: (string | null) | Page;
+  externalLink?: string | null;
+  newTab?: boolean | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1605,16 +1609,19 @@ export interface ButtonBlockSelect<T extends boolean = true> {
   label?: T;
   variant?: T;
   size?: T;
-  link?:
-    | T
-    | {
-        type?: T;
-        internalLink?: T;
-        externalLink?: T;
-        newTab?: T;
-      };
+  link?: T | LinkSelect<T>;
   id?: T;
   blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Link_select".
+ */
+export interface LinkSelect<T extends boolean = true> {
+  type?: T;
+  internalLink?: T;
+  externalLink?: T;
+  newTab?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

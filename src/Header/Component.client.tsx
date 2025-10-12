@@ -7,14 +7,15 @@ import React, { useEffect, useState } from 'react'
 import type { Header } from '@/payload-types'
 
 import { Logo } from '@/components/Logo/Logo'
-import { HeaderNav } from './Nav'
+// import { HeaderNav } from './Nav'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
 interface HeaderClientProps {
   data: Header
 }
 
-export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
+// export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
+export const HeaderClient: React.FC<HeaderClientProps> = () => {
   /* Storing the value in a useState to avoid hydration errors */
   const [theme, setTheme] = useState<string | null>(null)
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
@@ -38,7 +39,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
         </Link>
         <div className="flex items-center gap-6">
           <LanguageSwitcher />
-          <HeaderNav data={data} />
+          {/* <HeaderNav data={data} /> */}
         </div>
       </div>
     </header>
