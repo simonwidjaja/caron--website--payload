@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 
-import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { HeadlineBlock } from './basic/HeadlineBlock/Component'
@@ -13,7 +12,6 @@ import { RichTextBlock } from './basic/RichTextBlock/Component'
 import { SVGPathAnimation } from './wip/SVGPathAnimation/Component'
 
 const blockComponents = {
-  cta: CallToActionBlock,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
   // Basic

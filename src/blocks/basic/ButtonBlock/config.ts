@@ -1,3 +1,4 @@
+import { linkField } from '@/fields/cms/linkField'
 import type { Block } from 'payload'
 
 export const ButtonBlockConfig: Block = {
@@ -81,51 +82,6 @@ export const ButtonBlockConfig: Block = {
         },
       ],
     },
-    {
-      name: 'link',
-      type: 'group',
-      fields: [
-        {
-          name: 'type',
-          type: 'radio',
-          label: 'Link Type',
-          options: [
-            {
-              label: 'Internal',
-              value: 'internal',
-            },
-            {
-              label: 'External',
-              value: 'external',
-            },
-          ],
-          defaultValue: 'internal',
-          required: true,
-        },
-        {
-          name: 'internalLink',
-          type: 'relationship',
-          relationTo: 'pages',
-          label: 'Internal Link',
-          admin: {
-            condition: (_data: unknown, siblingData: { type?: string }) => siblingData?.type === 'internal',
-          },
-        },
-        {
-          name: 'externalLink',
-          type: 'text',
-          label: 'External URL',
-          admin: {
-            condition: (_data: unknown, siblingData: { type?: string }) => siblingData?.type === 'external',
-          },
-        },
-        {
-          name: 'newTab',
-          type: 'checkbox',
-          label: 'Open in New Tab',
-          defaultValue: false,
-        },
-      ],
-    },
+    linkField(),
   ],
 }

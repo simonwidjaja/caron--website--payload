@@ -36,6 +36,8 @@ export const RichTextBlock: React.FC<RichTextBlockProps> = ({ content, currentLa
         return `/posts/${slug}`
       }
 
+      console.log('currentLanguage', currentLanguage);
+
       if (relationTo === 'pages') {
         return `/${slug}`
       }
