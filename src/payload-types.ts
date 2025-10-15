@@ -349,10 +349,22 @@ export interface Page {
         col1Padding?: boolean | null;
         col1VerticalAlign?: ('top' | 'center' | 'bottom') | null;
         col1HorizontalAlign?: ('left' | 'center' | 'right') | null;
+        /**
+         * Base width of this column (e.g., "50%", "300px").
+         */
+        col1ColumnBaseWidth?: string | null;
+        col1MinWidth?: string | null;
+        col1MaxWidth?: string | null;
         col1CssClasses?: string | null;
         col2Padding?: boolean | null;
         col2VerticalAlign?: ('top' | 'center' | 'bottom') | null;
         col2HorizontalAlign?: ('left' | 'center' | 'right') | null;
+        /**
+         * Base width of this column (e.g., "50%", "300px").
+         */
+        col2ColumnBaseWidth?: string | null;
+        col2MinWidth?: string | null;
+        col2MaxWidth?: string | null;
         col2CssClasses?: string | null;
         /**
          * Customize the appearance of this section
@@ -1429,10 +1441,16 @@ export interface PagesSelect<T extends boolean = true> {
               col1Padding?: T;
               col1VerticalAlign?: T;
               col1HorizontalAlign?: T;
+              col1ColumnBaseWidth?: T;
+              col1MinWidth?: T;
+              col1MaxWidth?: T;
               col1CssClasses?: T;
               col2Padding?: T;
               col2VerticalAlign?: T;
               col2HorizontalAlign?: T;
+              col2ColumnBaseWidth?: T;
+              col2MinWidth?: T;
+              col2MaxWidth?: T;
               col2CssClasses?: T;
               classesAndStyles?:
                 | T

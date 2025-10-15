@@ -2,11 +2,12 @@ import type { Field } from 'payload'
 
 export const containerLayoutField = (options?: {
   namePrefix?: string
-  description?: string
+  includeColumnWidth?: boolean
   paddingLabel?: string
 }): Field[] => {
   const {
     namePrefix = '',
+    includeColumnWidth = false,    
     paddingLabel = 'Padding',
   } = options || {}
 
@@ -54,6 +55,44 @@ export const containerLayoutField = (options?: {
       },
     ],
   })
+
+  // Optionally add column width field
+  if (includeColumnWidth) {
+    fields.push({
+      type: 'row',
+      fields: [
+        {
+          name: namePrefix ? `${namePrefix}ColumnBaseWidth` : 'columnBaseWidth',
+          label: 'Base Width',
+          type: 'text',
+          defaultValue: '100%',
+          admin: {
+            description: 'Base width of this column (e.g., "50%", "300px").',
+            placeholder: 'e.g., 100%',
+            width: '40%',
+          },
+        },
+        {
+          name: namePrefix ? `${namePrefix}MinWidth` : 'minWidth',
+          label: 'Min Width',
+          type: 'text',
+          admin: {
+            placeholder: 'e.g., 200px',
+            width: '30%',
+          },
+        },
+        {
+          name: namePrefix ? `${namePrefix}MaxWidth` : 'maxWidth',
+          label: 'Max Width',
+          type: 'text',
+          admin: {
+            placeholder: 'e.g., 500px',
+            width: '30%',
+          },
+        },
+      ],
+    })
+  }
 
   // Add classes
   fields.push({

@@ -10,7 +10,7 @@ export const classesAndStylesField = (options?: {
     name = 'classesAndStyles',
     label = 'Classes and Styles',
     classesPlaceholder = 'Enter CSS classes (e.g. "mb-4 text-center")',
-    description = 'Add custom CSS classes and inline styles'
+    description = 'Add custom CSS classes and inline styles',
   } = options || {}
 
   return {
@@ -51,7 +51,7 @@ export const classesAndStylesField = (options?: {
         label: 'CSS',
         type: 'code',
         required: false,
-        defaultValue: '',
+        // defaultValue: '',
         admin: {
           language: 'css',
           description: 'This is scoped CSS that applies only to this instance',

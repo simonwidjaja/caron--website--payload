@@ -11,16 +11,10 @@ type ColumnsTwoBlockProps = {
   col1CssClasses?: string
   col1VerticalAlign?: 'top' | 'center' | 'bottom'
   col1HorizontalAlign?: 'left' | 'center' | 'right'
-  col1ColumnBaseWidth?: string
-  col1MinWidth?: string
-  col1MaxWidth?: string
   col2Padding?: boolean
   col2CssClasses?: string
   col2VerticalAlign?: 'top' | 'center' | 'bottom'
   col2HorizontalAlign?: 'left' | 'center' | 'right'
-  col2ColumnBaseWidth?: string
-  col2MinWidth?: string
-  col2MaxWidth?: string
   id?: string
   className?: string
   classesAndStyles?: {
@@ -58,14 +52,10 @@ export const ColumnsTwoBlock: React.FC<ColumnsTwoBlockProps> = ({
   col1CssClasses,
   col1VerticalAlign = 'top',
   col1HorizontalAlign = 'left',
-  col1ColumnBaseWidth,
-  col1MinWidth, col1MaxWidth,
   col2Padding = true,
   col2CssClasses,
   col2VerticalAlign = 'top',
   col2HorizontalAlign = 'left',
-  col2ColumnBaseWidth,
-  col2MinWidth, col2MaxWidth,
   id,
   className,
   classesAndStyles,
@@ -79,8 +69,7 @@ export const ColumnsTwoBlock: React.FC<ColumnsTwoBlockProps> = ({
       <div className={
         'ColumnsTwoBlock'
       }>
-        {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-10"> */}
-        <div className="flex gap-10 flex-col lg:flex-row">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div 
             className={cn(
               "ColumnsTwoBlock-col-1 flex flex-col border-r border-[hsl(var(--grid-color))]",
@@ -88,11 +77,6 @@ export const ColumnsTwoBlock: React.FC<ColumnsTwoBlockProps> = ({
               getAlignmentClasses(col1VerticalAlign, col1HorizontalAlign),
               col1CssClasses
             )}
-            style={{ 
-              flexBasis: col1ColumnBaseWidth || undefined,
-              minWidth: col1MinWidth || undefined,
-              maxWidth: col1MaxWidth || undefined,
-            }}
           >
             {col1 && (
               Array.isArray(col1) ? (
@@ -118,11 +102,6 @@ export const ColumnsTwoBlock: React.FC<ColumnsTwoBlockProps> = ({
               getAlignmentClasses(col2VerticalAlign, col2HorizontalAlign),
               col2CssClasses
             )}
-            style={{ 
-              flexBasis: col2ColumnBaseWidth || undefined,
-              minWidth: col2MinWidth || undefined,
-              maxWidth: col2MaxWidth || undefined,
-            }}
           >
             {col2 && (
               Array.isArray(col2) ? (
