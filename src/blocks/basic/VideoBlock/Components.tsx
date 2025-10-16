@@ -14,7 +14,10 @@ interface VideoBlockProps {
   }
   metaTitle?: string
   title?: string
-  icon?: string
+  icon?: {
+    url: string
+    filename: string
+  }
 }
 
 export const VideoBlock: React.FC<VideoBlockProps> = ({ sourceType, video, externalUrl, poster, metaTitle, title, icon }) => {
@@ -26,7 +29,7 @@ export const VideoBlock: React.FC<VideoBlockProps> = ({ sourceType, video, exter
       poster={poster?.url}
       metaTitle={metaTitle}
       title={title}
-      icon={icon ? <div dangerouslySetInnerHTML={{ __html: icon }} /> : undefined}
+      icon={icon ? <img src={icon.url} alt="Icon" className="w-14 h-10" /> : undefined}
     />
   )
 }

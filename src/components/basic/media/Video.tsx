@@ -15,6 +15,40 @@ interface VideoProps {
   icon?: React.ReactNode;
 }
 
+/**
+ * Video component for displaying videos with poster overlays, language selection, and titles.
+ *
+ * Features:
+ * - Supports single video URL or array of sources with language options
+ * - Poster image or video with play button overlay
+ * - Click-to-play functionality
+ * - Language selector for multi-source videos
+ * - Responsive design with aspect ratio
+ * - Accessibility considerations with alt text and controls
+ *
+ * @param {VideoProps} props - The props for the Video component
+ * @param {string | VideoSource[]} props.source - Video source URL or array of sources with optional language
+ * @param {string} [props.poster] - Poster image or video URL to display before play
+ * @param {string} [props.metaTitle] - Meta title displayed on poster
+ * @param {string} [props.title] - Main title displayed on poster
+ * @param {React.ReactNode} [props.icon] - Icon element to display above meta title
+ * @returns {JSX.Element} The rendered Video component
+ *
+ * @example
+ * // Single video
+ * <Video source="https://example.com/video.mp4" poster="https://example.com/poster.jpg" title="Sample Video" />
+ *
+ * @example
+ * // Multi-language video
+ * <Video
+ *   source={[
+ *     { src: "https://example.com/video-en.mp4", lang: "EN" },
+ *     { src: "https://example.com/video-de.mp4", lang: "DE" }
+ *   ]}
+ *   poster="https://example.com/poster.jpg"
+ *   title="Sample Video"
+ * />
+ */
 export default function Video({ source, poster, metaTitle, title, icon }: VideoProps) {
 
   const [state, setState] = useState(0);
@@ -28,7 +62,6 @@ export default function Video({ source, poster, metaTitle, title, icon }: VideoP
     } else if (Array.isArray(source)) {
       newSource = source[0];
     }
-    console.log(newSource);
     setActiveSource(newSource);
   }, [source]);
 
@@ -44,7 +77,6 @@ export default function Video({ source, poster, metaTitle, title, icon }: VideoP
       activeSource &&
       <video className="h-full w-full object-cover" controls ref={videoRef}>
         <source src={activeSource.src} type="video/mp4" />
-        {/* <source src="/assets/media/Roche_Testimonial_Digital_Experiences.mp4" type="video/mp4" /> */}
         Your browser does not support the video tag.
       </video>
     }

@@ -81,9 +81,20 @@ export const VideoBlockConfig: Block = {
     },
     {
       name: 'icon',
-      type: 'text',
+      type: 'upload',
+      relationTo: 'media',
       admin: {
-        description: 'Icon class or HTML for the video (optional)',
+        description: 'Select an icon image for the video (optional)',
+      },
+      filterOptions: {
+        mimeType: {
+          in: [
+            'image/jpeg',
+            'image/png',
+            'image/webp',
+            'image/svg+xml',
+          ],
+        },
       },
     },
   ],

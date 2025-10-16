@@ -273,9 +273,9 @@ export interface Page {
                    */
                   title?: string | null;
                   /**
-                   * Icon class or HTML for the video (optional)
+                   * Select an icon image for the video (optional)
                    */
-                  icon?: string | null;
+                  icon?: (string | null) | Media;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'videoBlock';
@@ -405,9 +405,9 @@ export interface Page {
                    */
                   title?: string | null;
                   /**
-                   * Icon class or HTML for the video (optional)
+                   * Select an icon image for the video (optional)
                    */
-                  icon?: string | null;
+                  icon?: (string | null) | Media;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'videoBlock';
@@ -576,9 +576,9 @@ export interface Page {
                    */
                   title?: string | null;
                   /**
-                   * Icon class or HTML for the video (optional)
+                   * Select an icon image for the video (optional)
                    */
-                  icon?: string | null;
+                  icon?: (string | null) | Media;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'videoBlock';
@@ -734,9 +734,9 @@ export interface Page {
                    */
                   title?: string | null;
                   /**
-                   * Icon class or HTML for the video (optional)
+                   * Select an icon image for the video (optional)
                    */
-                  icon?: string | null;
+                  icon?: (string | null) | Media;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'videoBlock';
