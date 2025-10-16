@@ -10,6 +10,7 @@ import { SpacerBlock } from './basic/SpacerBlock/Component'
 import { ButtonBlock } from './basic/ButtonBlock/Component'
 import { RichTextBlock } from './basic/RichTextBlock/Component'
 import { SVGPathAnimation } from './wip/SVGPathAnimation/Component'
+import { VideoBlock } from './basic/VideoBlock/Components'
 
 const blockComponents = {
   formBlock: FormBlock,
@@ -23,6 +24,7 @@ const blockComponents = {
   buttonBlock: ButtonBlock,
   richTextBlock: RichTextBlock,
   svgPathAnimation: SVGPathAnimation,
+  videoBlock: VideoBlock,
 }
 
 export const RenderBlocks: React.FC<{

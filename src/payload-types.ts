@@ -247,6 +247,39 @@ export interface Page {
                   blockType: 'richTextBlock';
                 }
               | SVGPathAnimationBlock
+              | {
+                  /**
+                   * Choose whether to use an uploaded media file or an external video URL
+                   */
+                  sourceType?: ('internal' | 'external') | null;
+                  /**
+                   * Select a video to display
+                   */
+                  video?: (string | null) | Media;
+                  /**
+                   * Enter the external video URL
+                   */
+                  externalUrl?: string | null;
+                  /**
+                   * Select a poster image or video for the video
+                   */
+                  poster?: (string | null) | Media;
+                  /**
+                   * Meta title for the video
+                   */
+                  metaTitle?: string | null;
+                  /**
+                   * Title for the video
+                   */
+                  title?: string | null;
+                  /**
+                   * Icon class or HTML for the video (optional)
+                   */
+                  icon?: string | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'videoBlock';
+                }
             )[]
           | null;
         /**
@@ -346,6 +379,39 @@ export interface Page {
                   blockType: 'richTextBlock';
                 }
               | SVGPathAnimationBlock
+              | {
+                  /**
+                   * Choose whether to use an uploaded media file or an external video URL
+                   */
+                  sourceType?: ('internal' | 'external') | null;
+                  /**
+                   * Select a video to display
+                   */
+                  video?: (string | null) | Media;
+                  /**
+                   * Enter the external video URL
+                   */
+                  externalUrl?: string | null;
+                  /**
+                   * Select a poster image or video for the video
+                   */
+                  poster?: (string | null) | Media;
+                  /**
+                   * Meta title for the video
+                   */
+                  metaTitle?: string | null;
+                  /**
+                   * Title for the video
+                   */
+                  title?: string | null;
+                  /**
+                   * Icon class or HTML for the video (optional)
+                   */
+                  icon?: string | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'videoBlock';
+                }
             )[]
           | null;
         col1Padding?: boolean | null;
@@ -484,6 +550,39 @@ export interface Page {
                   blockType: 'richTextBlock';
                 }
               | SVGPathAnimationBlock
+              | {
+                  /**
+                   * Choose whether to use an uploaded media file or an external video URL
+                   */
+                  sourceType?: ('internal' | 'external') | null;
+                  /**
+                   * Select a video to display
+                   */
+                  video?: (string | null) | Media;
+                  /**
+                   * Enter the external video URL
+                   */
+                  externalUrl?: string | null;
+                  /**
+                   * Select a poster image or video for the video
+                   */
+                  poster?: (string | null) | Media;
+                  /**
+                   * Meta title for the video
+                   */
+                  metaTitle?: string | null;
+                  /**
+                   * Title for the video
+                   */
+                  title?: string | null;
+                  /**
+                   * Icon class or HTML for the video (optional)
+                   */
+                  icon?: string | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'videoBlock';
+                }
             )[]
           | null;
         col1Padding?: boolean | null;
@@ -609,6 +708,39 @@ export interface Page {
                   blockType: 'richTextBlock';
                 }
               | SVGPathAnimationBlock
+              | {
+                  /**
+                   * Choose whether to use an uploaded media file or an external video URL
+                   */
+                  sourceType?: ('internal' | 'external') | null;
+                  /**
+                   * Select a video to display
+                   */
+                  video?: (string | null) | Media;
+                  /**
+                   * Enter the external video URL
+                   */
+                  externalUrl?: string | null;
+                  /**
+                   * Select a poster image or video for the video
+                   */
+                  poster?: (string | null) | Media;
+                  /**
+                   * Meta title for the video
+                   */
+                  metaTitle?: string | null;
+                  /**
+                   * Title for the video
+                   */
+                  title?: string | null;
+                  /**
+                   * Icon class or HTML for the video (optional)
+                   */
+                  icon?: string | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'videoBlock';
+                }
             )[]
           | null;
         /**
@@ -1391,6 +1523,19 @@ export interface PagesSelect<T extends boolean = true> {
                           blockName?: T;
                         };
                     svgPathAnimation?: T | SVGPathAnimationBlockSelect<T>;
+                    videoBlock?:
+                      | T
+                      | {
+                          sourceType?: T;
+                          video?: T;
+                          externalUrl?: T;
+                          poster?: T;
+                          metaTitle?: T;
+                          title?: T;
+                          icon?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
                   };
               col2?:
                 | T
@@ -1443,6 +1588,19 @@ export interface PagesSelect<T extends boolean = true> {
                           blockName?: T;
                         };
                     svgPathAnimation?: T | SVGPathAnimationBlockSelect<T>;
+                    videoBlock?:
+                      | T
+                      | {
+                          sourceType?: T;
+                          video?: T;
+                          externalUrl?: T;
+                          poster?: T;
+                          metaTitle?: T;
+                          title?: T;
+                          icon?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
                   };
               col1Padding?: T;
               col1VerticalAlign?: T;
@@ -1522,6 +1680,19 @@ export interface PagesSelect<T extends boolean = true> {
                           blockName?: T;
                         };
                     svgPathAnimation?: T | SVGPathAnimationBlockSelect<T>;
+                    videoBlock?:
+                      | T
+                      | {
+                          sourceType?: T;
+                          video?: T;
+                          externalUrl?: T;
+                          poster?: T;
+                          metaTitle?: T;
+                          title?: T;
+                          icon?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
                   };
               col1Padding?: T;
               col1VerticalAlign?: T;
@@ -1591,6 +1762,19 @@ export interface PagesSelect<T extends boolean = true> {
                           blockName?: T;
                         };
                     svgPathAnimation?: T | SVGPathAnimationBlockSelect<T>;
+                    videoBlock?:
+                      | T
+                      | {
+                          sourceType?: T;
+                          video?: T;
+                          externalUrl?: T;
+                          poster?: T;
+                          metaTitle?: T;
+                          title?: T;
+                          icon?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
                   };
               padding?: T;
               classesAndStyles?:
