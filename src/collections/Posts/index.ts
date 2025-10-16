@@ -26,6 +26,7 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 import { slugField } from '@/fields/slug'
+import { CustomGroupField } from '@/fields/wip/customGroup/customGroupField'
 
 export const Posts: CollectionConfig<'posts'> = {
   slug: 'posts',
@@ -74,6 +75,24 @@ export const Posts: CollectionConfig<'posts'> = {
       type: 'text',
       required: true,
     },
+    // CustomGroupField,
+    CustomGroupField({
+      name: 'customGroupExample',
+      label: 'Custom Group Example',
+      borderColor: '#16a34a',
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+          label: 'Title',
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          label: 'Description',
+        },
+      ],
+    }),
     {
       type: 'tabs',
       tabs: [
