@@ -153,6 +153,12 @@ const config = {
                 fontWeight: 'normal',
                 marginBottom: '0.25em',
               },
+              p: {
+                padding: '0',
+                margin: '0',
+              },
+              padding: '0 0 1rem 0',
+              margin: '0',
             },
           ],
         },

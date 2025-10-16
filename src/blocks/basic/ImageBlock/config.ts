@@ -88,5 +88,32 @@ export const ImageBlockConfig: Block = {
         },
       ],
     },
+    
+    //-------------- WIP ----------------
+    // {
+    //   type: 'collapsible',
+    //   label: 'Work In Progress',
+    //   admin: {
+    //     components: {
+    //       Field: 'src/fields/wip#Wip',
+    //     },
+    //     initCollapsed: true,
+    //   },
+    //   fields: [
+    //     {
+    //       name: 'enabled',
+    //       type: 'checkbox',
+    //       label: 'Work In Progress',
+    //       defaultValue: false,
+    //     },
+    //     {
+    //       name: 'animated',
+    //       type: 'checkbox',
+    //       label: 'Work In Progress Animated',
+    //       defaultValue: true,
+    //     },
+    //   ],
+    // },
+    //----------------------------------
   ],
 }

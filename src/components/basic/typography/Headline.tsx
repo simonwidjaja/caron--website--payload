@@ -20,7 +20,7 @@ export default function Headline(props:HeadlineProps){
   const getSizeClasses = (size: string) => {
     switch (size) {
       case 'huge':
-        return 'text-6xl font-bold'
+        return 'font-bold'
       case 'h1':
         return 'font-bold'
       case 'h2':
@@ -42,6 +42,7 @@ export default function Headline(props:HeadlineProps){
   // Return the appropriate JSX element directly
   switch (size) {
     case 'huge':
+      return <h1 className={baseClassName+' huge'}>{content}</h1>
     case 'h1':
       return <h1 className={baseClassName}>{content}</h1>
     case 'h2':

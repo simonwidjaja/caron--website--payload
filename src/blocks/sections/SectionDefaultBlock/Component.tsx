@@ -57,6 +57,7 @@ export const SectionDefaultBlock: React.FC<SectionDefaultBlockProps> = ({
     >
       <div 
         className={cn(
+          'content',
           'flex flex-col',
           col1Padding && 'p-6',
           getAlignmentClasses(col1VerticalAlign, col1HorizontalAlign),

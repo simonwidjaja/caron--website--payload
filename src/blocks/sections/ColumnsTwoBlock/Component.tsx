@@ -80,7 +80,7 @@ export const ColumnsTwoBlock: React.FC<ColumnsTwoBlockProps> = ({
         'ColumnsTwoBlock'
       }>
         {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-10"> */}
-        <div className="flex gap-10 flex-col lg:flex-row">
+        <div className="flex lg:gap-10 flex-col lg:flex-row">
           <div 
             className={cn(
               "ColumnsTwoBlock-col-1 flex flex-col border-r border-[hsl(var(--grid-color))]",

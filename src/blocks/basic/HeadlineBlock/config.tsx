@@ -65,5 +65,13 @@ export const HeadlineBlockConfig: Block = {
         },
       ],
     },
+    {
+      name: 'className',
+      label: 'CSS Classes',
+      type: 'text',
+      admin: {
+        width: '100%',
+      },
+    }
   ],
 }

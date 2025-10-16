@@ -161,6 +161,7 @@ export interface Page {
                    * Choose the headline size
                    */
                   size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
+                  className?: string | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'headlineBlock';
@@ -259,6 +260,7 @@ export interface Page {
                    * Choose the headline size
                    */
                   size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
+                  className?: string | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'headlineBlock';
@@ -396,6 +398,7 @@ export interface Page {
                    * Choose the headline size
                    */
                   size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
+                  className?: string | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'headlineBlock';
@@ -520,6 +523,7 @@ export interface Page {
                    * Choose the headline size
                    */
                   size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
+                  className?: string | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'headlineBlock';
@@ -1344,6 +1348,7 @@ export interface PagesSelect<T extends boolean = true> {
                       | {
                           headline?: T;
                           size?: T;
+                          className?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1395,6 +1400,7 @@ export interface PagesSelect<T extends boolean = true> {
                       | {
                           headline?: T;
                           size?: T;
+                          className?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1473,6 +1479,7 @@ export interface PagesSelect<T extends boolean = true> {
                       | {
                           headline?: T;
                           size?: T;
+                          className?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1541,6 +1548,7 @@ export interface PagesSelect<T extends boolean = true> {
                       | {
                           headline?: T;
                           size?: T;
+                          className?: T;
                           id?: T;
                           blockName?: T;
                         };

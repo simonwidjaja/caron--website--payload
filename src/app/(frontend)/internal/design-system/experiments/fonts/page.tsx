@@ -30,6 +30,7 @@ export default function DesignSystemPage() {
         <Link href="/internal/design-system/experiments/fonts/bricolage">Bricolage Grotesque</Link>
         <Link href="/internal/design-system/experiments/fonts/archivo">Archivo</Link>
         <Link href="/internal/design-system/experiments/fonts/inter">Inter</Link>
+        <Link href="/internal/design-system/experiments/fonts/interTight">Inter Tight</Link>
         <Link href="/internal/design-system/experiments/fonts/manrope">Manrope</Link>
         <Link href="/internal/design-system/experiments/fonts/publicSans">Public Sans</Link>
       </SectionDefault>
