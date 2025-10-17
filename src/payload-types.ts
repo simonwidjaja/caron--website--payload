@@ -251,6 +251,10 @@ export interface Page {
                   advancedSection?: {
                     simonsays?: string | null;
                     architect?: string | null;
+                    /**
+                     * Enter additional CSS classes (space-separated) for this section
+                     */
+                    customClasses?: string | null;
                   };
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
@@ -387,6 +391,10 @@ export interface Page {
                   advancedSection?: {
                     simonsays?: string | null;
                     architect?: string | null;
+                    /**
+                     * Enter additional CSS classes (space-separated) for this section
+                     */
+                    customClasses?: string | null;
                   };
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
@@ -562,6 +570,10 @@ export interface Page {
                   advancedSection?: {
                     simonsays?: string | null;
                     architect?: string | null;
+                    /**
+                     * Enter additional CSS classes (space-separated) for this section
+                     */
+                    customClasses?: string | null;
                   };
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
@@ -724,6 +736,10 @@ export interface Page {
                   advancedSection?: {
                     simonsays?: string | null;
                     architect?: string | null;
+                    /**
+                     * Enter additional CSS classes (space-separated) for this section
+                     */
+                    customClasses?: string | null;
                   };
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
@@ -1547,6 +1563,7 @@ export interface PagesSelect<T extends boolean = true> {
                             | {
                                 simonsays?: T;
                                 architect?: T;
+                                customClasses?: T;
                               };
                           sourceType?: T;
                           video?: T;
@@ -1618,6 +1635,7 @@ export interface PagesSelect<T extends boolean = true> {
                             | {
                                 simonsays?: T;
                                 architect?: T;
+                                customClasses?: T;
                               };
                           sourceType?: T;
                           video?: T;
@@ -1716,6 +1734,7 @@ export interface PagesSelect<T extends boolean = true> {
                             | {
                                 simonsays?: T;
                                 architect?: T;
+                                customClasses?: T;
                               };
                           sourceType?: T;
                           video?: T;
@@ -1804,6 +1823,7 @@ export interface PagesSelect<T extends boolean = true> {
                             | {
                                 simonsays?: T;
                                 architect?: T;
+                                customClasses?: T;
                               };
                           sourceType?: T;
                           video?: T;

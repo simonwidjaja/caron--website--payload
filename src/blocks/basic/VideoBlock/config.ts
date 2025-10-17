@@ -1,5 +1,5 @@
 import { advancedSectionField as advancedPropertiesField } from '@/fields/cms/advancedPropertiesField'
-import type { Block } from 'payload'
+import type { Block, TextFieldSingleValidation } from 'payload'
 
 export const VideoBlockConfig: Block = {
   slug: 'videoBlock',
@@ -11,6 +11,14 @@ export const VideoBlockConfig: Block = {
     group: 'basic', 
   },
   fields: [
+    // {
+    //   name: 'myname',
+    //   type: 'text',
+    //   validate: (value:any) => value != "simon" || 'This field is not valid',
+    //   // admin: {
+    //   //   condition: (_, siblingData) => siblingData?.simonsays === 'y',
+    //   // },
+    // },    
     advancedPropertiesField(),
     {
       name: 'sourceType',

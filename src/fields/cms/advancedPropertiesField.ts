@@ -36,7 +36,29 @@ export const advancedSectionField = (options?: {
         label: 'architect',
         type: 'text',
         localized: true,
-        admin: {},
+        validate: (value:any) => value != "black" || 'This field is required', 
+        admin: {
+          condition: (data:any, siblingData:any) => siblingData?.simonsays === 'y',
+        },
+      } as unknown) as ClientField,
+      // collapsible section with a single text field 'customClasses'
+      ({
+        type: 'collapsible',
+        label: 'Advanced',
+        admin: {
+          initCollapsed: true,
+        },
+        fields: [
+          ({
+            name: 'customClasses',
+            label: 'Custom Classes',
+            type: 'text',
+            admin: {
+              placeholder: classesPlaceholder,
+              description: 'Enter additional CSS classes (space-separated) for this section',
+            },
+          } as unknown) as ClientField,
+        ],
       } as unknown) as ClientField,
     ] as unknown) as Field[]
   };
