@@ -9,17 +9,20 @@ import type { Header } from '@/payload-types'
 import { Logo } from '@/components/Logo/Logo'
 // import { HeaderNav } from './Nav'
 import { LanguageSwitcher } from './LanguageSwitcher'
+import Navigation from '@/components/global/Navigation'
 
 interface HeaderClientProps {
   data: Header
 }
 
 // export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
-export const HeaderClient: React.FC<HeaderClientProps> = () => {
+export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   /* Storing the value in a useState to avoid hydration errors */
   const [theme, setTheme] = useState<string | null>(null)
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
   const pathname = usePathname()
+
+  const navigation = data.navigation || [];
 
   useEffect(() => {
     setHeaderTheme(null)
@@ -42,6 +45,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = () => {
           {/* <HeaderNav data={data} /> */}
         </div>
       </div>
+      <Navigation navigation={navigation} />
     </header>
   )
 }

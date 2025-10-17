@@ -2270,8 +2270,55 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Header {
   id: string;
-  navItems?:
+  /**
+   * Add navigation links for the header
+   */
+  navigation?:
     | {
+        /**
+         * Label for the navigation link
+         */
+        label: string;
+        /**
+         * Choose if the URL is internal or external
+         */
+        urlType?: ('internal' | 'external') | null;
+        /**
+         * URL for the link (e.g., /page or https://example.com)
+         */
+        url?: string | null;
+        /**
+         * Select an internal page
+         */
+        internalUrl?: (string | null) | Page;
+        /**
+         * Add submenu links
+         */
+        children?:
+          | {
+              /**
+               * Label for the submenu link
+               */
+              label: string;
+              /**
+               * Brief description for the submenu link
+               */
+              brief?: string | null;
+              /**
+               * Choose if the URL is internal or external
+               */
+              urlType?: ('internal' | 'external') | null;
+              /**
+               * URL for the link (e.g., /page or https://example.com)
+               */
+              url?: string | null;
+              /**
+               * Select an internal page
+               */
+              internalUrl?: (string | null) | Page;
+              id?: string | null;
+            }[]
+          | null;
         id?: string | null;
       }[]
     | null;
@@ -2292,9 +2339,23 @@ export interface Footer {
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
-  navItems?:
+  navigation?:
     | T
     | {
+        label?: T;
+        urlType?: T;
+        url?: T;
+        internalUrl?: T;
+        children?:
+          | T
+          | {
+              label?: T;
+              brief?: T;
+              urlType?: T;
+              url?: T;
+              internalUrl?: T;
+              id?: T;
+            };
         id?: T;
       };
   updatedAt?: T;
