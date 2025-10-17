@@ -30,7 +30,7 @@ export const advancedSectionField = (options?: {
         label: 'simonsays',
         type: 'text',
         admin: {},
-      } satisfies ClientField,
+      },
       {
         name: 'architect',
         label: 'architect',
@@ -40,7 +40,7 @@ export const advancedSectionField = (options?: {
         admin: {
           condition: (data:any, siblingData:any) => siblingData?.simonsays === 'y',
         },
-      } satisfies ClientField,
+      },
       // collapsible section with a single text field 'customClasses'
       {
         type: 'collapsible',
@@ -57,9 +57,9 @@ export const advancedSectionField = (options?: {
               placeholder: classesPlaceholder,
               description: 'Enter additional CSS classes (space-separated) for this section',
             },
-          } satisfies ClientField,
+          },
         ],
-      } satisfies ClientField,
-    ] satisfies Field[]
+      },
+    ]
   };
 }

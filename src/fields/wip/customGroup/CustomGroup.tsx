@@ -1,21 +1,37 @@
-'use client'
-
-import React from 'react'
-
 import { RenderFields } from '@payloadcms/ui'
+import type { GroupFieldServerComponent } from 'payload'
+import CollapsibleClient from './CollapsibleClient'
 
-// Client component: receives client-safe field definitions and handles interactions
-export const CustomGroup = (props: any) => {
-  const { field, permissions, path, schemaPath, value, setValue, readOnly, indexPath, errors } = props
-  const [open, setOpen] = React.useState(true)
+// Server component: can work with full server-side Field definitions (validators/hooks allowed)
+export const CustomGroup: GroupFieldServerComponent = (props) => {
+  const { field, permissions, path, schemaPath, readOnly } = props
+
+  const renderLabel = () => {
+    if (!field?.label) return ''
+    if (typeof field.label === 'string') return field.label
+    if (typeof field.label === 'object') {
+      const vals = Object.values(field.label as Record<string, any>)
+      return vals[0] ?? ''
+    }
+    try {
+      return String(field.label)
+    } catch {
+      return ''
+    }
+  }
+
+  const label = renderLabel()
+
+  const initCollapsed = (field as any)?.admin?.initCollapsed
+
+  const targetId = `custom-group-${path.replace(/\./g, '-')}`
 
   return (
     <>
-    <div onClick={() => setOpen(!open)} style={{ textAlign: 'right', cursor: 'pointer', marginBottom: '0.2rem' }}>[{open ? '-' : '+'}] {field.label}</div>
-    {!open
-      ? ''
-      : 
+      <CollapsibleClient label={label} initialOpen={!initCollapsed} targetId={targetId} />
+
       <div
+        id={targetId}
         style={{
           border: `2px solid #BADA55`,
           borderRadius: '8px',
@@ -23,24 +39,44 @@ export const CustomGroup = (props: any) => {
           marginBottom: '1rem',
         }}
       >
-        <div style={{ fontWeight: 'bold', marginBottom: '0.5rem', color: '#BADA55' }}>{field.label}</div>
+        {label ? (
+          <div style={{ fontWeight: 'bold', marginBottom: '0.5rem', color: '#BADA55' }}>{label}</div>
+        ) : null}
 
         {field.fields && field.fields.length > 0 ? (
           (() => {
-            const ClientRenderFields: any = RenderFields
+
+            // NOT IDEAL
+            // NOT IDEAL
+            // NOT IDEAL
+
+            // sanitize fields by removing functions so they can be safely passed to client components
+            const sanitize = (v: any): any => {
+              if (v === null || v === undefined) return v
+              if (typeof v === 'function') return undefined
+              if (typeof v !== 'object') return v
+              if (Array.isArray(v)) return v.map(sanitize).filter((x) => x !== undefined)
+              const out: any = {}
+              for (const [k, val] of Object.entries(v)) {
+                const s = sanitize(val)
+                if (s !== undefined) out[k] = s
+              }
+              return out
+            }
+
+            const safeFields = sanitize(field.fields) as any
+
             return (
-              <ClientRenderFields
+              <RenderFields
                 // client RenderFields expects client-safe props
-                fields={field.fields as unknown as any}
+                fields={safeFields}
+                // fields={field.fields}
                 parentPath={path}
                 parentSchemaPath={schemaPath || ''}
                 permissions={permissions}
                 readOnly={readOnly}
-                value={value}
-                setValue={setValue}
-                errors={errors}
                 margins="small"
-                indexPath={indexPath || ''}
+                parentIndexPath={''}
               />
             )
           })()
@@ -48,7 +84,6 @@ export const CustomGroup = (props: any) => {
           <p style={{ fontStyle: 'italic', color: '#888' }}>No child fields</p>
         )}
       </div>
-      }
     </>
   )
 }
