@@ -13,6 +13,7 @@ const config = {
   plugins: [tailwindcssAnimate, typography],
   prefix: '',
   safelist: [
+    'cursor-pointer',
     'hidden',
     'sm:hidden',
     'md:hidden',
