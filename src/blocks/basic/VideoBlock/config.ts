@@ -1,3 +1,4 @@
+import { advancedSectionField as advancedPropertiesField } from '@/fields/cms/advancedPropertiesField'
 import type { Block } from 'payload'
 
 export const VideoBlockConfig: Block = {
@@ -10,6 +11,7 @@ export const VideoBlockConfig: Block = {
     group: 'basic', 
   },
   fields: [
+    advancedPropertiesField(),
     {
       name: 'sourceType',
       type: 'select',

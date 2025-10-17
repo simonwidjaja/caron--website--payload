@@ -248,6 +248,10 @@ export interface Page {
                 }
               | SVGPathAnimationBlock
               | {
+                  advancedSection?: {
+                    simonsays?: string | null;
+                    architect?: string | null;
+                  };
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
                    */
@@ -380,6 +384,10 @@ export interface Page {
                 }
               | SVGPathAnimationBlock
               | {
+                  advancedSection?: {
+                    simonsays?: string | null;
+                    architect?: string | null;
+                  };
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
                    */
@@ -551,6 +559,10 @@ export interface Page {
                 }
               | SVGPathAnimationBlock
               | {
+                  advancedSection?: {
+                    simonsays?: string | null;
+                    architect?: string | null;
+                  };
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
                    */
@@ -709,6 +721,10 @@ export interface Page {
                 }
               | SVGPathAnimationBlock
               | {
+                  advancedSection?: {
+                    simonsays?: string | null;
+                    architect?: string | null;
+                  };
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
                    */
@@ -1526,6 +1542,12 @@ export interface PagesSelect<T extends boolean = true> {
                     videoBlock?:
                       | T
                       | {
+                          advancedSection?:
+                            | T
+                            | {
+                                simonsays?: T;
+                                architect?: T;
+                              };
                           sourceType?: T;
                           video?: T;
                           externalUrl?: T;
@@ -1591,6 +1613,12 @@ export interface PagesSelect<T extends boolean = true> {
                     videoBlock?:
                       | T
                       | {
+                          advancedSection?:
+                            | T
+                            | {
+                                simonsays?: T;
+                                architect?: T;
+                              };
                           sourceType?: T;
                           video?: T;
                           externalUrl?: T;
@@ -1683,6 +1711,12 @@ export interface PagesSelect<T extends boolean = true> {
                     videoBlock?:
                       | T
                       | {
+                          advancedSection?:
+                            | T
+                            | {
+                                simonsays?: T;
+                                architect?: T;
+                              };
                           sourceType?: T;
                           video?: T;
                           externalUrl?: T;
@@ -1765,6 +1799,12 @@ export interface PagesSelect<T extends boolean = true> {
                     videoBlock?:
                       | T
                       | {
+                          advancedSection?:
+                            | T
+                            | {
+                                simonsays?: T;
+                                architect?: T;
+                              };
                           sourceType?: T;
                           video?: T;
                           externalUrl?: T;
