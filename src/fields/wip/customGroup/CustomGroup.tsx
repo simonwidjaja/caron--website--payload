@@ -1,10 +1,14 @@
-import { RenderFields } from '@payloadcms/ui'
-import { UIFieldServerProps } from 'payload'
+'use client'
 
-const CustomGroup = (props: UIFieldServerProps) => {
+import React, { useState } from 'react'
+import { RenderFields } from '@payloadcms/ui'
+import { GroupFieldClientProps } from 'payload'
+
+const CustomGroup = (props: GroupFieldClientProps) => {
   const { field, permissions, path, schemaPath } = props
-  const borderColor = field.admin.custom?.borderColor || '#ddd'
-  const fields = field.admin.custom?.fields || []
+  const [isOpen, setIsOpen] = useState(true)
+  const borderColor = field.admin?.custom?.borderColor || '#ddd'
+  const fields = field?.fields || []
 
   return (
     <div
@@ -15,17 +19,32 @@ const CustomGroup = (props: UIFieldServerProps) => {
         marginBottom: '1rem',
       }}
     >
-      {fields.length > 0 ? (
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        style={{
+          background: 'none',
+          border: 'none',
+          cursor: 'pointer',
+          fontWeight: 600,
+          marginBottom: '0.75rem',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+        }}
+      >
+        {isOpen ? '▼ Collapse Group' : '▶ Expand Group'}
+      </button>
+
+      {isOpen && (
         <RenderFields
           fields={fields}
           parentPath={path}
           parentSchemaPath={schemaPath || ''}
-          permissions={permissions}
+          permissions={permissions!}
           margins="small"
           parentIndexPath=""
         />
-      ) : (
-        <p style={{ fontStyle: 'italic', color: '#888' }}>No child fields</p>
       )}
     </div>
   )

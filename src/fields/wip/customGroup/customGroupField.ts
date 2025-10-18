@@ -8,7 +8,8 @@ export const CustomGroupField = (options: {
 }): Field => ({
   name: options.name,
   label: options.label || options.name,
-  type: 'ui',
+  type: 'group',
+  fields: options.fields,
   admin: {
     components: {
       Field: {
@@ -17,7 +18,6 @@ export const CustomGroupField = (options: {
     },
     custom: {
       borderColor: options.borderColor || '#ddd',
-      fields: options.fields,
     },
   },
 })
