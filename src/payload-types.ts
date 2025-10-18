@@ -977,6 +977,10 @@ export interface SVGPathAnimationBlock {
 export interface Post {
   id: string;
   title: string;
+  customGroupExample?: {
+    title?: string | null;
+    description?: string | null;
+  };
   heroImage?: (string | null) | Media;
   content: {
     root: {
@@ -1908,6 +1912,12 @@ export interface SVGPathAnimationBlockSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
+  customGroupExample?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
   heroImage?: T;
   content?: T;
   relatedPosts?: T;
