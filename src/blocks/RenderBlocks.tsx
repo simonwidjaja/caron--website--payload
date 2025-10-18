@@ -11,6 +11,7 @@ import { ButtonBlock } from './basic/ButtonBlock/Component'
 import { RichTextBlock } from './basic/RichTextBlock/Component'
 import { SVGPathAnimation } from './wip/SVGPathAnimation/Component'
 import { VideoBlock } from './basic/VideoBlock/Components'
+import { CustomGroupTestField } from './wip/CustomGroupTestField/Components'
 
 const blockComponents = {
   formBlock: FormBlock,
@@ -25,6 +26,7 @@ const blockComponents = {
   richTextBlock: RichTextBlock,
   svgPathAnimation: SVGPathAnimation,
   videoBlock: VideoBlock,
+  customGroupTestField: CustomGroupTestField,
 }
 
 export const RenderBlocks: React.FC<{

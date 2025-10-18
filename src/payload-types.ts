@@ -248,14 +248,6 @@ export interface Page {
                 }
               | SVGPathAnimationBlock
               | {
-                  advancedSection?: {
-                    simonsays?: string | null;
-                    architect?: string | null;
-                    /**
-                     * Enter additional CSS classes (space-separated) for this section
-                     */
-                    customClasses?: string | null;
-                  };
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
                    */
@@ -287,6 +279,24 @@ export interface Page {
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'videoBlock';
+                }
+              | {
+                  advanced?: {
+                    /**
+                     * Field inside the General tab
+                     */
+                    tabAField?: string | null;
+                    /**
+                     * Field inside the Advanced tab
+                     */
+                    tabBField?: string | null;
+                    activate?: boolean | null;
+                    activated?: string | null;
+                  };
+                  myname?: string | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'customGroupTestField';
                 }
             )[]
           | null;
@@ -388,14 +398,6 @@ export interface Page {
                 }
               | SVGPathAnimationBlock
               | {
-                  advancedSection?: {
-                    simonsays?: string | null;
-                    architect?: string | null;
-                    /**
-                     * Enter additional CSS classes (space-separated) for this section
-                     */
-                    customClasses?: string | null;
-                  };
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
                    */
@@ -427,6 +429,24 @@ export interface Page {
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'videoBlock';
+                }
+              | {
+                  advanced?: {
+                    /**
+                     * Field inside the General tab
+                     */
+                    tabAField?: string | null;
+                    /**
+                     * Field inside the Advanced tab
+                     */
+                    tabBField?: string | null;
+                    activate?: boolean | null;
+                    activated?: string | null;
+                  };
+                  myname?: string | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'customGroupTestField';
                 }
             )[]
           | null;
@@ -567,14 +587,6 @@ export interface Page {
                 }
               | SVGPathAnimationBlock
               | {
-                  advancedSection?: {
-                    simonsays?: string | null;
-                    architect?: string | null;
-                    /**
-                     * Enter additional CSS classes (space-separated) for this section
-                     */
-                    customClasses?: string | null;
-                  };
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
                    */
@@ -606,6 +618,24 @@ export interface Page {
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'videoBlock';
+                }
+              | {
+                  advanced?: {
+                    /**
+                     * Field inside the General tab
+                     */
+                    tabAField?: string | null;
+                    /**
+                     * Field inside the Advanced tab
+                     */
+                    tabBField?: string | null;
+                    activate?: boolean | null;
+                    activated?: string | null;
+                  };
+                  myname?: string | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'customGroupTestField';
                 }
             )[]
           | null;
@@ -733,14 +763,6 @@ export interface Page {
                 }
               | SVGPathAnimationBlock
               | {
-                  advancedSection?: {
-                    simonsays?: string | null;
-                    architect?: string | null;
-                    /**
-                     * Enter additional CSS classes (space-separated) for this section
-                     */
-                    customClasses?: string | null;
-                  };
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
                    */
@@ -772,6 +794,24 @@ export interface Page {
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'videoBlock';
+                }
+              | {
+                  advanced?: {
+                    /**
+                     * Field inside the General tab
+                     */
+                    tabAField?: string | null;
+                    /**
+                     * Field inside the Advanced tab
+                     */
+                    tabBField?: string | null;
+                    activate?: boolean | null;
+                    activated?: string | null;
+                  };
+                  myname?: string | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'customGroupTestField';
                 }
             )[]
           | null;
@@ -977,10 +1017,6 @@ export interface SVGPathAnimationBlock {
 export interface Post {
   id: string;
   title: string;
-  customGroupExample?: {
-    title?: string | null;
-    description?: string | null;
-  };
   heroImage?: (string | null) | Media;
   content: {
     root: {
@@ -1562,13 +1598,6 @@ export interface PagesSelect<T extends boolean = true> {
                     videoBlock?:
                       | T
                       | {
-                          advancedSection?:
-                            | T
-                            | {
-                                simonsays?: T;
-                                architect?: T;
-                                customClasses?: T;
-                              };
                           sourceType?: T;
                           video?: T;
                           externalUrl?: T;
@@ -1576,6 +1605,21 @@ export interface PagesSelect<T extends boolean = true> {
                           metaTitle?: T;
                           title?: T;
                           icon?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    customGroupTestField?:
+                      | T
+                      | {
+                          advanced?:
+                            | T
+                            | {
+                                tabAField?: T;
+                                tabBField?: T;
+                                activate?: T;
+                                activated?: T;
+                              };
+                          myname?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1634,13 +1678,6 @@ export interface PagesSelect<T extends boolean = true> {
                     videoBlock?:
                       | T
                       | {
-                          advancedSection?:
-                            | T
-                            | {
-                                simonsays?: T;
-                                architect?: T;
-                                customClasses?: T;
-                              };
                           sourceType?: T;
                           video?: T;
                           externalUrl?: T;
@@ -1648,6 +1685,21 @@ export interface PagesSelect<T extends boolean = true> {
                           metaTitle?: T;
                           title?: T;
                           icon?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    customGroupTestField?:
+                      | T
+                      | {
+                          advanced?:
+                            | T
+                            | {
+                                tabAField?: T;
+                                tabBField?: T;
+                                activate?: T;
+                                activated?: T;
+                              };
+                          myname?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1733,13 +1785,6 @@ export interface PagesSelect<T extends boolean = true> {
                     videoBlock?:
                       | T
                       | {
-                          advancedSection?:
-                            | T
-                            | {
-                                simonsays?: T;
-                                architect?: T;
-                                customClasses?: T;
-                              };
                           sourceType?: T;
                           video?: T;
                           externalUrl?: T;
@@ -1747,6 +1792,21 @@ export interface PagesSelect<T extends boolean = true> {
                           metaTitle?: T;
                           title?: T;
                           icon?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    customGroupTestField?:
+                      | T
+                      | {
+                          advanced?:
+                            | T
+                            | {
+                                tabAField?: T;
+                                tabBField?: T;
+                                activate?: T;
+                                activated?: T;
+                              };
+                          myname?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1822,13 +1882,6 @@ export interface PagesSelect<T extends boolean = true> {
                     videoBlock?:
                       | T
                       | {
-                          advancedSection?:
-                            | T
-                            | {
-                                simonsays?: T;
-                                architect?: T;
-                                customClasses?: T;
-                              };
                           sourceType?: T;
                           video?: T;
                           externalUrl?: T;
@@ -1836,6 +1889,21 @@ export interface PagesSelect<T extends boolean = true> {
                           metaTitle?: T;
                           title?: T;
                           icon?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    customGroupTestField?:
+                      | T
+                      | {
+                          advanced?:
+                            | T
+                            | {
+                                tabAField?: T;
+                                tabBField?: T;
+                                activate?: T;
+                                activated?: T;
+                              };
+                          myname?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1912,12 +1980,6 @@ export interface SVGPathAnimationBlockSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
-  customGroupExample?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-      };
   heroImage?: T;
   content?: T;
   relatedPosts?: T;

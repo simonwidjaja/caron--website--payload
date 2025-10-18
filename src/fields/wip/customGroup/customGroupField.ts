@@ -1,6 +1,6 @@
 import type { Field } from 'payload'
 
-export const CustomGroupField = (options: {
+export const customGroupField = (options: {
   name: string
   label?: string
   borderColor?: string

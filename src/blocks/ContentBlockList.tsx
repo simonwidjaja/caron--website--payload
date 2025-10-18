@@ -17,6 +17,8 @@ import { SVGPathAnimationConfig } from "./wip/SVGPathAnimation/config";
 import { SVGPathAnimation } from "./wip/SVGPathAnimation/Component";
 import { VideoBlockConfig } from "./basic/VideoBlock/config";
 import { VideoBlock } from "./basic/VideoBlock/Components";
+import { CustomGroupTestField } from "./wip/CustomGroupTestField/Components";
+import { CustomGroupTestFieldConfig } from "./wip/CustomGroupTestField/config";
 
 // Only content blocks go here
 // Section blocks go to collection (e.g. Page)  
@@ -31,6 +33,7 @@ export const contentBlocks = [
   { config: RichTextBlockConfig, component: RichTextBlock },
   { config: SVGPathAnimationConfig, component: SVGPathAnimation },
   { config: VideoBlockConfig, component: VideoBlock },
+  { config: CustomGroupTestFieldConfig, component: CustomGroupTestField },
 ];
 
 
