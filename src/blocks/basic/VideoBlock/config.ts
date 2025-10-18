@@ -11,15 +11,6 @@ export const VideoBlockConfig: Block = {
     group: 'basic', 
   },
   fields: [
-    // {
-    //   name: 'myname',
-    //   type: 'text',
-    //   validate: (value:any) => value != "simon" || 'This field is not valid',
-    //   // admin: {
-    //   //   condition: (_, siblingData) => siblingData?.simonsays === 'y',
-    //   // },
-    // },    
-    advancedPropertiesField(),
     {
       name: 'sourceType',
       type: 'select',

@@ -1,6 +1,6 @@
-import type { GroupField, TextField, ClientField, Field } from 'payload'
+import type { GroupField } from 'payload'
 
-export const advancedSectionField = (options?: {
+export const advancedPropertiesField = (options?: {
   name?: string
   label?: string
   classesPlaceholder?: string
@@ -23,7 +23,6 @@ export const advancedSectionField = (options?: {
         },
       },
     },
-    // fields are client-safe (no functions). Cast to server Field[] to satisfy GroupField return type.
     fields: [
       {
         name: 'simonsays',
@@ -41,7 +40,6 @@ export const advancedSectionField = (options?: {
           condition: (data:any, siblingData:any) => siblingData?.simonsays === 'y',
         },
       },
-      // collapsible section with a single text field 'customClasses'
       {
         type: 'collapsible',
         label: 'Advanced',

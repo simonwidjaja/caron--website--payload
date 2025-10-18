@@ -46,9 +46,9 @@ export const CustomGroup: GroupFieldServerComponent = (props) => {
         {field.fields && field.fields.length > 0 ? (
           (() => {
 
-            // NOT IDEAL
-            // NOT IDEAL
-            // NOT IDEAL
+            // NOT IDEAL : IS THIS SAFE?
+            // NOT IDEAL : IS THIS SAFE?
+            // NOT IDEAL : IS THIS SAFE?
 
             // sanitize fields by removing functions so they can be safely passed to client components
             const sanitize = (v: any): any => {
@@ -76,7 +76,7 @@ export const CustomGroup: GroupFieldServerComponent = (props) => {
                 permissions={permissions}
                 readOnly={readOnly}
                 margins="small"
-                parentIndexPath={''}
+                parentIndexPath={''}  // Is this safe? <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
               />
             )
           })()
