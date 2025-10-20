@@ -1,6 +1,8 @@
+import AdvancedHelper from '@/fields/cms/advancedGroupField/AdvancedHelper'
 import React from 'react'
 
 export type HeadlineProps = {
+  id?: string
   children?: React.ReactNode
   headline?: string
   size?: 'huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
@@ -9,6 +11,7 @@ export type HeadlineProps = {
 
 export default function Headline(props:HeadlineProps){
   const {
+    id,
     headline,
     children,
     size = 'h2',
@@ -37,23 +40,22 @@ export default function Headline(props:HeadlineProps){
   }
 
   const sizeClasses = getSizeClasses(size)
-  const baseClassName = `Headline ${sizeClasses} ${className || ''}`
+  const baseClassName = `Headline ${sizeClasses} ${size === 'huge' ? 'huge ' : ''}${className || ''}`.trim()
 
-  // Return the appropriate JSX element directly
-  switch (size) {
-    case 'huge':
-      return <h1 className={baseClassName+' huge'}>{content}</h1>
-    case 'h1':
-      return <h1 className={baseClassName}>{content}</h1>
-    case 'h2':
-      return <h2 className={baseClassName}>{content}</h2>
-    case 'h3':
-      return <h3 className={baseClassName}>{content}</h3>
-    case 'h4':
-      return <h4 className={baseClassName}>{content}</h4>
-    case 'h5':
-      return <h5 className={baseClassName}>{content}</h5>
-    default:
-      return <h2 className={baseClassName}>{content}</h2>
+  // Map size to HTML tag
+  const tagMap: Record<string, 'h1' | 'h2' | 'h3' | 'h4' | 'h5'> = {
+    'huge': 'h1',
+    'h1': 'h1',
+    'h2': 'h2',
+    'h3': 'h3',
+    'h4': 'h4',
+    'h5': 'h5',
   }
+
+  const Tag = tagMap[size] || 'h2'
+
+  return <Tag 
+    id={id}
+    className={baseClassName}
+  >{content}</Tag>
 }

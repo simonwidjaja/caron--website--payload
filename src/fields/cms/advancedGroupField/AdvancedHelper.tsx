@@ -7,30 +7,47 @@ import { AdvancedGroupField } from "@/payload-types";
 export default class AdvancedHelper {
 
   /**
-   * Extracts id and className from advanced field configuration.
+   * Extracts id from advanced field configuration.
    *
    * @param advanced - The advanced group field configuration object
-   * @returns Object containing id and className properties (undefined if not set)
+   * @returns The id string or undefined if not set
    *
    * @example
    * ```tsx
    * return (
-   *   <>
-   *     <Button 
-   *       variant={variant} 
-   *       size={size}
-   *       {...AdvancedHelper.advancedAttributes(advanced)}
-   *     >
-   *     ...
-   *   </>
+   *   <Button 
+   *     id={AdvancedHelper.advancedId(advanced)}
+   *     variant={variant}
+   *   >
+   *     {label}
+   *   </Button>
    * )
    * ```
    */
-  static advancedAttributes(advanced: AdvancedGroupField | undefined) {
-    return {
-      id: advanced?.id || undefined,
-      className: advanced?.className || undefined,
-    };
+  static advancedId(advanced: AdvancedGroupField | undefined) {
+    return advanced?.id || undefined;
+  }
+
+  /**
+   * Extracts className from advanced field configuration.
+   *
+   * @param advanced - The advanced group field configuration object
+   * @returns The className string or undefined if not set
+   *
+   * @example
+   * ```tsx
+   * return (
+   *   <Button 
+   *     className={AdvancedHelper.advancedClassName(advanced)}
+   *     variant={variant}
+   *   >
+   *     {label}
+   *   </Button>
+   * )
+   * ```
+   */
+  static advancedClassName(advanced: AdvancedGroupField | undefined) {
+    return advanced?.className || undefined;
   }
 
   /**

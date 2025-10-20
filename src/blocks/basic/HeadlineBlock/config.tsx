@@ -6,6 +6,7 @@ import type { Block } from 'payload'
  */
 export const HeadlineBlockConfig: Block = {
   slug: 'headlineBlock',
+  interfaceName: 'HeadlineBlockConfig',
   labels: {
     singular: 'Headline',
     plural: 'Headlines',
@@ -67,13 +68,5 @@ export const HeadlineBlockConfig: Block = {
         },
       ],
     },
-    {
-      name: 'className',
-      label: 'CSS Classes',
-      type: 'text',
-      admin: {
-        width: '100%',
-      },
-    }
   ],
 }

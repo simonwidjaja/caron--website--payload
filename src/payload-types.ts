@@ -155,18 +155,7 @@ export interface Page {
          */
         col1?:
           | (
-              | {
-                  advanced?: AdvancedGroupField;
-                  headline?: string | null;
-                  /**
-                   * Choose the headline size
-                   */
-                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
-                  className?: string | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'headlineBlock';
-                }
+              | HeadlineBlockConfig
               | {
                   advanced?: AdvancedGroupField;
                   text?: string | null;
@@ -229,7 +218,7 @@ export interface Page {
                   blockType: 'imageBlock';
                 }
               | SpacerBlock
-              | ButtonBlock
+              | ButtonBlockConfig
               | {
                   advanced?: AdvancedGroupField;
                   content: {
@@ -300,18 +289,7 @@ export interface Page {
          */
         col2?:
           | (
-              | {
-                  advanced?: AdvancedGroupField;
-                  headline?: string | null;
-                  /**
-                   * Choose the headline size
-                   */
-                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
-                  className?: string | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'headlineBlock';
-                }
+              | HeadlineBlockConfig
               | {
                   advanced?: AdvancedGroupField;
                   text?: string | null;
@@ -374,7 +352,7 @@ export interface Page {
                   blockType: 'imageBlock';
                 }
               | SpacerBlock
-              | ButtonBlock
+              | ButtonBlockConfig
               | {
                   advanced?: AdvancedGroupField;
                   content: {
@@ -484,18 +462,7 @@ export interface Page {
     | {
         content?:
           | (
-              | {
-                  advanced?: AdvancedGroupField;
-                  headline?: string | null;
-                  /**
-                   * Choose the headline size
-                   */
-                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
-                  className?: string | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'headlineBlock';
-                }
+              | HeadlineBlockConfig
               | {
                   advanced?: AdvancedGroupField;
                   text?: string | null;
@@ -558,7 +525,7 @@ export interface Page {
                   blockType: 'imageBlock';
                 }
               | SpacerBlock
-              | ButtonBlock
+              | ButtonBlockConfig
               | {
                   advanced?: AdvancedGroupField;
                   content: {
@@ -655,18 +622,7 @@ export interface Page {
          */
         content?:
           | (
-              | {
-                  advanced?: AdvancedGroupField;
-                  headline?: string | null;
-                  /**
-                   * Choose the headline size
-                   */
-                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
-                  className?: string | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'headlineBlock';
-                }
+              | HeadlineBlockConfig
               | {
                   advanced?: AdvancedGroupField;
                   text?: string | null;
@@ -729,7 +685,7 @@ export interface Page {
                   blockType: 'imageBlock';
                 }
               | SpacerBlock
-              | ButtonBlock
+              | ButtonBlockConfig
               | {
                   advanced?: AdvancedGroupField;
                   content: {
@@ -835,6 +791,21 @@ export interface Page {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeadlineBlockConfig".
+ */
+export interface HeadlineBlockConfig {
+  advanced?: AdvancedGroupField;
+  headline?: string | null;
+  /**
+   * Choose the headline size
+   */
+  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'headlineBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -977,9 +948,9 @@ export interface SpacerBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ButtonBlock".
+ * via the `definition` "ButtonBlockConfig".
  */
-export interface ButtonBlock {
+export interface ButtonBlockConfig {
   advanced?: AdvancedGroupField;
   label: string;
   variant: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link';
@@ -1551,16 +1522,7 @@ export interface PagesSelect<T extends boolean = true> {
               col1?:
                 | T
                 | {
-                    headlineBlock?:
-                      | T
-                      | {
-                          advanced?: T | AdvancedGroupFieldSelect<T>;
-                          headline?: T;
-                          size?: T;
-                          className?: T;
-                          id?: T;
-                          blockName?: T;
-                        };
+                    headlineBlock?: T | HeadlineBlockConfigSelect<T>;
                     textBlock?:
                       | T
                       | {
@@ -1594,7 +1556,7 @@ export interface PagesSelect<T extends boolean = true> {
                           blockName?: T;
                         };
                     spacerBlock?: T | SpacerBlockSelect<T>;
-                    buttonBlock?: T | ButtonBlockSelect<T>;
+                    buttonBlock?: T | ButtonBlockConfigSelect<T>;
                     richTextBlock?:
                       | T
                       | {
@@ -1630,16 +1592,7 @@ export interface PagesSelect<T extends boolean = true> {
               col2?:
                 | T
                 | {
-                    headlineBlock?:
-                      | T
-                      | {
-                          advanced?: T | AdvancedGroupFieldSelect<T>;
-                          headline?: T;
-                          size?: T;
-                          className?: T;
-                          id?: T;
-                          blockName?: T;
-                        };
+                    headlineBlock?: T | HeadlineBlockConfigSelect<T>;
                     textBlock?:
                       | T
                       | {
@@ -1673,7 +1626,7 @@ export interface PagesSelect<T extends boolean = true> {
                           blockName?: T;
                         };
                     spacerBlock?: T | SpacerBlockSelect<T>;
-                    buttonBlock?: T | ButtonBlockSelect<T>;
+                    buttonBlock?: T | ButtonBlockConfigSelect<T>;
                     richTextBlock?:
                       | T
                       | {
@@ -1736,16 +1689,7 @@ export interface PagesSelect<T extends boolean = true> {
               content?:
                 | T
                 | {
-                    headlineBlock?:
-                      | T
-                      | {
-                          advanced?: T | AdvancedGroupFieldSelect<T>;
-                          headline?: T;
-                          size?: T;
-                          className?: T;
-                          id?: T;
-                          blockName?: T;
-                        };
+                    headlineBlock?: T | HeadlineBlockConfigSelect<T>;
                     textBlock?:
                       | T
                       | {
@@ -1779,7 +1723,7 @@ export interface PagesSelect<T extends boolean = true> {
                           blockName?: T;
                         };
                     spacerBlock?: T | SpacerBlockSelect<T>;
-                    buttonBlock?: T | ButtonBlockSelect<T>;
+                    buttonBlock?: T | ButtonBlockConfigSelect<T>;
                     richTextBlock?:
                       | T
                       | {
@@ -1832,16 +1776,7 @@ export interface PagesSelect<T extends boolean = true> {
               content?:
                 | T
                 | {
-                    headlineBlock?:
-                      | T
-                      | {
-                          advanced?: T | AdvancedGroupFieldSelect<T>;
-                          headline?: T;
-                          size?: T;
-                          className?: T;
-                          id?: T;
-                          blockName?: T;
-                        };
+                    headlineBlock?: T | HeadlineBlockConfigSelect<T>;
                     textBlock?:
                       | T
                       | {
@@ -1875,7 +1810,7 @@ export interface PagesSelect<T extends boolean = true> {
                           blockName?: T;
                         };
                     spacerBlock?: T | SpacerBlockSelect<T>;
-                    buttonBlock?: T | ButtonBlockSelect<T>;
+                    buttonBlock?: T | ButtonBlockConfigSelect<T>;
                     richTextBlock?:
                       | T
                       | {
@@ -1936,6 +1871,17 @@ export interface PagesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeadlineBlockConfig_select".
+ */
+export interface HeadlineBlockConfigSelect<T extends boolean = true> {
+  advanced?: T | AdvancedGroupFieldSelect<T>;
+  headline?: T;
+  size?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "AdvancedGroupField_select".
  */
 export interface AdvancedGroupFieldSelect<T extends boolean = true> {
@@ -1959,9 +1905,9 @@ export interface SpacerBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ButtonBlock_select".
+ * via the `definition` "ButtonBlockConfig_select".
  */
-export interface ButtonBlockSelect<T extends boolean = true> {
+export interface ButtonBlockConfigSelect<T extends boolean = true> {
   advanced?: T | AdvancedGroupFieldSelect<T>;
   label?: T;
   variant?: T;

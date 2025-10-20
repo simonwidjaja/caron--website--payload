@@ -4,7 +4,7 @@ import type { Block } from 'payload'
 
 export const ButtonBlockConfig: Block = {
   slug: 'buttonBlock',
-  interfaceName: 'ButtonBlock',
+  interfaceName: 'ButtonBlockConfig',
   labels: {
     singular: 'Button Block',
     plural: 'Button Blocks',

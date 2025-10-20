@@ -1,17 +1,17 @@
 import React from 'react'
 import Link from 'next/link'
-import type { ButtonBlock as ButtonBlockProps } from '@/payload-types'
 import { getLocalizedUrl } from '@/utilities/getLocalizedUrl'
 import { Button } from '@/components/basic/buttons/Button'
 import AdvancedHelper from '@/fields/cms/advancedGroupField/AdvancedHelper'
+import { ButtonBlockConfig } from '@/payload-types'
 
 // Extend the generated type to include currentLanguage
-interface ExtendedButtonBlockProps extends ButtonBlockProps {
+interface ExtendedButtonBlockConfig extends ButtonBlockConfig {
   currentLanguage?: string
 }
 
 // export const ButtonBlock: React.FC<ButtonBlockProps> = ({ 
-export const ButtonBlock: React.FC<ExtendedButtonBlockProps> = ({ 
+export const ButtonBlock: React.FC<ExtendedButtonBlockConfig> = ({ 
   currentLanguage,
   label,
   variant = 'default',
@@ -34,7 +34,8 @@ export const ButtonBlock: React.FC<ExtendedButtonBlockProps> = ({
       <Button 
         variant={variant} 
         size={size}
-        {...AdvancedHelper.advancedAttributes(advanced)}
+        id={AdvancedHelper.advancedId(advanced)}
+        className={AdvancedHelper.advancedClassName(advanced)}
       >
         <Link href={href} {...linkProps}>
           {label}
