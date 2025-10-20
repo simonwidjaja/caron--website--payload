@@ -1,4 +1,3 @@
-import AdvancedHelper from '@/fields/cms/advancedGroupField/AdvancedHelper'
 import React from 'react'
 
 export type HeadlineProps = {

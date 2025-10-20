@@ -5,7 +5,7 @@ import { TextCompositionBlock } from '@/blocks/basic/TextCompositionBlock/Compon
 import { BackLink } from '../shared/DsNav'
 import { ColumnsTwoBlock } from '@/blocks/sections/ColumnsTwoBlock/Component'
 import { TextBlock } from '@/blocks/basic/TextBlock/Component'
-import { HeadlineBlock } from '@/blocks/basic/HeadlineBlock/Component'
+import Headline from '@/components/basic/typography/Headline'
 
 export const metadata: Metadata = {
   title: 'Design System | Internal',
@@ -71,16 +71,16 @@ export default function DesignSystemPage() {
      <ColumnsTwoBlock
         col1={
           <>
-            <HeadlineBlock headline="Some headline (h1)" size="h1" />
+            <Headline headline="Some headline (h1)" size="h1" />
             <TextBlock text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'/>
             <TextBlock text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'/>
-            <HeadlineBlock headline="Some headline (h2)" size="h2" />
+            <Headline headline="Some headline (h2)" size="h2" />
             <TextBlock text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'/>
             <TextBlock text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'/>
-            <HeadlineBlock headline="Some headline (h3)" size="h3" />
+            <Headline headline="Some headline (h3)" size="h3" />
             <TextBlock text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'/>
             <TextBlock text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'/>
-            <HeadlineBlock headline="Some headline (h4)" size="h4" />
+            <Headline headline="Some headline (h4)" size="h4" />
             <TextBlock text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'/>
             <TextBlock text='This is a paragraph. Coffee shops hum with the rhythm of keyboards and quiet conversations. Ideas brew stronger than espresso, mixing creativity with the comfort of worn leather chairs and jazz melodies floating through warm air.'/>
           </>
