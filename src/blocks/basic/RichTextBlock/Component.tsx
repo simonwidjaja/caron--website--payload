@@ -2,6 +2,8 @@ import React, { useCallback, useMemo } from 'react'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import { LinkJSXConverter } from '@payloadcms/richtext-lexical/react'
 import { getLocalizedUrlFromHref } from '@/utilities/getLocalizedUrl'
+import AdvancedHelper from '@/fields/cms/advancedGroupField/AdvancedHelper'
+import type { AdvancedGroupField } from '@/payload-types'
 
 type LinkNode = {
   fields: {
@@ -16,9 +18,10 @@ type RichTextBlockProps = {
   currentLanguage?: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   content: any
+  advanced?: AdvancedGroupField
 }
 
-export const RichTextBlock: React.FC<RichTextBlockProps> = ({ content, currentLanguage }) => {
+export const RichTextBlock: React.FC<RichTextBlockProps> = ({ content, currentLanguage, advanced }) => {
 
   const internalDocToHref = useCallback(
     ({ linkNode }: { linkNode: LinkNode }) => {
@@ -64,8 +67,14 @@ export const RichTextBlock: React.FC<RichTextBlockProps> = ({ content, currentLa
   }
 
   return (
-    <div className="prose dark:prose-invert max-w-none">
-      <RichText data={content} converters={jsxConverters} />
-    </div>
+    <>
+      <div 
+        id={AdvancedHelper.advancedId(advanced)}
+        className={`prose dark:prose-invert max-w-none ${AdvancedHelper.advancedClassName(advanced)}`}
+      >
+        <RichText data={content} converters={jsxConverters} />
+      </div>
+      {AdvancedHelper.advancedStyles(advanced)}
+    </>
   )
 }
