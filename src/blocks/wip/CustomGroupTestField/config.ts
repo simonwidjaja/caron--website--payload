@@ -12,61 +12,47 @@ export const CustomGroupTestFieldConfig: Block = {
   },
   fields: [
     advancedGroupField({
-      name: 'advanced',
-      label: 'Custom Group',
-      // borderColor: '#0070f3', 
-      fields: [
+      tabsStart: [
         {
-          type: 'tabs',
-          tabs: [
+          label: 'General',
+          fields: [
             {
-              label: 'General',
-              fields: [
-                {
-                  name: 'tabAField',
-                  label: 'Tab A Field',
-                  type: 'text',
-                  admin: {
-                    description: 'Field inside the General tab',
-                  },
-                },
-              ],
-            },
-            {
-              label: 'Advanced',
-              fields: [
-                {
-                  name: 'tabBField',
-                  label: 'Tab B Field',
-                  type: 'text',
-                  admin: {
-                    description: 'Field inside the Advanced tab',
-                  },
-                },
-              ],
-            },
+              name: 'addon1',
+              label: 'Title',
+              type: 'text',
+            }
           ],
         },
+      ],
+      fieldsStyles: [
         {
-          name: 'activate',
-          label: 'Activate',
-          type: 'checkbox',
-        },
-        {
-          name: 'activated',
-          label: 'Activated',
+          name: 'field1',
+          label: 'Field 1',
           type: 'text',
-          admin: {
-            condition: (data:any, siblingData:any) => siblingData?.activate === true,
-          },
         },
-      ]
+        {
+          name: 'field2',
+          label: 'Field 2',
+          type: 'text',
+        },
+      ],
+      tabsEnd: [
+        {
+          label: 'End Tab',
+          fields: [
+            {
+              name: 'addon2',
+              label: 'Title',
+              type: 'text',
+            }
+          ],
+        },
+      ],      
     }),
-
     {
       name: 'myname',
       type: 'text',
       validate: (value:any) => value != "simon" || 'This field is not valid',
-    },      
+    },
   ],
 }

@@ -12,6 +12,23 @@ All Advanced Properties will be provided inside a custom collapisble group field
 ## Implement
 
 Create the following field structure:
-* Advanced (Tab group)
+* Advanced (Tab group) (prefixes all following styles with "advanced.")
   * Layout (type: Tab)
   * Styles (type: Tab)
+
+    * Row (50%/50%)
+
+      * id (type: Text)
+        * Label: ID
+        * Placeholder: ID
+        * Description: Unique identifier for the component (without #)
+
+      * className (type: Text)
+        * Label: CSS Classes
+        * Placeholder: Enter CSS/TW classes (e.g. "mb-4 text-center")
+        * Description: Space-separated CSS classes (e.g. "mb-4 text-center")
+
+    * customStyles (type: Code/CSS)
+      * Label: CSS
+      * Description: This is scoped CSS that applies only to this instance
+    

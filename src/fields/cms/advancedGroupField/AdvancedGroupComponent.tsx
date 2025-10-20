@@ -7,7 +7,6 @@ import { GroupFieldClientProps } from 'payload'
 const AdvancedGroupComponent = (props: GroupFieldClientProps) => {
   const { field, permissions, path, schemaPath } = props
   const [isOpen, setIsOpen] = useState(false)
-  const borderColor = field.admin?.custom?.borderColor || '#ddd'
   const fields = field?.fields || []
 
   return (

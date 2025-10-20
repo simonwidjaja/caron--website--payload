@@ -282,16 +282,25 @@ export interface Page {
                 }
               | {
                   advanced?: {
-                    /**
-                     * Field inside the General tab
-                     */
-                    tabAField?: string | null;
-                    /**
-                     * Field inside the Advanced tab
-                     */
-                    tabBField?: string | null;
-                    activate?: boolean | null;
-                    activated?: string | null;
+                    addon1?: string | null;
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                      field1?: string | null;
+                      field2?: string | null;
+                    };
+                    docs?: {};
+                    addon2?: string | null;
                   };
                   myname?: string | null;
                   id?: string | null;
@@ -432,16 +441,25 @@ export interface Page {
                 }
               | {
                   advanced?: {
-                    /**
-                     * Field inside the General tab
-                     */
-                    tabAField?: string | null;
-                    /**
-                     * Field inside the Advanced tab
-                     */
-                    tabBField?: string | null;
-                    activate?: boolean | null;
-                    activated?: string | null;
+                    addon1?: string | null;
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                      field1?: string | null;
+                      field2?: string | null;
+                    };
+                    docs?: {};
+                    addon2?: string | null;
                   };
                   myname?: string | null;
                   id?: string | null;
@@ -621,16 +639,25 @@ export interface Page {
                 }
               | {
                   advanced?: {
-                    /**
-                     * Field inside the General tab
-                     */
-                    tabAField?: string | null;
-                    /**
-                     * Field inside the Advanced tab
-                     */
-                    tabBField?: string | null;
-                    activate?: boolean | null;
-                    activated?: string | null;
+                    addon1?: string | null;
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                      field1?: string | null;
+                      field2?: string | null;
+                    };
+                    docs?: {};
+                    addon2?: string | null;
                   };
                   myname?: string | null;
                   id?: string | null;
@@ -797,16 +824,25 @@ export interface Page {
                 }
               | {
                   advanced?: {
-                    /**
-                     * Field inside the General tab
-                     */
-                    tabAField?: string | null;
-                    /**
-                     * Field inside the Advanced tab
-                     */
-                    tabBField?: string | null;
-                    activate?: boolean | null;
-                    activated?: string | null;
+                    addon1?: string | null;
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                      field1?: string | null;
+                      field2?: string | null;
+                    };
+                    docs?: {};
+                    addon2?: string | null;
                   };
                   myname?: string | null;
                   id?: string | null;
@@ -1614,10 +1650,18 @@ export interface PagesSelect<T extends boolean = true> {
                           advanced?:
                             | T
                             | {
-                                tabAField?: T;
-                                tabBField?: T;
-                                activate?: T;
-                                activated?: T;
+                                addon1?: T;
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                      field1?: T;
+                                      field2?: T;
+                                    };
+                                docs?: T | {};
+                                addon2?: T;
                               };
                           myname?: T;
                           id?: T;
@@ -1694,10 +1738,18 @@ export interface PagesSelect<T extends boolean = true> {
                           advanced?:
                             | T
                             | {
-                                tabAField?: T;
-                                tabBField?: T;
-                                activate?: T;
-                                activated?: T;
+                                addon1?: T;
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                      field1?: T;
+                                      field2?: T;
+                                    };
+                                docs?: T | {};
+                                addon2?: T;
                               };
                           myname?: T;
                           id?: T;
@@ -1801,10 +1853,18 @@ export interface PagesSelect<T extends boolean = true> {
                           advanced?:
                             | T
                             | {
-                                tabAField?: T;
-                                tabBField?: T;
-                                activate?: T;
-                                activated?: T;
+                                addon1?: T;
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                      field1?: T;
+                                      field2?: T;
+                                    };
+                                docs?: T | {};
+                                addon2?: T;
                               };
                           myname?: T;
                           id?: T;
@@ -1898,10 +1958,18 @@ export interface PagesSelect<T extends boolean = true> {
                           advanced?:
                             | T
                             | {
-                                tabAField?: T;
-                                tabBField?: T;
-                                activate?: T;
-                                activated?: T;
+                                addon1?: T;
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                      field1?: T;
+                                      field2?: T;
+                                    };
+                                docs?: T | {};
+                                addon2?: T;
                               };
                           myname?: T;
                           id?: T;
