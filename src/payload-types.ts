@@ -156,6 +156,23 @@ export interface Page {
         col1?:
           | (
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   headline?: string | null;
                   /**
                    * Choose the headline size
@@ -167,6 +184,23 @@ export interface Page {
                   blockType: 'headlineBlock';
                 }
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   text?: string | null;
                   size?: ('lg' | 'md' | 'sm' | 'xs') | null;
                   id?: string | null;
@@ -174,6 +208,23 @@ export interface Page {
                   blockType: 'textBlock';
                 }
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   metaTitle?: string | null;
                   headline?: string | null;
                   /**
@@ -200,6 +251,23 @@ export interface Page {
                   blockType: 'textCompositionBlock';
                 }
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   /**
                    * Select an image to display
                    */
@@ -227,6 +295,23 @@ export interface Page {
               | SpacerBlock
               | ButtonBlock
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   content: {
                     root: {
                       type: string;
@@ -248,6 +333,23 @@ export interface Page {
                 }
               | SVGPathAnimationBlock
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
                    */
@@ -315,6 +417,23 @@ export interface Page {
         col2?:
           | (
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   headline?: string | null;
                   /**
                    * Choose the headline size
@@ -326,6 +445,23 @@ export interface Page {
                   blockType: 'headlineBlock';
                 }
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   text?: string | null;
                   size?: ('lg' | 'md' | 'sm' | 'xs') | null;
                   id?: string | null;
@@ -333,6 +469,23 @@ export interface Page {
                   blockType: 'textBlock';
                 }
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   metaTitle?: string | null;
                   headline?: string | null;
                   /**
@@ -359,6 +512,23 @@ export interface Page {
                   blockType: 'textCompositionBlock';
                 }
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   /**
                    * Select an image to display
                    */
@@ -386,6 +556,23 @@ export interface Page {
               | SpacerBlock
               | ButtonBlock
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   content: {
                     root: {
                       type: string;
@@ -407,6 +594,23 @@ export interface Page {
                 }
               | SVGPathAnimationBlock
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
                    */
@@ -513,6 +717,23 @@ export interface Page {
         content?:
           | (
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   headline?: string | null;
                   /**
                    * Choose the headline size
@@ -524,6 +745,23 @@ export interface Page {
                   blockType: 'headlineBlock';
                 }
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   text?: string | null;
                   size?: ('lg' | 'md' | 'sm' | 'xs') | null;
                   id?: string | null;
@@ -531,6 +769,23 @@ export interface Page {
                   blockType: 'textBlock';
                 }
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   metaTitle?: string | null;
                   headline?: string | null;
                   /**
@@ -557,6 +812,23 @@ export interface Page {
                   blockType: 'textCompositionBlock';
                 }
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   /**
                    * Select an image to display
                    */
@@ -584,6 +856,23 @@ export interface Page {
               | SpacerBlock
               | ButtonBlock
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   content: {
                     root: {
                       type: string;
@@ -605,6 +894,23 @@ export interface Page {
                 }
               | SVGPathAnimationBlock
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
                    */
@@ -698,6 +1004,23 @@ export interface Page {
         content?:
           | (
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   headline?: string | null;
                   /**
                    * Choose the headline size
@@ -709,6 +1032,23 @@ export interface Page {
                   blockType: 'headlineBlock';
                 }
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   text?: string | null;
                   size?: ('lg' | 'md' | 'sm' | 'xs') | null;
                   id?: string | null;
@@ -716,6 +1056,23 @@ export interface Page {
                   blockType: 'textBlock';
                 }
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   metaTitle?: string | null;
                   headline?: string | null;
                   /**
@@ -742,6 +1099,23 @@ export interface Page {
                   blockType: 'textCompositionBlock';
                 }
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   /**
                    * Select an image to display
                    */
@@ -769,6 +1143,23 @@ export interface Page {
               | SpacerBlock
               | ButtonBlock
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   content: {
                     root: {
                       type: string;
@@ -790,6 +1181,23 @@ export interface Page {
                 }
               | SVGPathAnimationBlock
               | {
+                  advanced?: {
+                    styles?: {
+                      /**
+                       * Unique identifier for the component (without #)
+                       */
+                      id?: string | null;
+                      /**
+                       * Space-separated CSS classes (e.g. "mb-4 text-center")
+                       */
+                      className?: string | null;
+                      /**
+                       * This is scoped CSS that applies only to this instance
+                       */
+                      customStyles?: string | null;
+                    };
+                    docs?: {};
+                  };
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
                    */
@@ -989,6 +1397,23 @@ export interface Media {
  * via the `definition` "SpacerBlock".
  */
 export interface SpacerBlock {
+  advanced?: {
+    styles?: {
+      /**
+       * Unique identifier for the component (without #)
+       */
+      id?: string | null;
+      /**
+       * Space-separated CSS classes (e.g. "mb-4 text-center")
+       */
+      className?: string | null;
+      /**
+       * This is scoped CSS that applies only to this instance
+       */
+      customStyles?: string | null;
+    };
+    docs?: {};
+  };
   size:
     | '1px'
     | '2px'
@@ -1013,6 +1438,23 @@ export interface SpacerBlock {
  * via the `definition` "ButtonBlock".
  */
 export interface ButtonBlock {
+  advanced?: {
+    styles?: {
+      /**
+       * Unique identifier for the component (without #)
+       */
+      id?: string | null;
+      /**
+       * Space-separated CSS classes (e.g. "mb-4 text-center")
+       */
+      className?: string | null;
+      /**
+       * This is scoped CSS that applies only to this instance
+       */
+      customStyles?: string | null;
+    };
+    docs?: {};
+  };
   label: string;
   variant: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link';
   size: 'default' | 'sm' | 'lg' | 'icon';
@@ -1586,6 +2028,18 @@ export interface PagesSelect<T extends boolean = true> {
                     headlineBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           headline?: T;
                           size?: T;
                           className?: T;
@@ -1595,6 +2049,18 @@ export interface PagesSelect<T extends boolean = true> {
                     textBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           text?: T;
                           size?: T;
                           id?: T;
@@ -1603,6 +2069,18 @@ export interface PagesSelect<T extends boolean = true> {
                     textCompositionBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           metaTitle?: T;
                           headline?: T;
                           headlineSize?: T;
@@ -1613,6 +2091,18 @@ export interface PagesSelect<T extends boolean = true> {
                     imageBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           image?: T;
                           alt?: T;
                           size?: T;
@@ -1626,6 +2116,18 @@ export interface PagesSelect<T extends boolean = true> {
                     richTextBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           content?: T;
                           id?: T;
                           blockName?: T;
@@ -1634,6 +2136,18 @@ export interface PagesSelect<T extends boolean = true> {
                     videoBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           sourceType?: T;
                           video?: T;
                           externalUrl?: T;
@@ -1674,6 +2188,18 @@ export interface PagesSelect<T extends boolean = true> {
                     headlineBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           headline?: T;
                           size?: T;
                           className?: T;
@@ -1683,6 +2209,18 @@ export interface PagesSelect<T extends boolean = true> {
                     textBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           text?: T;
                           size?: T;
                           id?: T;
@@ -1691,6 +2229,18 @@ export interface PagesSelect<T extends boolean = true> {
                     textCompositionBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           metaTitle?: T;
                           headline?: T;
                           headlineSize?: T;
@@ -1701,6 +2251,18 @@ export interface PagesSelect<T extends boolean = true> {
                     imageBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           image?: T;
                           alt?: T;
                           size?: T;
@@ -1714,6 +2276,18 @@ export interface PagesSelect<T extends boolean = true> {
                     richTextBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           content?: T;
                           id?: T;
                           blockName?: T;
@@ -1722,6 +2296,18 @@ export interface PagesSelect<T extends boolean = true> {
                     videoBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           sourceType?: T;
                           video?: T;
                           externalUrl?: T;
@@ -1789,6 +2375,18 @@ export interface PagesSelect<T extends boolean = true> {
                     headlineBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           headline?: T;
                           size?: T;
                           className?: T;
@@ -1798,6 +2396,18 @@ export interface PagesSelect<T extends boolean = true> {
                     textBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           text?: T;
                           size?: T;
                           id?: T;
@@ -1806,6 +2416,18 @@ export interface PagesSelect<T extends boolean = true> {
                     textCompositionBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           metaTitle?: T;
                           headline?: T;
                           headlineSize?: T;
@@ -1816,6 +2438,18 @@ export interface PagesSelect<T extends boolean = true> {
                     imageBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           image?: T;
                           alt?: T;
                           size?: T;
@@ -1829,6 +2463,18 @@ export interface PagesSelect<T extends boolean = true> {
                     richTextBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           content?: T;
                           id?: T;
                           blockName?: T;
@@ -1837,6 +2483,18 @@ export interface PagesSelect<T extends boolean = true> {
                     videoBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           sourceType?: T;
                           video?: T;
                           externalUrl?: T;
@@ -1894,6 +2552,18 @@ export interface PagesSelect<T extends boolean = true> {
                     headlineBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           headline?: T;
                           size?: T;
                           className?: T;
@@ -1903,6 +2573,18 @@ export interface PagesSelect<T extends boolean = true> {
                     textBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           text?: T;
                           size?: T;
                           id?: T;
@@ -1911,6 +2593,18 @@ export interface PagesSelect<T extends boolean = true> {
                     textCompositionBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           metaTitle?: T;
                           headline?: T;
                           headlineSize?: T;
@@ -1921,6 +2615,18 @@ export interface PagesSelect<T extends boolean = true> {
                     imageBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           image?: T;
                           alt?: T;
                           size?: T;
@@ -1934,6 +2640,18 @@ export interface PagesSelect<T extends boolean = true> {
                     richTextBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           content?: T;
                           id?: T;
                           blockName?: T;
@@ -1942,6 +2660,18 @@ export interface PagesSelect<T extends boolean = true> {
                     videoBlock?:
                       | T
                       | {
+                          advanced?:
+                            | T
+                            | {
+                                styles?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      className?: T;
+                                      customStyles?: T;
+                                    };
+                                docs?: T | {};
+                              };
                           sourceType?: T;
                           video?: T;
                           externalUrl?: T;
@@ -2007,6 +2737,18 @@ export interface PagesSelect<T extends boolean = true> {
  * via the `definition` "SpacerBlock_select".
  */
 export interface SpacerBlockSelect<T extends boolean = true> {
+  advanced?:
+    | T
+    | {
+        styles?:
+          | T
+          | {
+              id?: T;
+              className?: T;
+              customStyles?: T;
+            };
+        docs?: T | {};
+      };
   size?: T;
   id?: T;
   blockName?: T;
@@ -2016,6 +2758,18 @@ export interface SpacerBlockSelect<T extends boolean = true> {
  * via the `definition` "ButtonBlock_select".
  */
 export interface ButtonBlockSelect<T extends boolean = true> {
+  advanced?:
+    | T
+    | {
+        styles?:
+          | T
+          | {
+              id?: T;
+              className?: T;
+              customStyles?: T;
+            };
+        docs?: T | {};
+      };
   label?: T;
   variant?: T;
   size?: T;

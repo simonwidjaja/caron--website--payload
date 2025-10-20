@@ -1,4 +1,4 @@
-import { advancedSectionField as advancedPropertiesField } from '@/fields/cms/advancedPropertiesField'
+import { advancedGroupField } from '@/fields/cms/advancedGroupField/advancedGroupField'
 import type { Block, TextFieldSingleValidation } from 'payload'
 
 export const VideoBlockConfig: Block = {
@@ -11,6 +11,7 @@ export const VideoBlockConfig: Block = {
     group: 'basic', 
   },
   fields: [
+    advancedGroupField(),
     {
       name: 'sourceType',
       type: 'select',

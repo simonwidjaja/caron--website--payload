@@ -1,3 +1,4 @@
+import { advancedGroupField } from '@/fields/cms/advancedGroupField/advancedGroupField'
 import type { Block } from 'payload'
 
 export const ImageBlockConfig: Block = {
@@ -10,6 +11,7 @@ export const ImageBlockConfig: Block = {
     group: 'basic', 
   },
   fields: [
+    advancedGroupField(),
     {
       name: 'image',
       type: 'upload',

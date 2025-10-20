@@ -1,3 +1,4 @@
+import { advancedGroupField } from '@/fields/cms/advancedGroupField/advancedGroupField'
 import { linkField } from '@/fields/cms/linkField'
 import type { Block } from 'payload'
 
@@ -12,6 +13,7 @@ export const ButtonBlockConfig: Block = {
     group: 'basic',
   },  
   fields: [
+    advancedGroupField(),
     {
       name: 'label',
       type: 'text',

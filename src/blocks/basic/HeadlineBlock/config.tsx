@@ -1,3 +1,4 @@
+import { advancedGroupField } from '@/fields/cms/advancedGroupField/advancedGroupField'
 import type { Block } from 'payload'
 
 /**
@@ -16,6 +17,7 @@ export const HeadlineBlockConfig: Block = {
     // }
   },
   fields: [
+    advancedGroupField(),
     {
       type: 'row',
       fields: [

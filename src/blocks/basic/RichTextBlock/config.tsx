@@ -1,3 +1,4 @@
+import { advancedGroupField } from '@/fields/cms/advancedGroupField/advancedGroupField'
 import type { Block } from 'payload'
 import {
   FixedToolbarFeature,
@@ -21,6 +22,7 @@ export const RichTextBlockConfig: Block = {
     group: 'basic',
   },
   fields: [
+    advancedGroupField(),
     {
       name: 'content',
       type: 'richText',

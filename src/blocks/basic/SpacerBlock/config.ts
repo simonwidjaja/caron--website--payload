@@ -1,3 +1,4 @@
+import { advancedGroupField } from '@/fields/cms/advancedGroupField/advancedGroupField'
 import type { Block } from 'payload'
 
 export const SpacerBlockConfig: Block = {
@@ -11,6 +12,7 @@ export const SpacerBlockConfig: Block = {
     group: 'basic', 
   },  
   fields: [
+    advancedGroupField(),
     {
       name: 'size',
       type: 'select',
