@@ -10,6 +10,7 @@ import Image from "next/image";
 import GlobalConfig from "@/GlobalConfig";
 import { Header } from '@/payload-types';
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import SectionDefault from "@/components/sections/SectionDefault";
 
 
 interface NavigationProps {
@@ -31,6 +32,9 @@ export default function Navigation({navigation}: NavigationProps) {
  
   return (
     <header className="bg-white">
+      <SectionDefault>
+        sdd
+      </SectionDefault>
 
       <div className="grid flex-1 grid-rows-[1fr_auto] grid-cols-[1fr_var(--gutter-width)_minmax(0,var(--breakpoint-2xl))_var(--gutter-width)_1fr] [--gutter-width:--spacing(6)] lg:[--gutter-width:--spacing(10)]">
         {/* Stripes left */}

@@ -30,19 +30,6 @@ export const LanguageSwitcher: React.FC = () => {
   return (
     <div className="flex items-center gap-2 text-sm">
       <button
-        onClick={() => switchLanguage('en')}
-        className={cn(
-          'px-2 py-1 rounded transition-colors',
-          currentLang === 'en' 
-            ? 'bg-primary text-primary-foreground font-semibold' 
-            : 'text-muted-foreground hover:text-foreground'
-        )}
-        aria-label="Switch to English"
-      >
-        EN
-      </button>
-      <span className="text-muted-foreground">/</span>
-      <button
         onClick={() => switchLanguage('de')}
         className={cn(
           'px-2 py-1 rounded transition-colors',
@@ -53,6 +40,19 @@ export const LanguageSwitcher: React.FC = () => {
         aria-label="Switch to German"
       >
         DE
+      </button>
+      <span className="text-muted-foreground">/</span>
+      <button
+        onClick={() => switchLanguage('en')}
+        className={cn(
+          'px-2 py-1 rounded transition-colors',
+          currentLang === 'en' 
+            ? 'bg-primary text-primary-foreground font-semibold' 
+            : 'text-muted-foreground hover:text-foreground'
+        )}
+        aria-label="Switch to English"
+      >
+        EN
       </button>
     </div>
   )
