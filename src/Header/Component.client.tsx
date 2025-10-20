@@ -9,7 +9,7 @@ import type { Header } from '@/payload-types'
 import { Logo } from '@/components/Logo/Logo'
 // import { HeaderNav } from './Nav'
 import { LanguageSwitcher } from './LanguageSwitcher'
-import Navigation from '@/components/global/Navigation'
+import Navigation from './Navigation'
 
 interface HeaderClientProps {
   data: Header
@@ -41,11 +41,9 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
           <Logo loading="eager" priority="high" className="" />
         </Link>
         <div className="flex items-center gap-6">
-          <LanguageSwitcher />
-          {/* <HeaderNav data={data} /> */}
+          <Navigation navigation={navigation} />
         </div>
       </div>
-      <Navigation navigation={navigation} />
     </header>
   )
 }

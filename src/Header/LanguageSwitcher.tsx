@@ -2,6 +2,7 @@
 import React from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { cn } from '@/utilities/ui'
+import { getLocalizedUrlFromHref } from '@/utilities/getLocalizedUrl'
 
 export const LanguageSwitcher: React.FC = () => {
   const pathname = usePathname()
@@ -15,18 +16,14 @@ export const LanguageSwitcher: React.FC = () => {
   const switchLanguage = (lang: 'en' | 'de') => {
     if (lang === currentLang) return
     
-    const pathSegments = pathname.split('/').filter(Boolean)
-    
-    // Check if first segment is a language code
-    if (pathSegments[0] === 'de' || pathSegments[0] === 'en') {
-      // Replace the language segment
-      pathSegments[0] = lang
-    } else {
-      // No language segment, add it at the beginning
-      pathSegments.unshift(lang)
+    // Remove current language prefix if it exists
+    let pathWithoutLang = pathname
+    if (pathname.startsWith('/de') || pathname.startsWith('/en')) {
+      pathWithoutLang = pathname.substring(3) // Remove '/de' or '/en'
     }
     
-    const newPath = '/' + pathSegments.join('/')
+    // Use getLocalizedUrlFromHref to add the new language prefix
+    const newPath = getLocalizedUrlFromHref(pathWithoutLang, lang)
     router.push(newPath)
   }
   
