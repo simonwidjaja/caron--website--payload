@@ -156,23 +156,7 @@ export interface Page {
         col1?:
           | (
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   headline?: string | null;
                   /**
                    * Choose the headline size
@@ -184,23 +168,7 @@ export interface Page {
                   blockType: 'headlineBlock';
                 }
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   text?: string | null;
                   size?: ('lg' | 'md' | 'sm' | 'xs') | null;
                   id?: string | null;
@@ -208,23 +176,7 @@ export interface Page {
                   blockType: 'textBlock';
                 }
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   metaTitle?: string | null;
                   headline?: string | null;
                   /**
@@ -251,23 +203,7 @@ export interface Page {
                   blockType: 'textCompositionBlock';
                 }
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   /**
                    * Select an image to display
                    */
@@ -295,23 +231,7 @@ export interface Page {
               | SpacerBlock
               | ButtonBlock
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   content: {
                     root: {
                       type: string;
@@ -333,23 +253,7 @@ export interface Page {
                 }
               | SVGPathAnimationBlock
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
                    */
@@ -383,27 +287,7 @@ export interface Page {
                   blockType: 'videoBlock';
                 }
               | {
-                  advanced?: {
-                    addon1?: string | null;
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                      field1?: string | null;
-                      field2?: string | null;
-                    };
-                    docs?: {};
-                    addon2?: string | null;
-                  };
+                  advanced?: AdvancedGroupField;
                   myname?: string | null;
                   id?: string | null;
                   blockName?: string | null;
@@ -417,23 +301,7 @@ export interface Page {
         col2?:
           | (
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   headline?: string | null;
                   /**
                    * Choose the headline size
@@ -445,23 +313,7 @@ export interface Page {
                   blockType: 'headlineBlock';
                 }
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   text?: string | null;
                   size?: ('lg' | 'md' | 'sm' | 'xs') | null;
                   id?: string | null;
@@ -469,23 +321,7 @@ export interface Page {
                   blockType: 'textBlock';
                 }
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   metaTitle?: string | null;
                   headline?: string | null;
                   /**
@@ -512,23 +348,7 @@ export interface Page {
                   blockType: 'textCompositionBlock';
                 }
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   /**
                    * Select an image to display
                    */
@@ -556,23 +376,7 @@ export interface Page {
               | SpacerBlock
               | ButtonBlock
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   content: {
                     root: {
                       type: string;
@@ -594,23 +398,7 @@ export interface Page {
                 }
               | SVGPathAnimationBlock
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
                    */
@@ -644,27 +432,7 @@ export interface Page {
                   blockType: 'videoBlock';
                 }
               | {
-                  advanced?: {
-                    addon1?: string | null;
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                      field1?: string | null;
-                      field2?: string | null;
-                    };
-                    docs?: {};
-                    addon2?: string | null;
-                  };
+                  advanced?: AdvancedGroupField;
                   myname?: string | null;
                   id?: string | null;
                   blockName?: string | null;
@@ -717,23 +485,7 @@ export interface Page {
         content?:
           | (
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   headline?: string | null;
                   /**
                    * Choose the headline size
@@ -745,23 +497,7 @@ export interface Page {
                   blockType: 'headlineBlock';
                 }
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   text?: string | null;
                   size?: ('lg' | 'md' | 'sm' | 'xs') | null;
                   id?: string | null;
@@ -769,23 +505,7 @@ export interface Page {
                   blockType: 'textBlock';
                 }
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   metaTitle?: string | null;
                   headline?: string | null;
                   /**
@@ -812,23 +532,7 @@ export interface Page {
                   blockType: 'textCompositionBlock';
                 }
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   /**
                    * Select an image to display
                    */
@@ -856,23 +560,7 @@ export interface Page {
               | SpacerBlock
               | ButtonBlock
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   content: {
                     root: {
                       type: string;
@@ -894,23 +582,7 @@ export interface Page {
                 }
               | SVGPathAnimationBlock
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
                    */
@@ -944,27 +616,7 @@ export interface Page {
                   blockType: 'videoBlock';
                 }
               | {
-                  advanced?: {
-                    addon1?: string | null;
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                      field1?: string | null;
-                      field2?: string | null;
-                    };
-                    docs?: {};
-                    addon2?: string | null;
-                  };
+                  advanced?: AdvancedGroupField;
                   myname?: string | null;
                   id?: string | null;
                   blockName?: string | null;
@@ -1004,23 +656,7 @@ export interface Page {
         content?:
           | (
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   headline?: string | null;
                   /**
                    * Choose the headline size
@@ -1032,23 +668,7 @@ export interface Page {
                   blockType: 'headlineBlock';
                 }
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   text?: string | null;
                   size?: ('lg' | 'md' | 'sm' | 'xs') | null;
                   id?: string | null;
@@ -1056,23 +676,7 @@ export interface Page {
                   blockType: 'textBlock';
                 }
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   metaTitle?: string | null;
                   headline?: string | null;
                   /**
@@ -1099,23 +703,7 @@ export interface Page {
                   blockType: 'textCompositionBlock';
                 }
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   /**
                    * Select an image to display
                    */
@@ -1143,23 +731,7 @@ export interface Page {
               | SpacerBlock
               | ButtonBlock
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   content: {
                     root: {
                       type: string;
@@ -1181,23 +753,7 @@ export interface Page {
                 }
               | SVGPathAnimationBlock
               | {
-                  advanced?: {
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                    };
-                    docs?: {};
-                  };
+                  advanced?: AdvancedGroupField;
                   /**
                    * Choose whether to use an uploaded media file or an external video URL
                    */
@@ -1231,27 +787,7 @@ export interface Page {
                   blockType: 'videoBlock';
                 }
               | {
-                  advanced?: {
-                    addon1?: string | null;
-                    styles?: {
-                      /**
-                       * Unique identifier for the component (without #)
-                       */
-                      id?: string | null;
-                      /**
-                       * Space-separated CSS classes (e.g. "mb-4 text-center")
-                       */
-                      className?: string | null;
-                      /**
-                       * This is scoped CSS that applies only to this instance
-                       */
-                      customStyles?: string | null;
-                      field1?: string | null;
-                      field2?: string | null;
-                    };
-                    docs?: {};
-                    addon2?: string | null;
-                  };
+                  advanced?: AdvancedGroupField;
                   myname?: string | null;
                   id?: string | null;
                   blockName?: string | null;
@@ -1299,6 +835,28 @@ export interface Page {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AdvancedGroupField".
+ */
+export interface AdvancedGroupField {
+  addon1?: string | null;
+  /**
+   * Unique identifier for the component (without #)
+   */
+  id?: string | null;
+  /**
+   * Space-separated CSS classes (e.g. "mb-4 text-center")
+   */
+  className?: string | null;
+  /**
+   * This is scoped CSS that applies only to this instance. Use "SELF { }" to target the component itself. ID must also be set.
+   */
+  styles?: string | null;
+  field1?: string | null;
+  field2?: string | null;
+  addon2?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1397,23 +955,7 @@ export interface Media {
  * via the `definition` "SpacerBlock".
  */
 export interface SpacerBlock {
-  advanced?: {
-    styles?: {
-      /**
-       * Unique identifier for the component (without #)
-       */
-      id?: string | null;
-      /**
-       * Space-separated CSS classes (e.g. "mb-4 text-center")
-       */
-      className?: string | null;
-      /**
-       * This is scoped CSS that applies only to this instance
-       */
-      customStyles?: string | null;
-    };
-    docs?: {};
-  };
+  advanced?: AdvancedGroupField;
   size:
     | '1px'
     | '2px'
@@ -1438,23 +980,7 @@ export interface SpacerBlock {
  * via the `definition` "ButtonBlock".
  */
 export interface ButtonBlock {
-  advanced?: {
-    styles?: {
-      /**
-       * Unique identifier for the component (without #)
-       */
-      id?: string | null;
-      /**
-       * Space-separated CSS classes (e.g. "mb-4 text-center")
-       */
-      className?: string | null;
-      /**
-       * This is scoped CSS that applies only to this instance
-       */
-      customStyles?: string | null;
-    };
-    docs?: {};
-  };
+  advanced?: AdvancedGroupField;
   label: string;
   variant: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link';
   size: 'default' | 'sm' | 'lg' | 'icon';
@@ -2028,18 +1554,7 @@ export interface PagesSelect<T extends boolean = true> {
                     headlineBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           headline?: T;
                           size?: T;
                           className?: T;
@@ -2049,18 +1564,7 @@ export interface PagesSelect<T extends boolean = true> {
                     textBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           text?: T;
                           size?: T;
                           id?: T;
@@ -2069,18 +1573,7 @@ export interface PagesSelect<T extends boolean = true> {
                     textCompositionBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           metaTitle?: T;
                           headline?: T;
                           headlineSize?: T;
@@ -2091,18 +1584,7 @@ export interface PagesSelect<T extends boolean = true> {
                     imageBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           image?: T;
                           alt?: T;
                           size?: T;
@@ -2116,18 +1598,7 @@ export interface PagesSelect<T extends boolean = true> {
                     richTextBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           content?: T;
                           id?: T;
                           blockName?: T;
@@ -2136,18 +1607,7 @@ export interface PagesSelect<T extends boolean = true> {
                     videoBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           sourceType?: T;
                           video?: T;
                           externalUrl?: T;
@@ -2161,22 +1621,7 @@ export interface PagesSelect<T extends boolean = true> {
                     customGroupTestField?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                addon1?: T;
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                      field1?: T;
-                                      field2?: T;
-                                    };
-                                docs?: T | {};
-                                addon2?: T;
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           myname?: T;
                           id?: T;
                           blockName?: T;
@@ -2188,18 +1633,7 @@ export interface PagesSelect<T extends boolean = true> {
                     headlineBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           headline?: T;
                           size?: T;
                           className?: T;
@@ -2209,18 +1643,7 @@ export interface PagesSelect<T extends boolean = true> {
                     textBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           text?: T;
                           size?: T;
                           id?: T;
@@ -2229,18 +1652,7 @@ export interface PagesSelect<T extends boolean = true> {
                     textCompositionBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           metaTitle?: T;
                           headline?: T;
                           headlineSize?: T;
@@ -2251,18 +1663,7 @@ export interface PagesSelect<T extends boolean = true> {
                     imageBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           image?: T;
                           alt?: T;
                           size?: T;
@@ -2276,18 +1677,7 @@ export interface PagesSelect<T extends boolean = true> {
                     richTextBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           content?: T;
                           id?: T;
                           blockName?: T;
@@ -2296,18 +1686,7 @@ export interface PagesSelect<T extends boolean = true> {
                     videoBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           sourceType?: T;
                           video?: T;
                           externalUrl?: T;
@@ -2321,22 +1700,7 @@ export interface PagesSelect<T extends boolean = true> {
                     customGroupTestField?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                addon1?: T;
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                      field1?: T;
-                                      field2?: T;
-                                    };
-                                docs?: T | {};
-                                addon2?: T;
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           myname?: T;
                           id?: T;
                           blockName?: T;
@@ -2375,18 +1739,7 @@ export interface PagesSelect<T extends boolean = true> {
                     headlineBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           headline?: T;
                           size?: T;
                           className?: T;
@@ -2396,18 +1749,7 @@ export interface PagesSelect<T extends boolean = true> {
                     textBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           text?: T;
                           size?: T;
                           id?: T;
@@ -2416,18 +1758,7 @@ export interface PagesSelect<T extends boolean = true> {
                     textCompositionBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           metaTitle?: T;
                           headline?: T;
                           headlineSize?: T;
@@ -2438,18 +1769,7 @@ export interface PagesSelect<T extends boolean = true> {
                     imageBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           image?: T;
                           alt?: T;
                           size?: T;
@@ -2463,18 +1783,7 @@ export interface PagesSelect<T extends boolean = true> {
                     richTextBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           content?: T;
                           id?: T;
                           blockName?: T;
@@ -2483,18 +1792,7 @@ export interface PagesSelect<T extends boolean = true> {
                     videoBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           sourceType?: T;
                           video?: T;
                           externalUrl?: T;
@@ -2508,22 +1806,7 @@ export interface PagesSelect<T extends boolean = true> {
                     customGroupTestField?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                addon1?: T;
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                      field1?: T;
-                                      field2?: T;
-                                    };
-                                docs?: T | {};
-                                addon2?: T;
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           myname?: T;
                           id?: T;
                           blockName?: T;
@@ -2552,18 +1835,7 @@ export interface PagesSelect<T extends boolean = true> {
                     headlineBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           headline?: T;
                           size?: T;
                           className?: T;
@@ -2573,18 +1845,7 @@ export interface PagesSelect<T extends boolean = true> {
                     textBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           text?: T;
                           size?: T;
                           id?: T;
@@ -2593,18 +1854,7 @@ export interface PagesSelect<T extends boolean = true> {
                     textCompositionBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           metaTitle?: T;
                           headline?: T;
                           headlineSize?: T;
@@ -2615,18 +1865,7 @@ export interface PagesSelect<T extends boolean = true> {
                     imageBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           image?: T;
                           alt?: T;
                           size?: T;
@@ -2640,18 +1879,7 @@ export interface PagesSelect<T extends boolean = true> {
                     richTextBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           content?: T;
                           id?: T;
                           blockName?: T;
@@ -2660,18 +1888,7 @@ export interface PagesSelect<T extends boolean = true> {
                     videoBlock?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                    };
-                                docs?: T | {};
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           sourceType?: T;
                           video?: T;
                           externalUrl?: T;
@@ -2685,22 +1902,7 @@ export interface PagesSelect<T extends boolean = true> {
                     customGroupTestField?:
                       | T
                       | {
-                          advanced?:
-                            | T
-                            | {
-                                addon1?: T;
-                                styles?:
-                                  | T
-                                  | {
-                                      id?: T;
-                                      className?: T;
-                                      customStyles?: T;
-                                      field1?: T;
-                                      field2?: T;
-                                    };
-                                docs?: T | {};
-                                addon2?: T;
-                              };
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           myname?: T;
                           id?: T;
                           blockName?: T;
@@ -2734,21 +1936,23 @@ export interface PagesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AdvancedGroupField_select".
+ */
+export interface AdvancedGroupFieldSelect<T extends boolean = true> {
+  addon1?: T;
+  id?: T;
+  className?: T;
+  styles?: T;
+  field1?: T;
+  field2?: T;
+  addon2?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "SpacerBlock_select".
  */
 export interface SpacerBlockSelect<T extends boolean = true> {
-  advanced?:
-    | T
-    | {
-        styles?:
-          | T
-          | {
-              id?: T;
-              className?: T;
-              customStyles?: T;
-            };
-        docs?: T | {};
-      };
+  advanced?: T | AdvancedGroupFieldSelect<T>;
   size?: T;
   id?: T;
   blockName?: T;
@@ -2758,18 +1962,7 @@ export interface SpacerBlockSelect<T extends boolean = true> {
  * via the `definition` "ButtonBlock_select".
  */
 export interface ButtonBlockSelect<T extends boolean = true> {
-  advanced?:
-    | T
-    | {
-        styles?:
-          | T
-          | {
-              id?: T;
-              className?: T;
-              customStyles?: T;
-            };
-        docs?: T | {};
-      };
+  advanced?: T | AdvancedGroupFieldSelect<T>;
   label?: T;
   variant?: T;
   size?: T;

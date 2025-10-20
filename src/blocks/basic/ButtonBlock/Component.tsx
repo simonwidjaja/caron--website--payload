@@ -1,23 +1,23 @@
 import React from 'react'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import type { Link as LinkType } from '@/payload-types'
+import type { ButtonBlock as ButtonBlockProps } from '@/payload-types'
 import { getLocalizedUrl } from '@/utilities/getLocalizedUrl'
+import { Button } from '@/components/basic/buttons/Button'
+import AdvancedHelper from '@/fields/cms/advancedGroupField/AdvancedHelper'
 
-type ButtonBlockProps = {
+// Extend the generated type to include currentLanguage
+interface ExtendedButtonBlockProps extends ButtonBlockProps {
   currentLanguage?: string
-  label: string
-  variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link'
-  size?: 'default' | 'sm' | 'lg' | 'icon'
-  link: LinkType
 }
 
-export const ButtonBlock: React.FC<ButtonBlockProps> = ({ 
+// export const ButtonBlock: React.FC<ButtonBlockProps> = ({ 
+export const ButtonBlock: React.FC<ExtendedButtonBlockProps> = ({ 
   currentLanguage,
   label,
   variant = 'default',
   size = 'default',
   link,
+  advanced,
 }) => {
 
   // Determine href based on link type and current language
@@ -30,14 +30,18 @@ export const ButtonBlock: React.FC<ButtonBlockProps> = ({
   } : {}
 
   return (
-    <Button 
-      variant={variant} 
-      size={size}
-      asChild
-    >
-      <Link href={href} {...linkProps}>
-        {label}
-      </Link>
-    </Button>
+    <>
+      <Button 
+        variant={variant} 
+        size={size}
+        {...AdvancedHelper.advancedAttributes(advanced)}
+      >
+        <Link href={href} {...linkProps}>
+          {label}
+        </Link>
+      </Button>
+
+      {AdvancedHelper.advancedStyles(advanced)}
+    </>
   )
 }

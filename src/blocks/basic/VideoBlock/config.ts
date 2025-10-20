@@ -1,5 +1,5 @@
 import { advancedGroupField } from '@/fields/cms/advancedGroupField/advancedGroupField'
-import type { Block, TextFieldSingleValidation } from 'payload'
+import type { Block } from 'payload'
 
 export const VideoBlockConfig: Block = {
   slug: 'videoBlock',
@@ -37,7 +37,7 @@ export const VideoBlockConfig: Block = {
       required: true,
       admin: {
         description: 'Select a video to display',
-        condition: (_, siblingData) => siblingData?.sourceType === 'internal',
+        condition: (_: unknown, siblingData: { sourceType?: string }) => siblingData?.sourceType === 'internal',
       },
       filterOptions: {
         mimeType: {
@@ -54,7 +54,7 @@ export const VideoBlockConfig: Block = {
       required: true,
       admin: {
         description: 'Enter the external video URL',
-        condition: (_, siblingData) => siblingData?.sourceType === 'external',
+        condition: (_: unknown, siblingData: { sourceType?: string }) => siblingData?.sourceType === 'external',
       },
     },
     {
