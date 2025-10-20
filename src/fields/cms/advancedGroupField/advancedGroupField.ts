@@ -1,9 +1,9 @@
 import type { Field } from 'payload'
 
-export const customGroupField = (options: {
+export const advancedGroupField = (options: {
   name: string
   label?: string
-  borderColor?: string
+  // borderColor?: string
   fields: Field[]
 }): Field => ({
   name: options.name,
@@ -13,11 +13,11 @@ export const customGroupField = (options: {
   admin: {
     components: {
       Field: {
-        path: '@/fields/wip/customGroup/CustomGroup',
+        path: '@/fields/cms/advancedGroupField/AdvancedGroupComponent.tsx',
       },
     },
     custom: {
-      borderColor: options.borderColor || '#ddd',
+      //borderColor: options.borderColor || '#ddd',
     },
   },
 })

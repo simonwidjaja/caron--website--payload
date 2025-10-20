@@ -1,4 +1,4 @@
-import { customGroupField } from '@/fields/wip/customGroup/customGroupField'
+import { advancedGroupField } from '@/fields/cms/advancedGroupField/advancedGroupField'
 import type { Block } from 'payload'
 
 export const CustomGroupTestFieldConfig: Block = {
@@ -11,10 +11,10 @@ export const CustomGroupTestFieldConfig: Block = {
     group: 'basic', 
   },
   fields: [
-    customGroupField({
+    advancedGroupField({
       name: 'advanced',
       label: 'Custom Group',
-      borderColor: '#0070f3', 
+      // borderColor: '#0070f3', 
       fields: [
         {
           type: 'tabs',
@@ -62,7 +62,7 @@ export const CustomGroupTestFieldConfig: Block = {
         },
       ]
     }),
-    
+
     {
       name: 'myname',
       type: 'text',
