@@ -2398,6 +2398,10 @@ export interface Header {
                */
               brief?: string | null;
               /**
+               * SVG code for the submenu link icon
+               */
+              icon?: string | null;
+              /**
                * Choose if the URL is internal or external
                */
               urlType?: ('internal' | 'external') | null;
@@ -2444,6 +2448,7 @@ export interface HeaderSelect<T extends boolean = true> {
           | {
               label?: T;
               brief?: T;
+              icon?: T;
               urlType?: T;
               url?: T;
               internalUrl?: T;

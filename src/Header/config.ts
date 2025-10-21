@@ -89,6 +89,13 @@ export const Header: GlobalConfig = {
               },
             },
             {
+              name: 'icon',
+              type: 'textarea',
+              admin: {
+                description: 'SVG code for the submenu link icon',
+              },
+            },
+            {
               name: 'urlType',
               type: 'select',
               defaultValue: 'internal',
