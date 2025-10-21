@@ -65,7 +65,7 @@ const products = [
 const navData = [
   // First Level: Services
   {
-    name: 'Services',
+    name: 'Technische Kommunikation',
     items: [
       {
         name: 'Technische Kommunikation',
@@ -114,13 +114,25 @@ const navData = [
       },
     ],
   },
+  // First Level: X
+  {
+    name: 'Web & Experiences',
+    href: '#',
+  },
+  // First Level: X
+  {
+    name: 'E-Learning',
+    href: '#',
+  },
   // First Level: Referenzen
   {
     name: 'Referenzen',
+    href: '#',
   },
   // First Level: About
   {
     name: 'Über Caron',
+    href: '#',
   },
 ];
 
@@ -138,11 +150,11 @@ export function HeaderClient() {
 
   return (
     <header className="container relative isolate z-10">
-      <nav aria-label="Global" className="mx-auto flex items-center justify-between p-6 lg:px-8">
+      <nav aria-label="Global" className="mx-auto flex items-center justify-between p-6 lg:px-3">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">{GlobalConfig.brand.name}</span>
-            <Image src={brandIcon} alt={GlobalConfig.brand.name} className="h-8 w-auto mt-0" priority />
+            <Image src={brandIcon} alt={GlobalConfig.brand.name} className="h-8 w-auto mt-3" priority />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -157,156 +169,78 @@ export function HeaderClient() {
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
 
+          {
+            navData.map((firstLevelItem) => {
+              if (!firstLevelItem.items) {
+                // Simple nav item without dropdown
+                return (
+                  <a
+                    key={firstLevelItem.name}
+                    href={firstLevelItem.href || '#'}
+                    className="text-sm/6 font-semibold text-gray-900 dark:text-white outline-none"
+                  >
+                    {firstLevelItem.name}
+                  </a>
+                )
+              }
 
-          {/* Services */}
-          <Popover>
-            <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900 dark:text-white outline-none">
-              Services
-              <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400 dark:text-gray-500" />
-            </PopoverButton>
+              // Dropdown nav item
+              return (
+                <Popover key={firstLevelItem.name}>
+                  <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900 dark:text-white outline-none">
+                    {firstLevelItem.name}
+                    <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400 dark:text-gray-500" />
+                  </PopoverButton>
 
-            <PopoverPanel
-              transition
-              className="absolute inset-x-0 top-16 bg-white transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in dark:bg-gray-900"
-            >
-              {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 top-1/2 bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-900 dark:shadow-none dark:ring-white/15"
-              />
-              <div className="relative bg-white dark:bg-gray-900">
-                <div className="mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
-
-
-                  {/* Topic */}
-                  <div>
-                    <div className='mb-6'>Technische Kommunikation</div>
-                    <div>
-                      {services.map((item) => (
-                        <div
-                          key={item.name}
-                          className="flex group relative rounded-lg text-sm/6 hover:bg-gray-50 dark:hover:bg-white/5"
-                        >
-                          <div className="w-6 min-w-6 max-w-6 pt-1 items-center justify-center rounded-lg">
-                            <item.icon
-                              aria-hidden="true"
-                              className="w-6 h-6 text-gray-300 group-hover:text-indigo-600"
-                            />
-                          </div>
-                          <div className='ml-3'>
-                            <a href={item.href} className="block font-semibold text-gray-900 dark:text-white">
-                              {item.name}
-                              <span className="absolute inset-0" />
-                            </a>
-                            <p className="mt-0.2 text-xs text-gray-400 dark:text-gray-400">{item.description}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  {/* END: Topic */}
-
-                  <div>Visualisierung und Rich Content</div>
-                  <div>Interaktive Experiences</div>
-                  
-                  
-                  
-
-
-                </div>
-
-                {/* Footer: CTAs */}
-                <div className="bg-gray-50 dark:bg-gray-800/50">
-                  <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div className="grid grid-cols-3 divide-x divide-gray-900/5 border-x border-gray-900/5 dark:divide-white/5 dark:border-white/10">
-                      {callsToAction.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-800"
-                        >
-                          <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400 dark:text-gray-500" />
-                          {item.name}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                {/* END: Footer: CTAs */}
-
-              </div>
-            </PopoverPanel>
-          </Popover>
-          {/* End: Services */}
-
-
-
-          <Popover>
-            <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900 dark:text-white outline-none">
-              Product
-              <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400 dark:text-gray-500" />
-            </PopoverButton>
-
-            <PopoverPanel
-              transition
-              className="absolute inset-x-0 top-16 bg-white transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in dark:bg-gray-900"
-            >
-              {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 top-1/2 bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-900 dark:shadow-none dark:ring-white/15"
-              />
-              <div className="relative bg-white dark:bg-gray-900">
-                <div className="mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
-                  {products.map((item) => (
+                  <PopoverPanel
+                    transition
+                    className="absolute inset-x-0 top-16 bg-white rounded-3xl transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in mt-7"
+                  >
+                    {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                     <div
-                      key={item.name}
-                      className="group relative rounded-lg p-6 text-sm/6 hover:bg-gray-50 dark:hover:bg-white/5"
-                    >
-                      <div className="flex size-11 items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-700/50 dark:group-hover:bg-gray-700">
-                        <item.icon
-                          aria-hidden="true"
-                          className="size-6 text-gray-600 group-hover:text-indigo-600 dark:text-gray-400 dark:group-hover:text-white"
-                        />
+                      aria-hidden="true"
+                      className="absolute inset-0 bg-white shadow-2xl opacity-50 rounded-3xl"
+                    />
+                    <div className="relative bg-white rounded-3xl">
+                      <div className="mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
+                        {firstLevelItem.items.map((secondLevelItem) => (
+                          <div key={secondLevelItem.name}>
+                            <div className='mb-6'>{secondLevelItem.name}</div>
+                            <div>
+                              {secondLevelItem.items.map((item) => (
+                                <div
+                                  key={item.name}
+                                  className="flex group relative rounded-lg text-sm/6 hover:bg-gray-50 dark:hover:bg-white/5"
+                                >
+                                  <div className="w-6 min-w-6 max-w-6 pt-1 items-center justify-center rounded-lg">
+                                    <item.icon
+                                      aria-hidden="true"
+                                      className="w-6 h-6 text-gray-300 group-hover:text-indigo-600"
+                                    />
+                                  </div>
+                                  <div className='ml-3'>
+                                    <a href={item.href} className="block font-semibold text-gray-900 dark:text-white">
+                                      {item.name}
+                                      <span className="absolute inset-0" />
+                                    </a>
+                                    <p className="mt-0.2 text-xs text-gray-400 dark:text-gray-400">{item.description}</p>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                      <a href={item.href} className="mt-6 block font-semibold text-gray-900 dark:text-white">
-                        {item.name}
-                        <span className="absolute inset-0" />
-                      </a>
-                      <p className="mt-1 text-gray-600 dark:text-gray-400">{item.description}</p>
                     </div>
-                  ))}
-                </div>
-                <div className="bg-gray-50 dark:bg-gray-800/50">
-                  <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div className="grid grid-cols-3 divide-x divide-gray-900/5 border-x border-gray-900/5 dark:divide-white/5 dark:border-white/10">
-                      {callsToAction.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-800"
-                        >
-                          <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400 dark:text-gray-500" />
-                          {item.name}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </PopoverPanel>
-          </Popover>
-
-          <a href="#" className="text-sm/6 font-semibold text-gray-900 dark:text-white">
-            Referenzen
-          </a>
-          <a href="#" className="text-sm/6 font-semibold text-gray-900 dark:text-white">
-            Über Caron
-          </a>
+                  </PopoverPanel>
+                </Popover>
+              )
+            })
+          }
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" className="text-sm/6 font-semibold text-gray-900 dark:text-white">
-            Log in <span aria-hidden="true">&rarr;</span>
+            Kontakt <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </nav>
