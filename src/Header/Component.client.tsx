@@ -27,24 +27,18 @@ import GlobalConfig from '@/GlobalConfig'
 
 const services = [
   {
-    name: 'TeKom',
+    name: 'Technische Redaktion',
     description: 'Get a better understanding where your traffic is coming from',
     href: '#',
     icon: ChartPieIcon,
   },
   {
-    name: 'Rich Content',
+    name: 'Visualisierung',
     description: 'Speak directly to your customers with our engagement tool',
     href: '#',
     icon: CursorArrowRaysIcon,
   },
-  { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-  {
-    name: 'Integrations',
-    description: 'Your customers’ data will be safe and secure',
-    href: '#',
-    icon: SquaresPlusIcon,
-  },
+  { name: 'Technische Übersetzung', description: 'Your customers data will be safe and secure', href: '#', icon: FingerPrintIcon },
 ]
 const products = [
   {
@@ -67,6 +61,72 @@ const products = [
     icon: SquaresPlusIcon,
   },
 ]
+
+const navData = [
+  // First Level: Services
+  {
+    name: 'Services',
+    items: [
+      {
+        name: 'Technische Kommunikation',
+        items: [
+          {
+            name: 'Technische Redaktion',
+            description: 'Get a better understanding where your traffic is coming from',
+            href: '#',
+            icon: ChartPieIcon,
+          },
+          {
+            name: 'Visualisierung',
+            description: 'Speak directly to your customers with our engagement tool',
+            href: '#',
+            icon: CursorArrowRaysIcon,
+          },
+          {
+            name: 'Technische Übersetzung',
+            description: 'Your customers data will be safe and secure',
+            href: '#',
+            icon: FingerPrintIcon,
+          },
+        ],
+      },
+      {
+        name: 'Visualisierung und Rich Content',
+        items: [
+          {
+            name: 'XXX',
+            description: 'Get a better understanding where your traffic is coming from',
+            href: '#',
+            icon: ChartPieIcon,
+          },
+        ],
+      },
+      {
+        name: 'Interaktive Experiences',
+        items: [
+          {
+            name: 'ZZZ',
+            description: 'Get a better understanding where your traffic is coming from',
+            href: '#',
+            icon: ChartPieIcon,
+          },
+        ],
+      },
+    ],
+  },
+  // First Level: Referenzen
+  {
+    name: 'Referenzen',
+  },
+  // First Level: About
+  {
+    name: 'Über Caron',
+  },
+];
+
+
+
+
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
   { name: 'Contact sales', href: '#', icon: PhoneIcon },
@@ -96,6 +156,9 @@ export function HeaderClient() {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
+
+
+          {/* Services */}
           <Popover>
             <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900 dark:text-white outline-none">
               Services
@@ -113,25 +176,46 @@ export function HeaderClient() {
               />
               <div className="relative bg-white dark:bg-gray-900">
                 <div className="mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
-                  {services.map((item) => (
-                    <div
-                      key={item.name}
-                      className="group relative rounded-lg p-6 text-sm/6 hover:bg-gray-50 dark:hover:bg-white/5"
-                    >
-                      <div className="flex size-11 items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-700/50 dark:group-hover:bg-gray-700">
-                        <item.icon
-                          aria-hidden="true"
-                          className="size-6 text-gray-600 group-hover:text-indigo-600 dark:text-gray-400 dark:group-hover:text-white"
-                        />
-                      </div>
-                      <a href={item.href} className="mt-6 block font-semibold text-gray-900 dark:text-white">
-                        {item.name}
-                        <span className="absolute inset-0" />
-                      </a>
-                      <p className="mt-1 text-gray-600 dark:text-gray-400">{item.description}</p>
+
+
+                  {/* Topic */}
+                  <div>
+                    <div className='mb-6'>Technische Kommunikation</div>
+                    <div>
+                      {services.map((item) => (
+                        <div
+                          key={item.name}
+                          className="flex group relative rounded-lg text-sm/6 hover:bg-gray-50 dark:hover:bg-white/5"
+                        >
+                          <div className="w-6 min-w-6 max-w-6 pt-1 items-center justify-center rounded-lg">
+                            <item.icon
+                              aria-hidden="true"
+                              className="w-6 h-6 text-gray-300 group-hover:text-indigo-600"
+                            />
+                          </div>
+                          <div className='ml-3'>
+                            <a href={item.href} className="block font-semibold text-gray-900 dark:text-white">
+                              {item.name}
+                              <span className="absolute inset-0" />
+                            </a>
+                            <p className="mt-0.2 text-xs text-gray-400 dark:text-gray-400">{item.description}</p>
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+                  {/* END: Topic */}
+
+                  <div>Visualisierung und Rich Content</div>
+                  <div>Interaktive Experiences</div>
+                  
+                  
+                  
+
+
                 </div>
+
+                {/* Footer: CTAs */}
                 <div className="bg-gray-50 dark:bg-gray-800/50">
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="grid grid-cols-3 divide-x divide-gray-900/5 border-x border-gray-900/5 dark:divide-white/5 dark:border-white/10">
@@ -148,9 +232,15 @@ export function HeaderClient() {
                     </div>
                   </div>
                 </div>
+                {/* END: Footer: CTAs */}
+
               </div>
             </PopoverPanel>
           </Popover>
+          {/* End: Services */}
+
+
+
           <Popover>
             <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900 dark:text-white outline-none">
               Product
@@ -208,16 +298,10 @@ export function HeaderClient() {
           </Popover>
 
           <a href="#" className="text-sm/6 font-semibold text-gray-900 dark:text-white">
-            Features
+            Referenzen
           </a>
           <a href="#" className="text-sm/6 font-semibold text-gray-900 dark:text-white">
-            Features
-          </a>
-          <a href="#" className="text-sm/6 font-semibold text-gray-900 dark:text-white">
-            Marketplace
-          </a>
-          <a href="#" className="text-sm/6 font-semibold text-gray-900 dark:text-white">
-            Company
+            Über Caron
           </a>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
