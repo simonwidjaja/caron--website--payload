@@ -24,119 +24,10 @@ import { ChevronDownIcon, PhoneIcon, PlayCircleIcon, RectangleGroupIcon } from '
 import Image from 'next/image'
 import brandIcon from '../../public/static/images/brand.svg'
 import GlobalConfig from '@/GlobalConfig'
-
-const services = [
-  {
-    name: 'Technische Redaktion',
-    description: 'Get a better understanding where your traffic is coming from',
-    href: '#',
-    icon: ChartPieIcon,
-  },
-  {
-    name: 'Visualisierung',
-    description: 'Speak directly to your customers with our engagement tool',
-    href: '#',
-    icon: CursorArrowRaysIcon,
-  },
-  { name: 'Technische Übersetzung', description: 'Your customers data will be safe and secure', href: '#', icon: FingerPrintIcon },
-]
-const products = [
-  {
-    name: 'Analytics',
-    description: 'Get a better understanding where your traffic is coming from',
-    href: '#',
-    icon: ChartPieIcon,
-  },
-  {
-    name: 'Engagement',
-    description: 'Speak directly to your customers with our engagement tool',
-    href: '#',
-    icon: CursorArrowRaysIcon,
-  },
-  { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-  {
-    name: 'Integrations',
-    description: 'Your customers’ data will be safe and secure',
-    href: '#',
-    icon: SquaresPlusIcon,
-  },
-]
-
-const navData = [
-  // First Level: Services
-  {
-    name: 'Technische Kommunikation',
-    items: [
-      {
-        name: 'Technische Kommunikation',
-        items: [
-          {
-            name: 'Technische Redaktion',
-            description: 'Get a better understanding where your traffic is coming from',
-            href: '#',
-            icon: ChartPieIcon,
-          },
-          {
-            name: 'Visualisierung',
-            description: 'Speak directly to your customers with our engagement tool',
-            href: '#',
-            icon: CursorArrowRaysIcon,
-          },
-          {
-            name: 'Technische Übersetzung',
-            description: 'Your customers data will be safe and secure',
-            href: '#',
-            icon: FingerPrintIcon,
-          },
-        ],
-      },
-      {
-        name: 'Visualisierung und Rich Content',
-        items: [
-          {
-            name: 'XXX',
-            description: 'Get a better understanding where your traffic is coming from',
-            href: '#',
-            icon: ChartPieIcon,
-          },
-        ],
-      },
-      {
-        name: 'Interaktive Experiences',
-        items: [
-          {
-            name: 'ZZZ',
-            description: 'Get a better understanding where your traffic is coming from',
-            href: '#',
-            icon: ChartPieIcon,
-          },
-        ],
-      },
-    ],
-  },
-  // First Level: X
-  {
-    name: 'Web & Experiences',
-    href: '#',
-  },
-  // First Level: X
-  {
-    name: 'E-Learning',
-    href: '#',
-  },
-  // First Level: Referenzen
-  {
-    name: 'Referenzen',
-    href: '#',
-  },
-  // First Level: About
-  {
-    name: 'Über Caron',
-    href: '#',
-  },
-];
+import { navData as navDataImport } from './wip/nav.a'
 
 
+const navData = navDataImport;
 
 
 const callsToAction = [
@@ -167,6 +58,7 @@ export function HeaderClient() {
             <Bars3Icon aria-hidden="true" className="size-6" />
           </button>
         </div>
+
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
 
           {
@@ -238,6 +130,7 @@ export function HeaderClient() {
             })
           }
         </PopoverGroup>
+
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" className="text-sm/6 font-semibold text-gray-900 dark:text-white">
             Kontakt <span aria-hidden="true">&rarr;</span>
@@ -269,7 +162,7 @@ export function HeaderClient() {
                     Product
                     <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
                   </DisclosureButton>
-                  <DisclosurePanel className="mt-2 space-y-2">
+                  {/* <DisclosurePanel className="mt-2 space-y-2">
                     {[...products, ...callsToAction].map((item) => (
                       <DisclosureButton
                         key={item.name}
@@ -280,7 +173,7 @@ export function HeaderClient() {
                         {item.name}
                       </DisclosureButton>
                     ))}
-                  </DisclosurePanel>
+                  </DisclosurePanel> */}
                 </Disclosure>
                 <a
                   href="#"
