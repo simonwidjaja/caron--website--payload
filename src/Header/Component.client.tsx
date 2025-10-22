@@ -13,6 +13,7 @@ import {
   PopoverPanel,
 } from '@headlessui/react'
 import {
+  ArrowLongRightIcon,
   Bars3Icon,
   ChartPieIcon,
   CursorArrowRaysIcon,
@@ -25,6 +26,7 @@ import Image from 'next/image'
 import brandIcon from '../../public/static/images/brand.svg'
 import GlobalConfig from '@/GlobalConfig'
 import { navData as navDataImport } from './wip/nav.a'
+import { Button } from '@/components/basic/buttons/Button'
 
 
 const navData = navDataImport;
@@ -43,7 +45,7 @@ export function HeaderClient() {
     <header className="container relative isolate z-10">
       <nav aria-label="Global" className="mx-auto flex items-center justify-between p-6 lg:px-3">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">{GlobalConfig.brand.name}</span>
             <Image src={brandIcon} alt={GlobalConfig.brand.name} className="h-8 w-auto mt-3" priority />
           </a>
@@ -120,9 +122,32 @@ export function HeaderClient() {
                                 </div>
                               ))}
                             </div>
+
+
                           </div>
                         ))}
+                          
+                        {/* Call-to-action */}
+                        <div>
+                          <div className="relative">
+                            <Image
+                              src="/media/photo-1485988412941-77a35537dae4q=80&w=2696&auto=format&fit=crop&ixlib=rb-4.1-600x389.jpg"
+                              alt="Placeholder"
+                              width={400}
+                              height={300}
+                              className="w-full h-auto rounded-lg"
+                              priority
+                            />
+                            <div className="flex items-center justify-center">
+                              <Button className="w-full mt-1">
+                                Bedarfs- und Potenzialanalyse 
+                                <ArrowLongRightIcon className="size-5 ml-2 inline-block" />
+                              </Button>
+                            </div>
+                          </div>
+                        </div>
                       </div>
+
                     </div>
                   </PopoverPanel>
                 </Popover>

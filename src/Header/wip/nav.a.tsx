@@ -71,20 +71,32 @@ export const navData = [
         name: 'Web & Experiences',
         items: [
           {
-            name: 'Technische Redaktion',
-            description: 'Get a better understanding where your traffic is coming from',
+            name: 'Webseiten',
+            description: '...',
             href: '#',
             icon: ChartPieIcon,
           },
           {
-            name: 'Visualisierung',
-            description: 'Speak directly to your customers with our engagement tool',
+            name: 'Web & Software Entwicklung',
+            description: '...',
             href: '#',
             icon: CursorArrowRaysIcon,
           },
           {
-            name: 'Technische Übersetzung',
-            description: 'Your customers data will be safe and secure',
+            name: 'Produktwelten',
+            description: '...',
+            href: '#',
+            icon: FingerPrintIcon,
+          },
+          {
+            name: 'Produktwelten',
+            description: '...',
+            href: '#',
+            icon: FingerPrintIcon,
+          },
+          {
+            name: 'Produktwelten',
+            description: '...',
             href: '#',
             icon: FingerPrintIcon,
           },
@@ -117,7 +129,7 @@ export const navData = [
   // First Level: E-Learning
   {
     name: 'E-Learning',
-    href: '#',
+    href: '/de/e-learning',
   },
   // First Level: Referenzen
   {
