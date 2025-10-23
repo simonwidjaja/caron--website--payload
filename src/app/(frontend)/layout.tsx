@@ -16,6 +16,7 @@ import GlobalAnimations from '@/components/animations/GlobalAnimations'
 import { Barlow } from 'next/font/google'
 
 import './globals.css'
+import Consent from '@/components/Consent/Consent'
 
 const font = Barlow({
   weight: ['300', '400', '500', '600', '700', '800'],
@@ -48,6 +49,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {children}
           <Footer />
           <GlobalAnimations />
+          <Consent />
         </Providers>
       </body>
     </html>

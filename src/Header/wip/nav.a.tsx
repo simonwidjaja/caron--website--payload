@@ -89,13 +89,13 @@ export const navData = [
             icon: FingerPrintIcon,
           },
           {
-            name: 'Produktwelten',
+            name: 'Produktwelten2',
             description: '...',
             href: '#',
             icon: FingerPrintIcon,
           },
           {
-            name: 'Produktwelten',
+            name: 'Produktwelten3',
             description: '...',
             href: '#',
             icon: FingerPrintIcon,

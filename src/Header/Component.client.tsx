@@ -81,75 +81,79 @@ export function HeaderClient() {
               // Dropdown nav item
               return (
                 <Popover key={firstLevelItem.name}>
-                  <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900 dark:text-white outline-none">
-                    {firstLevelItem.name}
-                    <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400 dark:text-gray-500" />
-                  </PopoverButton>
+                  {({ open }) => (
+                    <>
+                      <PopoverButton className={`flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900 dark:text-white outline-none ${open ? 'underline underline-offset-4 decoration-2' : ''}`}>
+                        {firstLevelItem.name}
+                        <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400 dark:text-gray-500" />
+                      </PopoverButton>
 
-                  <PopoverPanel
-                    transition
-                    className="absolute inset-x-0 top-16 bg-white rounded-3xl transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in mt-7"
-                  >
-                    {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-0 bg-white shadow-2xl opacity-50 rounded-3xl"
-                    />
-                    <div className="relative bg-white rounded-3xl">
-                      <div className="mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
-                        {firstLevelItem.items.map((secondLevelItem) => (
-                          <div key={secondLevelItem.name}>
-                            <div className='mb-6'>{secondLevelItem.name}</div>
-                            <div>
-                              {secondLevelItem.items.map((item) => (
-                                <div
-                                  key={item.name}
-                                  className="flex group relative rounded-lg text-sm/6 hover:bg-gray-50 dark:hover:bg-white/5"
-                                >
-                                  <div className="w-6 min-w-6 max-w-6 pt-1 items-center justify-center rounded-lg">
-                                    <item.icon
-                                      aria-hidden="true"
-                                      className="w-6 h-6 text-gray-300 group-hover:text-indigo-600"
-                                    />
-                                  </div>
-                                  <div className='ml-3'>
-                                    <a href={item.href} className="block font-semibold text-gray-900 dark:text-white">
-                                      {item.name}
-                                      <span className="absolute inset-0" />
-                                    </a>
-                                    <p className="mt-0.2 text-xs text-gray-400 dark:text-gray-400">{item.description}</p>
-                                  </div>
+                      <PopoverPanel
+                        transition
+                        className="absolute inset-x-0 top-16 bg-white rounded-3xl transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in mt-7"
+                      >
+                        {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
+                        <div
+                          aria-hidden="true"
+                          className="absolute inset-0 bg-white shadow-2xl opacity-50 rounded-3xl"
+                        />
+                        <div className="relative bg-white rounded-3xl">
+                          <div className="mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
+                            {firstLevelItem.items.map((secondLevelItem) => (
+                              <div key={secondLevelItem.name}>
+                                <div className='mb-6'>{secondLevelItem.name}</div>
+                                <div>
+                                  {secondLevelItem.items.map((item) => (
+                                    <div
+                                      key={item.name}
+                                      className="flex group relative rounded-lg text-sm/6 hover:bg-gray-50 dark:hover:bg-white/5"
+                                    >
+                                      <div className="w-6 min-w-6 max-w-6 pt-1 items-center justify-center rounded-lg">
+                                        <item.icon
+                                          aria-hidden="true"
+                                          className="w-6 h-6 text-gray-300 group-hover:text-indigo-600"
+                                        />
+                                      </div>
+                                      <div className='ml-3'>
+                                        <a href={item.href} className="block font-semibold text-gray-900 dark:text-white">
+                                          {item.name}
+                                          <span className="absolute inset-0" />
+                                        </a>
+                                        <p className="mt-0.2 text-xs text-gray-400 dark:text-gray-400">{item.description}</p>
+                                      </div>
+                                    </div>
+                                  ))}
                                 </div>
-                              ))}
-                            </div>
 
 
-                          </div>
-                        ))}
-                          
-                        {/* Call-to-action */}
-                        <div>
-                          <div className="relative">
-                            <Image
-                              src="/media/photo-1485988412941-77a35537dae4q=80&w=2696&auto=format&fit=crop&ixlib=rb-4.1-600x389.jpg"
-                              alt="Placeholder"
-                              width={400}
-                              height={300}
-                              className="w-full h-auto rounded-lg"
-                              priority
-                            />
-                            <div className="flex items-center justify-center">
-                              <Button className="w-full mt-1">
-                                Bedarfs- und Potenzialanalyse 
-                                <ArrowLongRightIcon className="size-5 ml-2 inline-block" />
-                              </Button>
+                              </div>
+                            ))}
+
+                            {/* Call-to-action */}
+                            <div>
+                              <div className="relative">
+                                <Image
+                                  src="/media/photo-1485988412941-77a35537dae4q=80&w=2696&auto=format&fit=crop&ixlib=rb-4.1-600x389.jpg"
+                                  alt="Placeholder"
+                                  width={400}
+                                  height={300}
+                                  className="w-full h-auto rounded-lg"
+                                  priority
+                                />
+                                <div className="flex items-center justify-center">
+                                  <Button className="w-full mt-1">
+                                    Bedarfs- und Potenzialanalyse
+                                    <ArrowLongRightIcon className="size-5 ml-2 inline-block" />
+                                  </Button>
+                                </div>
+                              </div>
                             </div>
                           </div>
+
                         </div>
-                      </div>
-
-                    </div>
-                  </PopoverPanel>
+                      </PopoverPanel>
+                    </>
+                  )}
                 </Popover>
               )
             })
