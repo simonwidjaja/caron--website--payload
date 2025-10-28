@@ -99,37 +99,45 @@ export function HeaderClient() {
                           className="absolute inset-0 bg-white shadow-2xl opacity-50 rounded-3xl"
                         />
                         <div className="relative bg-white rounded-3xl">
-                          <div className="mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
+                          <div className="mx-auto grid grid-cols-4 gap-x-4 px-12 py-10 xl:gap-x-8">
+
                             {firstLevelItem.items.map((secondLevelItem, index) => (
                               <div key={secondLevelItem.name}>
+
+                                {/* Group titles */}
                                 <div className={cn(
-                                  'font-extralight mb-6',
+                                  'font-extralight ml-3 mb-6',
                                   index == 0 && '[color:#7737DE]',
                                   index == 1 && '[color:#3BD4CF]',
                                   index == 2 && '[color:#E65687]',
                                 )}>
                                   {secondLevelItem.name}
                                 </div>
+
+                                {/* Menu Items */}
                                 <div>
                                   {secondLevelItem.items.map((item) => (
-                                    <div
-                                      key={item.name}
-                                      className="flex group relative rounded-lg text-sm/6 hover:bg-gray-50 mb-1"
-                                    >
-                                      <div className="w-6 min-w-6 max-w-6 pt-1 items-center justify-center rounded-lg">
-                                        <item.icon
-                                          aria-hidden="true"
-                                          className="w-6 h-6 text-gray-300 group-hover:text-indigo-600"
-                                        />
-                                      </div>
-                                      <div className='ml-3'>
-                                        <a href={item.href} className="block text-base font-semibold text-gray-900 dark:text-white">
-                                          {item.name}
+                                    <a href={item.href} className="block text-base font-semibold text-gray-900 dark:text-white">
+                                      <div
+                                        key={item.name}
+                                        className="flex group relative rounded-lg text-sm/6 hover:bg-gray-50 p-2 pl-3"
+                                      >
+                                        {/* <div className="w-6 min-w-6 max-w-6 pt-1 items-center justify-center rounded-lg">
+                                          <item.icon
+                                            aria-hidden="true"
+                                            className="w-6 h-6 text-gray-300 group-hover:text-indigo-600"
+                                          />
+                                        </div>
+                                        <div className='ml-3'> */}
+                                        <div className=''>
+                                          <span className="block text-base font-semibold text-gray-900">
+                                            {item.name}
+                                          </span>
                                           <span className="absolute inset-0" />
-                                        </a>
-                                        <p className="mt-0.2 text-xs opacity-40">{item.description}</p>
+                                          <p className="mt-0.2 mb-0 font-light text-xs opacity-50">{item.description}</p>
+                                        </div>
                                       </div>
-                                    </div>
+                                    </a>
                                   ))}
                                 </div>
 
