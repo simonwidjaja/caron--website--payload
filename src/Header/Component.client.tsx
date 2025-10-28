@@ -86,7 +86,9 @@ export function HeaderClient({ lang }: { lang: string }) {
                 <Popover key={firstLevelItem.name}>
                   {({ open }) => (
                     <>
-                      <PopoverButton className={`flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900 dark:text-white outline-none ${open ? 'underline underline-offset-4 decoration-2' : ''}`}>
+                      <PopoverButton
+                        className={`flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900 dark:text-white outline-none underline-offset-4 decoration-2 hover:underline ${open ? 'underline ' : ''}`}
+                      >
                         {firstLevelItem.name}
                         <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400 dark:text-gray-500" />
                       </PopoverButton>
