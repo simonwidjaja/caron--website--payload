@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import {
   Dialog,
   DialogPanel,
@@ -41,8 +41,29 @@ const callsToAction = [
   { name: 'View all products', href: '#', icon: RectangleGroupIcon },
 ]
 
+
+
 export function HeaderClient({ lang }: { lang: string }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const closePopoverRef = useRef<(() => void) | null>(null)
+
+  const handleBodyClick = (e: MouseEvent) => {
+    const target = e.target as HTMLElement
+    // Check if click is outside popover panel and button
+    if (!target.closest('[data-headlessui-state]') && closePopoverRef.current) {
+      closePopoverRef.current()
+    }
+  }
+
+  useEffect(() => {
+    // 1. Register the event listener when the component mounts
+    document.body.addEventListener('click', handleBodyClick);
+
+    // 2. Clean up the event listener when the component unmounts
+    return () => {
+      document.body.removeEventListener('click', handleBodyClick);
+    };
+  }, []);
 
   return (
     <header className="container relative isolate z-10">
@@ -74,7 +95,7 @@ export function HeaderClient({ lang }: { lang: string }) {
                   <a
                     key={firstLevelItem.name}
                     href={getLocalizedUrlFromHref(firstLevelItem.href, lang)}
-                    className="text-sm/6 font-semibold text-gray-900 dark:text-white outline-none"
+                    className="text-sm/6 font-semibold text-gray-900 dark:text-white outline-none underline-offset-4 decoration-2 hover:underline "
                   >
                     {firstLevelItem.name}
                   </a>
@@ -84,94 +105,103 @@ export function HeaderClient({ lang }: { lang: string }) {
               // Dropdown nav item
               return (
                 <Popover key={firstLevelItem.name}>
-                  {({ open }) => (
-                    <>
-                      <PopoverButton
-                        className={`flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900 dark:text-white outline-none underline-offset-4 decoration-2 hover:underline ${open ? 'underline ' : ''}`}
-                      >
-                        {firstLevelItem.name}
-                        <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400 dark:text-gray-500" />
-                      </PopoverButton>
+                  {({ open, close }) => {
+                    // Store close function in ref when popover is open
+                    if (open) {
+                      closePopoverRef.current = close
+                    } else {
+                      closePopoverRef.current = null
+                    }
 
-                      <PopoverPanel
-                        transition
-                        className="absolute inset-x-0 top-16 bg-white rounded-3xl transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in mt-7"
-                      >
-                        {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
-                        <div
-                          aria-hidden="true"
-                          className="absolute inset-0 bg-white shadow-2xl opacity-50 rounded-3xl"
-                        />
-                        <div className="relative bg-white rounded-3xl">
-                          <div className="mx-auto grid grid-cols-4 gap-x-4 px-12 py-10 xl:gap-x-8">
+                    return (
+                      <>
+                        <PopoverButton
+                          className={`flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900 dark:text-white outline-none underline-offset-4 decoration-2 hover:underline ${open ? 'underline ' : ''}`}
+                        >
+                          {firstLevelItem.name}
+                          <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400 dark:text-gray-500" />
+                        </PopoverButton>
 
-                            {firstLevelItem.items.map((secondLevelItem, index) => (
-                              <div key={secondLevelItem.name}>
+                        <PopoverPanel
+                          transition
+                          className="absolute inset-x-0 top-16 bg-white rounded-3xl transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in mt-7"
+                        >
+                          {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
+                          <div
+                            aria-hidden="true"
+                            className="absolute inset-0 bg-white shadow-2xl opacity-50 rounded-3xl pointer-events-none"
+                          />
+                          <div className="relative bg-white rounded-3xl">
+                            <div className="mx-auto grid grid-cols-4 gap-x-4 px-12 py-10 xl:gap-x-8">
 
-                                {/* Group titles */}
-                                <div className={cn(
-                                  // 'font-extralight ml-3 mb-6',
-                                  'font-bold ml-3 mb-6',
-                                  index == 0 && '[color:#7737DE]',
-                                  index == 1 && '[color:#3BD4CF]',
-                                  index == 2 && '[color:#E65687]',
-                                )}>
-                                  {secondLevelItem.name}
-                                </div>
+                              {firstLevelItem.items.map((secondLevelItem, index) => (
+                                <div key={secondLevelItem.name}>
 
-                                {/* Menu Items */}
-                                <div>
-                                  {secondLevelItem.items.map((item) => (
-                                    <a href={getLocalizedUrlFromHref(item.href, lang)} className="block text-base font-base text-gray-900 dark:text-white" key={item.name}>
-                                      <div className="flex group relative rounded-lg text-sm/6 hover:bg-gray-50 p-2 pl-3">
-                                        <div className="w-6 min-w-6 max-w-6 pt-1 items-center justify-center rounded-lg">
-                                          <item.icon
-                                            aria-hidden="true"
-                                            className="w-6 h-6 text-gray-300 group-hover:text-indigo-600"
-                                          />
+                                  {/* Group titles */}
+                                  <div className={cn(
+                                    // 'font-extralight ml-3 mb-6',
+                                    'font-bold ml-3 mb-6',
+                                    index == 0 && '[color:#7737DE]',
+                                    index == 1 && '[color:#3BD4CF]',
+                                    index == 2 && '[color:#E65687]',
+                                  )}>
+                                    {secondLevelItem.name}
+                                  </div>
+
+                                  {/* Menu Items */}
+                                  <div>
+                                    {secondLevelItem.items.map((item) => (
+                                      <a href={getLocalizedUrlFromHref(item.href, lang)} className="block text-base font-normal text-gray-900 hover:font-medium" key={item.name}>
+                                        <div className="flex group relative rounded-lg text-sm/6 hover:bg-gray-50 p-2 pl-3">
+                                          <div className="w-6 min-w-6 max-w-6 pt-1 items-center justify-center rounded-lg">
+                                            <item.icon
+                                              aria-hidden="true"
+                                              className="w-6 h-6 text-gray-300 group-hover:text-indigo-600"
+                                            />
+                                          </div>
+                                          <div className='ml-3'>
+                                            {/* <div className=''> */}
+                                            <span className="block text-base text-gray-900">
+                                              {item.name}
+                                            </span>
+                                            <span className="absolute inset-0" />
+                                            <p className="mt-0.2 mb-0 font-light text-xs opacity-50">{item.description}</p>
+                                          </div>
                                         </div>
-                                        <div className='ml-3'>
-                                          {/* <div className=''> */}
-                                          <span className="block text-base font-base text-gray-900">
-                                            {item.name}
-                                          </span>
-                                          <span className="absolute inset-0" />
-                                          <p className="mt-0.2 mb-0 font-light text-xs opacity-50">{item.description}</p>
-                                        </div>
-                                      </div>
-                                    </a>
-                                  ))}
+                                      </a>
+                                    ))}
+                                  </div>
+
+
                                 </div>
+                              ))}
 
-
-                              </div>
-                            ))}
-
-                            {/* Call-to-action */}
-                            <div>
-                              <div className="relative">
-                                <Image
-                                  src="/media/photo-1485988412941-77a35537dae4q=80&w=2696&auto=format&fit=crop&ixlib=rb-4.1-600x389.jpg"
-                                  alt="Placeholder"
-                                  width={400}
-                                  height={300}
-                                  className="w-full h-auto rounded-lg"
-                                  priority
-                                />
-                                <div className="flex items-center justify-center">
-                                  <Button className="w-full mt-1">
-                                    Bedarfs- und Potenzialanalyse
-                                    <ArrowLongRightIcon className="size-5 ml-2 inline-block" />
-                                  </Button>
+                              {/* Call-to-action */}
+                              <div>
+                                <div className="relative">
+                                  <Image
+                                    src="/media/photo-1485988412941-77a35537dae4q=80&w=2696&auto=format&fit=crop&ixlib=rb-4.1-600x389.jpg"
+                                    alt="Placeholder"
+                                    width={400}
+                                    height={300}
+                                    className="w-full h-auto rounded-lg"
+                                    priority
+                                  />
+                                  <div className="flex items-center justify-center">
+                                    <Button className="w-full mt-1">
+                                      Bedarfs- und Potenzialanalyse
+                                      <ArrowLongRightIcon className="size-5 ml-2 inline-block" />
+                                    </Button>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
 
-                        </div>
-                      </PopoverPanel>
-                    </>
-                  )}
+                          </div>
+                        </PopoverPanel>
+                      </>
+                    )
+                  }}
                 </Popover>
               )
             })
