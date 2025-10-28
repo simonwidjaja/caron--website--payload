@@ -157,7 +157,7 @@ export const navData = [
   // First Level: E-Learning
   {
     name: 'E-Learning',
-    href: '/de/e-learning',
+    href: '/e-learning',
   },
   // First Level: Referenzen
   {

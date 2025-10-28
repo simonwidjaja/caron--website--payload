@@ -64,9 +64,6 @@ export function HeaderClient({ lang }: { lang: string }) {
           </button>
         </div>
 
-
-        ### {lang} ###
-
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
 
           {
@@ -76,7 +73,7 @@ export function HeaderClient({ lang }: { lang: string }) {
                 return (
                   <a
                     key={firstLevelItem.name}
-                    href={firstLevelItem.href || '#'}
+                    href={getLocalizedUrlFromHref(firstLevelItem.href, lang)}
                     className="text-sm/6 font-semibold text-gray-900 dark:text-white outline-none"
                   >
                     {firstLevelItem.name}
