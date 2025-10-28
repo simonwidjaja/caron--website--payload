@@ -28,6 +28,7 @@ import GlobalConfig from '@/GlobalConfig'
 import { navData as navDataImport } from './wip/nav.a'
 import { Button } from '@/components/basic/buttons/Button'
 import { cn } from '@/utilities/ui'
+import { LanguageSwitcher } from './LanguageSwitcher'
 
 
 const navData = navDataImport;
@@ -106,7 +107,8 @@ export function HeaderClient() {
 
                                 {/* Group titles */}
                                 <div className={cn(
-                                  'font-extralight ml-3 mb-6',
+                                  // 'font-extralight ml-3 mb-6',
+                                  'font-bold ml-3 mb-6',
                                   index == 0 && '[color:#7737DE]',
                                   index == 1 && '[color:#3BD4CF]',
                                   index == 2 && '[color:#E65687]',
@@ -117,20 +119,19 @@ export function HeaderClient() {
                                 {/* Menu Items */}
                                 <div>
                                   {secondLevelItem.items.map((item) => (
-                                    <a href={item.href} className="block text-base font-semibold text-gray-900 dark:text-white">
+                                    <a href={item.href} className="block text-base font-base text-gray-900 dark:text-white" key={item.name}>
                                       <div
-                                        key={item.name}
                                         className="flex group relative rounded-lg text-sm/6 hover:bg-gray-50 p-2 pl-3"
                                       >
-                                        {/* <div className="w-6 min-w-6 max-w-6 pt-1 items-center justify-center rounded-lg">
+                                        <div className="w-6 min-w-6 max-w-6 pt-1 items-center justify-center rounded-lg">
                                           <item.icon
                                             aria-hidden="true"
                                             className="w-6 h-6 text-gray-300 group-hover:text-indigo-600"
                                           />
                                         </div>
-                                        <div className='ml-3'> */}
-                                        <div className=''>
-                                          <span className="block text-base font-semibold text-gray-900">
+                                        <div className='ml-3'>
+                                          {/* <div className=''> */}
+                                          <span className="block text-base font-base text-gray-900">
                                             {item.name}
                                           </span>
                                           <span className="absolute inset-0" />
@@ -174,6 +175,7 @@ export function HeaderClient() {
               )
             })
           }
+          <LanguageSwitcher />
         </PopoverGroup>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">

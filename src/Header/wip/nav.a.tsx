@@ -1,14 +1,18 @@
 import {
-  Bars3Icon,
+  AcademicCapIcon,
   ChartPieIcon,
+  ChatBubbleLeftRightIcon,
+  CircleStackIcon,
+  CubeIcon,
   CursorArrowRaysIcon,
-  FingerPrintIcon,
-  GlobeAmericasIcon,
+  CursorArrowRippleIcon,
+  FilmIcon,
+  FireIcon,
+  FunnelIcon,
+  HeartIcon,
   LanguageIcon,
-  PencilIcon,
   PencilSquareIcon,
-  SquaresPlusIcon,
-  XMarkIcon,
+  RocketLaunchIcon,
 } from '@heroicons/react/24/outline'
 
 export const navData = [
@@ -73,20 +77,20 @@ export const navData = [
           {
             name: 'Webseiten und Portale',
             description: 'Für Marketing, Wissen & Support',
-            href: '#',
-            icon: ChartPieIcon,
+            href: '/websites',
+            icon: CursorArrowRaysIcon,
           },
           {
             name: 'Web & Software Entwicklung',
             description: 'Custom Solutions für Ihre speziellen Anforderungen',
             href: '#',
-            icon: CursorArrowRaysIcon,
+            icon: CircleStackIcon,
           },
           {
             name: 'Wissenwelten',
             description: 'Explorative Lernerfahrungen',
             href: '#',
-            icon: FingerPrintIcon,
+            icon: AcademicCapIcon,
           },
         ],
       },
@@ -97,31 +101,31 @@ export const navData = [
             name: 'Produktwelten',
             description: 'Interaktive, begehbare 3D-Produktwelten', // 38 Zeichen
             href: '#',
-            icon: ChartPieIcon,
+            icon: CubeIcon,
           },
           {
             name: 'Interaktive Infografiken',
             description: 'Fesselndes Storytelling durch Rich Content', // 39 Zeichen
             href: '#',
-            icon: ChartPieIcon,
+            icon: CursorArrowRippleIcon,
           },
           {
             name: 'Marketing Experiences',
             description: 'Maßgeschneiderte interaktive Erlebnisse', // 38 Zeichen
             href: '#',
-            icon: ChartPieIcon,
+            icon: FunnelIcon,
           },
           {
             name: 'Video und Animation',
             description: 'Visuelles Storytelling (Video, 3D, Animation)', // 40 Zeichen
             href: '#',
-            icon: ChartPieIcon,
+            icon: FilmIcon,
           },
           {
             name: 'Conversion Boosters',
             description: 'Interaktive Tools zur Conversion-Steigerung', // 40 Zeichen
             href: '#',
-            icon: ChartPieIcon,
+            icon: ChatBubbleLeftRightIcon
           },
         ],
       },
@@ -130,21 +134,21 @@ export const navData = [
         items: [
           {
             name: 'User Experience Design (UX)',
-            description: 'UX-getriebene Konzeption für effizientes Lernen.',
+            description: 'UX-getriebene Beratung und Konzeption',
             href: '#',
-            icon: ChartPieIcon,
+            icon: HeartIcon,
           },
           {
             name: 'Bedarfs- und Potenzialanalyse',
-            description: 'Ganzheitliche Analyse von Bedarf und Potenzial.',
+            description: 'Ganzheitliche Analyse von Bedarf und Potenzial',
             href: '#',
-            icon: ChartPieIcon,
+            icon: FireIcon,
           },
           {
             name: 'Künstliche Intelligenz (KI)',
-            description: 'AI-gestützte Chatbots und Smart Solutions.',
+            description: 'AI-gestützte Chatbots und Smart Solutions',
             href: '#',
-            icon: ChartPieIcon,
+            icon: RocketLaunchIcon,
           },
         ],
       },
