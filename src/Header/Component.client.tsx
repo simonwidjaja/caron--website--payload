@@ -29,6 +29,7 @@ import { navData as navDataImport } from './wip/nav.a'
 import { Button } from '@/components/basic/buttons/Button'
 import { cn } from '@/utilities/ui'
 import { LanguageSwitcher } from './LanguageSwitcher'
+import { getLocalizedUrlFromHref } from '@/utilities/getLocalizedUrl'
 
 
 const navData = navDataImport;
@@ -40,7 +41,7 @@ const callsToAction = [
   { name: 'View all products', href: '#', icon: RectangleGroupIcon },
 ]
 
-export function HeaderClient() {
+export function HeaderClient({ lang }: { lang: string }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
@@ -62,6 +63,9 @@ export function HeaderClient() {
             <Bars3Icon aria-hidden="true" className="size-6" />
           </button>
         </div>
+
+
+        ### {lang} ###
 
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
 
@@ -119,10 +123,8 @@ export function HeaderClient() {
                                 {/* Menu Items */}
                                 <div>
                                   {secondLevelItem.items.map((item) => (
-                                    <a href={item.href} className="block text-base font-base text-gray-900 dark:text-white" key={item.name}>
-                                      <div
-                                        className="flex group relative rounded-lg text-sm/6 hover:bg-gray-50 p-2 pl-3"
-                                      >
+                                    <a href={getLocalizedUrlFromHref(item.href, lang)} className="block text-base font-base text-gray-900 dark:text-white" key={item.name}>
+                                      <div className="flex group relative rounded-lg text-sm/6 hover:bg-gray-50 p-2 pl-3">
                                         <div className="w-6 min-w-6 max-w-6 pt-1 items-center justify-center rounded-lg">
                                           <item.icon
                                             aria-hidden="true"
@@ -253,6 +255,6 @@ export function HeaderClient() {
           </div>
         </DialogPanel>
       </Dialog>
-    </header>
+    </header >
   )
 }

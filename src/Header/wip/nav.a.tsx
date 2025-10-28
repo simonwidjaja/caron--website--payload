@@ -89,7 +89,7 @@ export const navData = [
           {
             name: 'Wissenwelten',
             description: 'Explorative Lernerfahrungen',
-            href: '#',
+            href: '/e-learning',
             icon: AcademicCapIcon,
           },
         ],

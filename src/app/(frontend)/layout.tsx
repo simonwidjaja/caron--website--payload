@@ -24,11 +24,23 @@ const font = Barlow({
   display: 'swap',
 })
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+
+type LayoutProps = {
+  children: React.ReactNode
+  params: Promise<{
+    lang?: "de" | "en" | "all" | undefined
+  }>
+}
+
+// export default async function RootLayout({ children, params }: LayoutProps) {
+export default async function RootLayout({ children, params }: LayoutProps) {
   const { isEnabled } = await draftMode()
+  const ppp = await params
+  const { lang = 'n/a' } = await params
+  console.log('ppp', ppp);
 
   return (
-    <html className={cn(font.className)} lang="en" suppressHydrationWarning>
+    <html className={cn(font.className)} lang={lang} suppressHydrationWarning>
       <head>
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
@@ -44,8 +56,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               }}
             />
           )}
-
-          <Header />
+          <Header lang={lang} />
           {children}
           <Footer />
           <GlobalAnimations />
