@@ -155,17 +155,9 @@ export interface Page {
          */
         col1?:
           | (
+              | HeadlineBlockConfig
               | {
-                  headline?: string | null;
-                  /**
-                   * Choose the headline size
-                   */
-                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'headlineBlock';
-                }
-              | {
+                  advanced?: AdvancedGroupField;
                   text?: string | null;
                   size?: ('lg' | 'md' | 'sm' | 'xs') | null;
                   id?: string | null;
@@ -173,6 +165,7 @@ export interface Page {
                   blockType: 'textBlock';
                 }
               | {
+                  advanced?: AdvancedGroupField;
                   metaTitle?: string | null;
                   headline?: string | null;
                   /**
@@ -199,6 +192,7 @@ export interface Page {
                   blockType: 'textCompositionBlock';
                 }
               | {
+                  advanced?: AdvancedGroupField;
                   /**
                    * Select an image to display
                    */
@@ -224,8 +218,9 @@ export interface Page {
                   blockType: 'imageBlock';
                 }
               | SpacerBlock
-              | ButtonBlock
+              | ButtonBlockConfig
               | {
+                  advanced?: AdvancedGroupField;
                   content: {
                     root: {
                       type: string;
@@ -244,6 +239,48 @@ export interface Page {
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'richTextBlock';
+                }
+              | SVGPathAnimationBlock
+              | {
+                  advanced?: AdvancedGroupField;
+                  /**
+                   * Choose whether to use an uploaded media file or an external video URL
+                   */
+                  sourceType?: ('internal' | 'external') | null;
+                  /**
+                   * Select a video to display
+                   */
+                  video?: (string | null) | Media;
+                  /**
+                   * Enter the external video URL
+                   */
+                  externalUrl?: string | null;
+                  /**
+                   * Select a poster image or video for the video
+                   */
+                  poster?: (string | null) | Media;
+                  /**
+                   * Meta title for the video
+                   */
+                  metaTitle?: string | null;
+                  /**
+                   * Title for the video
+                   */
+                  title?: string | null;
+                  /**
+                   * Select an icon image for the video (optional)
+                   */
+                  icon?: (string | null) | Media;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'videoBlock';
+                }
+              | {
+                  advanced?: AdvancedGroupField;
+                  myname?: string | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'customGroupTestField';
                 }
             )[]
           | null;
@@ -252,17 +289,9 @@ export interface Page {
          */
         col2?:
           | (
+              | HeadlineBlockConfig
               | {
-                  headline?: string | null;
-                  /**
-                   * Choose the headline size
-                   */
-                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'headlineBlock';
-                }
-              | {
+                  advanced?: AdvancedGroupField;
                   text?: string | null;
                   size?: ('lg' | 'md' | 'sm' | 'xs') | null;
                   id?: string | null;
@@ -270,6 +299,7 @@ export interface Page {
                   blockType: 'textBlock';
                 }
               | {
+                  advanced?: AdvancedGroupField;
                   metaTitle?: string | null;
                   headline?: string | null;
                   /**
@@ -296,6 +326,7 @@ export interface Page {
                   blockType: 'textCompositionBlock';
                 }
               | {
+                  advanced?: AdvancedGroupField;
                   /**
                    * Select an image to display
                    */
@@ -321,8 +352,9 @@ export interface Page {
                   blockType: 'imageBlock';
                 }
               | SpacerBlock
-              | ButtonBlock
+              | ButtonBlockConfig
               | {
+                  advanced?: AdvancedGroupField;
                   content: {
                     root: {
                       type: string;
@@ -342,15 +374,69 @@ export interface Page {
                   blockName?: string | null;
                   blockType: 'richTextBlock';
                 }
+              | SVGPathAnimationBlock
+              | {
+                  advanced?: AdvancedGroupField;
+                  /**
+                   * Choose whether to use an uploaded media file or an external video URL
+                   */
+                  sourceType?: ('internal' | 'external') | null;
+                  /**
+                   * Select a video to display
+                   */
+                  video?: (string | null) | Media;
+                  /**
+                   * Enter the external video URL
+                   */
+                  externalUrl?: string | null;
+                  /**
+                   * Select a poster image or video for the video
+                   */
+                  poster?: (string | null) | Media;
+                  /**
+                   * Meta title for the video
+                   */
+                  metaTitle?: string | null;
+                  /**
+                   * Title for the video
+                   */
+                  title?: string | null;
+                  /**
+                   * Select an icon image for the video (optional)
+                   */
+                  icon?: (string | null) | Media;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'videoBlock';
+                }
+              | {
+                  advanced?: AdvancedGroupField;
+                  myname?: string | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'customGroupTestField';
+                }
             )[]
           | null;
         col1Padding?: boolean | null;
         col1VerticalAlign?: ('top' | 'center' | 'bottom') | null;
         col1HorizontalAlign?: ('left' | 'center' | 'right') | null;
+        /**
+         * Base width of this column (e.g., "50%", "300px").
+         */
+        col1ColumnBaseWidth?: string | null;
+        col1MinWidth?: string | null;
+        col1MaxWidth?: string | null;
         col1CssClasses?: string | null;
         col2Padding?: boolean | null;
         col2VerticalAlign?: ('top' | 'center' | 'bottom') | null;
         col2HorizontalAlign?: ('left' | 'center' | 'right') | null;
+        /**
+         * Base width of this column (e.g., "50%", "300px").
+         */
+        col2ColumnBaseWidth?: string | null;
+        col2MinWidth?: string | null;
+        col2MaxWidth?: string | null;
         col2CssClasses?: string | null;
         /**
          * Customize the appearance of this section
@@ -376,17 +462,9 @@ export interface Page {
     | {
         content?:
           | (
+              | HeadlineBlockConfig
               | {
-                  headline?: string | null;
-                  /**
-                   * Choose the headline size
-                   */
-                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'headlineBlock';
-                }
-              | {
+                  advanced?: AdvancedGroupField;
                   text?: string | null;
                   size?: ('lg' | 'md' | 'sm' | 'xs') | null;
                   id?: string | null;
@@ -394,6 +472,7 @@ export interface Page {
                   blockType: 'textBlock';
                 }
               | {
+                  advanced?: AdvancedGroupField;
                   metaTitle?: string | null;
                   headline?: string | null;
                   /**
@@ -420,6 +499,7 @@ export interface Page {
                   blockType: 'textCompositionBlock';
                 }
               | {
+                  advanced?: AdvancedGroupField;
                   /**
                    * Select an image to display
                    */
@@ -445,8 +525,9 @@ export interface Page {
                   blockType: 'imageBlock';
                 }
               | SpacerBlock
-              | ButtonBlock
+              | ButtonBlockConfig
               | {
+                  advanced?: AdvancedGroupField;
                   content: {
                     root: {
                       type: string;
@@ -465,6 +546,48 @@ export interface Page {
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'richTextBlock';
+                }
+              | SVGPathAnimationBlock
+              | {
+                  advanced?: AdvancedGroupField;
+                  /**
+                   * Choose whether to use an uploaded media file or an external video URL
+                   */
+                  sourceType?: ('internal' | 'external') | null;
+                  /**
+                   * Select a video to display
+                   */
+                  video?: (string | null) | Media;
+                  /**
+                   * Enter the external video URL
+                   */
+                  externalUrl?: string | null;
+                  /**
+                   * Select a poster image or video for the video
+                   */
+                  poster?: (string | null) | Media;
+                  /**
+                   * Meta title for the video
+                   */
+                  metaTitle?: string | null;
+                  /**
+                   * Title for the video
+                   */
+                  title?: string | null;
+                  /**
+                   * Select an icon image for the video (optional)
+                   */
+                  icon?: (string | null) | Media;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'videoBlock';
+                }
+              | {
+                  advanced?: AdvancedGroupField;
+                  myname?: string | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'customGroupTestField';
                 }
             )[]
           | null;
@@ -499,17 +622,9 @@ export interface Page {
          */
         content?:
           | (
+              | HeadlineBlockConfig
               | {
-                  headline?: string | null;
-                  /**
-                   * Choose the headline size
-                   */
-                  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'headlineBlock';
-                }
-              | {
+                  advanced?: AdvancedGroupField;
                   text?: string | null;
                   size?: ('lg' | 'md' | 'sm' | 'xs') | null;
                   id?: string | null;
@@ -517,6 +632,7 @@ export interface Page {
                   blockType: 'textBlock';
                 }
               | {
+                  advanced?: AdvancedGroupField;
                   metaTitle?: string | null;
                   headline?: string | null;
                   /**
@@ -543,6 +659,7 @@ export interface Page {
                   blockType: 'textCompositionBlock';
                 }
               | {
+                  advanced?: AdvancedGroupField;
                   /**
                    * Select an image to display
                    */
@@ -568,8 +685,9 @@ export interface Page {
                   blockType: 'imageBlock';
                 }
               | SpacerBlock
-              | ButtonBlock
+              | ButtonBlockConfig
               | {
+                  advanced?: AdvancedGroupField;
                   content: {
                     root: {
                       type: string;
@@ -588,6 +706,48 @@ export interface Page {
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'richTextBlock';
+                }
+              | SVGPathAnimationBlock
+              | {
+                  advanced?: AdvancedGroupField;
+                  /**
+                   * Choose whether to use an uploaded media file or an external video URL
+                   */
+                  sourceType?: ('internal' | 'external') | null;
+                  /**
+                   * Select a video to display
+                   */
+                  video?: (string | null) | Media;
+                  /**
+                   * Enter the external video URL
+                   */
+                  externalUrl?: string | null;
+                  /**
+                   * Select a poster image or video for the video
+                   */
+                  poster?: (string | null) | Media;
+                  /**
+                   * Meta title for the video
+                   */
+                  metaTitle?: string | null;
+                  /**
+                   * Title for the video
+                   */
+                  title?: string | null;
+                  /**
+                   * Select an icon image for the video (optional)
+                   */
+                  icon?: (string | null) | Media;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'videoBlock';
+                }
+              | {
+                  advanced?: AdvancedGroupField;
+                  myname?: string | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'customGroupTestField';
                 }
             )[]
           | null;
@@ -631,6 +791,43 @@ export interface Page {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeadlineBlockConfig".
+ */
+export interface HeadlineBlockConfig {
+  advanced?: AdvancedGroupField;
+  headline?: string | null;
+  /**
+   * Choose the headline size
+   */
+  size?: ('huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'headlineBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AdvancedGroupField".
+ */
+export interface AdvancedGroupField {
+  addon1?: string | null;
+  /**
+   * Unique identifier for the component (without #)
+   */
+  id?: string | null;
+  /**
+   * Space-separated CSS classes (e.g. "mb-4 text-center")
+   */
+  className?: string | null;
+  /**
+   * This is scoped CSS that applies only to this instance. Use "SELF { }" to target the component itself. ID must also be set.
+   */
+  styles?: string | null;
+  field1?: string | null;
+  field2?: string | null;
+  addon2?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -729,6 +926,7 @@ export interface Media {
  * via the `definition` "SpacerBlock".
  */
 export interface SpacerBlock {
+  advanced?: AdvancedGroupField;
   size:
     | '1px'
     | '2px'
@@ -750,21 +948,42 @@ export interface SpacerBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ButtonBlock".
+ * via the `definition` "ButtonBlockConfig".
  */
-export interface ButtonBlock {
+export interface ButtonBlockConfig {
+  advanced?: AdvancedGroupField;
   label: string;
   variant: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link';
   size: 'default' | 'sm' | 'lg' | 'icon';
-  link: {
-    type: 'internal' | 'external';
-    internalLink?: (string | null) | Page;
-    externalLink?: string | null;
-    newTab?: boolean | null;
-  };
+  link: Link;
   id?: string | null;
   blockName?: string | null;
   blockType: 'buttonBlock';
+}
+/**
+ * Link to an internal page or external URL
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Link".
+ */
+export interface Link {
+  type: 'internal' | 'external';
+  internalLink?: (string | null) | Page;
+  externalLink?: string | null;
+  newTab?: boolean | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SVGPathAnimationBlock".
+ */
+export interface SVGPathAnimationBlock {
+  /**
+   * Optional CSS classes to apply to the SVG container
+   */
+  className?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'svgPathAnimation';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -773,10 +992,6 @@ export interface ButtonBlock {
 export interface Post {
   id: string;
   title: string;
-  customGroupExample?: {
-    title?: string | null;
-    description?: string | null;
-  };
   heroImage?: (string | null) | Media;
   content: {
     root: {
@@ -1307,17 +1522,11 @@ export interface PagesSelect<T extends boolean = true> {
               col1?:
                 | T
                 | {
-                    headlineBlock?:
-                      | T
-                      | {
-                          headline?: T;
-                          size?: T;
-                          id?: T;
-                          blockName?: T;
-                        };
+                    headlineBlock?: T | HeadlineBlockConfigSelect<T>;
                     textBlock?:
                       | T
                       | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           text?: T;
                           size?: T;
                           id?: T;
@@ -1326,6 +1535,7 @@ export interface PagesSelect<T extends boolean = true> {
                     textCompositionBlock?:
                       | T
                       | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           metaTitle?: T;
                           headline?: T;
                           headlineSize?: T;
@@ -1336,6 +1546,7 @@ export interface PagesSelect<T extends boolean = true> {
                     imageBlock?:
                       | T
                       | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           image?: T;
                           alt?: T;
                           size?: T;
@@ -1345,11 +1556,35 @@ export interface PagesSelect<T extends boolean = true> {
                           blockName?: T;
                         };
                     spacerBlock?: T | SpacerBlockSelect<T>;
-                    buttonBlock?: T | ButtonBlockSelect<T>;
+                    buttonBlock?: T | ButtonBlockConfigSelect<T>;
                     richTextBlock?:
                       | T
                       | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           content?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    svgPathAnimation?: T | SVGPathAnimationBlockSelect<T>;
+                    videoBlock?:
+                      | T
+                      | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
+                          sourceType?: T;
+                          video?: T;
+                          externalUrl?: T;
+                          poster?: T;
+                          metaTitle?: T;
+                          title?: T;
+                          icon?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    customGroupTestField?:
+                      | T
+                      | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
+                          myname?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1357,17 +1592,11 @@ export interface PagesSelect<T extends boolean = true> {
               col2?:
                 | T
                 | {
-                    headlineBlock?:
-                      | T
-                      | {
-                          headline?: T;
-                          size?: T;
-                          id?: T;
-                          blockName?: T;
-                        };
+                    headlineBlock?: T | HeadlineBlockConfigSelect<T>;
                     textBlock?:
                       | T
                       | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           text?: T;
                           size?: T;
                           id?: T;
@@ -1376,6 +1605,7 @@ export interface PagesSelect<T extends boolean = true> {
                     textCompositionBlock?:
                       | T
                       | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           metaTitle?: T;
                           headline?: T;
                           headlineSize?: T;
@@ -1386,6 +1616,7 @@ export interface PagesSelect<T extends boolean = true> {
                     imageBlock?:
                       | T
                       | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           image?: T;
                           alt?: T;
                           size?: T;
@@ -1395,11 +1626,35 @@ export interface PagesSelect<T extends boolean = true> {
                           blockName?: T;
                         };
                     spacerBlock?: T | SpacerBlockSelect<T>;
-                    buttonBlock?: T | ButtonBlockSelect<T>;
+                    buttonBlock?: T | ButtonBlockConfigSelect<T>;
                     richTextBlock?:
                       | T
                       | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           content?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    svgPathAnimation?: T | SVGPathAnimationBlockSelect<T>;
+                    videoBlock?:
+                      | T
+                      | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
+                          sourceType?: T;
+                          video?: T;
+                          externalUrl?: T;
+                          poster?: T;
+                          metaTitle?: T;
+                          title?: T;
+                          icon?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    customGroupTestField?:
+                      | T
+                      | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
+                          myname?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1407,10 +1662,16 @@ export interface PagesSelect<T extends boolean = true> {
               col1Padding?: T;
               col1VerticalAlign?: T;
               col1HorizontalAlign?: T;
+              col1ColumnBaseWidth?: T;
+              col1MinWidth?: T;
+              col1MaxWidth?: T;
               col1CssClasses?: T;
               col2Padding?: T;
               col2VerticalAlign?: T;
               col2HorizontalAlign?: T;
+              col2ColumnBaseWidth?: T;
+              col2MinWidth?: T;
+              col2MaxWidth?: T;
               col2CssClasses?: T;
               classesAndStyles?:
                 | T
@@ -1428,17 +1689,11 @@ export interface PagesSelect<T extends boolean = true> {
               content?:
                 | T
                 | {
-                    headlineBlock?:
-                      | T
-                      | {
-                          headline?: T;
-                          size?: T;
-                          id?: T;
-                          blockName?: T;
-                        };
+                    headlineBlock?: T | HeadlineBlockConfigSelect<T>;
                     textBlock?:
                       | T
                       | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           text?: T;
                           size?: T;
                           id?: T;
@@ -1447,6 +1702,7 @@ export interface PagesSelect<T extends boolean = true> {
                     textCompositionBlock?:
                       | T
                       | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           metaTitle?: T;
                           headline?: T;
                           headlineSize?: T;
@@ -1457,6 +1713,7 @@ export interface PagesSelect<T extends boolean = true> {
                     imageBlock?:
                       | T
                       | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           image?: T;
                           alt?: T;
                           size?: T;
@@ -1466,11 +1723,35 @@ export interface PagesSelect<T extends boolean = true> {
                           blockName?: T;
                         };
                     spacerBlock?: T | SpacerBlockSelect<T>;
-                    buttonBlock?: T | ButtonBlockSelect<T>;
+                    buttonBlock?: T | ButtonBlockConfigSelect<T>;
                     richTextBlock?:
                       | T
                       | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           content?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    svgPathAnimation?: T | SVGPathAnimationBlockSelect<T>;
+                    videoBlock?:
+                      | T
+                      | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
+                          sourceType?: T;
+                          video?: T;
+                          externalUrl?: T;
+                          poster?: T;
+                          metaTitle?: T;
+                          title?: T;
+                          icon?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    customGroupTestField?:
+                      | T
+                      | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
+                          myname?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1495,17 +1776,11 @@ export interface PagesSelect<T extends boolean = true> {
               content?:
                 | T
                 | {
-                    headlineBlock?:
-                      | T
-                      | {
-                          headline?: T;
-                          size?: T;
-                          id?: T;
-                          blockName?: T;
-                        };
+                    headlineBlock?: T | HeadlineBlockConfigSelect<T>;
                     textBlock?:
                       | T
                       | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           text?: T;
                           size?: T;
                           id?: T;
@@ -1514,6 +1789,7 @@ export interface PagesSelect<T extends boolean = true> {
                     textCompositionBlock?:
                       | T
                       | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           metaTitle?: T;
                           headline?: T;
                           headlineSize?: T;
@@ -1524,6 +1800,7 @@ export interface PagesSelect<T extends boolean = true> {
                     imageBlock?:
                       | T
                       | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           image?: T;
                           alt?: T;
                           size?: T;
@@ -1533,11 +1810,35 @@ export interface PagesSelect<T extends boolean = true> {
                           blockName?: T;
                         };
                     spacerBlock?: T | SpacerBlockSelect<T>;
-                    buttonBlock?: T | ButtonBlockSelect<T>;
+                    buttonBlock?: T | ButtonBlockConfigSelect<T>;
                     richTextBlock?:
                       | T
                       | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
                           content?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    svgPathAnimation?: T | SVGPathAnimationBlockSelect<T>;
+                    videoBlock?:
+                      | T
+                      | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
+                          sourceType?: T;
+                          video?: T;
+                          externalUrl?: T;
+                          poster?: T;
+                          metaTitle?: T;
+                          title?: T;
+                          icon?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    customGroupTestField?:
+                      | T
+                      | {
+                          advanced?: T | AdvancedGroupFieldSelect<T>;
+                          myname?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1570,29 +1871,67 @@ export interface PagesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "SpacerBlock_select".
+ * via the `definition` "HeadlineBlockConfig_select".
  */
-export interface SpacerBlockSelect<T extends boolean = true> {
+export interface HeadlineBlockConfigSelect<T extends boolean = true> {
+  advanced?: T | AdvancedGroupFieldSelect<T>;
+  headline?: T;
   size?: T;
   id?: T;
   blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ButtonBlock_select".
+ * via the `definition` "AdvancedGroupField_select".
  */
-export interface ButtonBlockSelect<T extends boolean = true> {
+export interface AdvancedGroupFieldSelect<T extends boolean = true> {
+  addon1?: T;
+  id?: T;
+  className?: T;
+  styles?: T;
+  field1?: T;
+  field2?: T;
+  addon2?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SpacerBlock_select".
+ */
+export interface SpacerBlockSelect<T extends boolean = true> {
+  advanced?: T | AdvancedGroupFieldSelect<T>;
+  size?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ButtonBlockConfig_select".
+ */
+export interface ButtonBlockConfigSelect<T extends boolean = true> {
+  advanced?: T | AdvancedGroupFieldSelect<T>;
   label?: T;
   variant?: T;
   size?: T;
-  link?:
-    | T
-    | {
-        type?: T;
-        internalLink?: T;
-        externalLink?: T;
-        newTab?: T;
-      };
+  link?: T | LinkSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Link_select".
+ */
+export interface LinkSelect<T extends boolean = true> {
+  type?: T;
+  internalLink?: T;
+  externalLink?: T;
+  newTab?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SVGPathAnimationBlock_select".
+ */
+export interface SVGPathAnimationBlockSelect<T extends boolean = true> {
+  className?: T;
   id?: T;
   blockName?: T;
 }
@@ -1602,12 +1941,6 @@ export interface ButtonBlockSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
-  customGroupExample?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-      };
   heroImage?: T;
   content?: T;
   relatedPosts?: T;
@@ -2030,23 +2363,59 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Header {
   id: string;
-  navItems?:
+  /**
+   * Add navigation links for the header
+   */
+  navigation?:
     | {
-        link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?:
-            | ({
-                relationTo: 'pages';
-                value: string | Page;
-              } | null)
-            | ({
-                relationTo: 'posts';
-                value: string | Post;
-              } | null);
-          url?: string | null;
-          label: string;
-        };
+        /**
+         * Label for the navigation link
+         */
+        label: string;
+        /**
+         * Choose if the URL is internal or external
+         */
+        urlType?: ('internal' | 'external') | null;
+        /**
+         * URL for the link (e.g., /page or https://example.com)
+         */
+        url?: string | null;
+        /**
+         * Select an internal page
+         */
+        internalUrl?: (string | null) | Page;
+        /**
+         * Add submenu links
+         */
+        children?:
+          | {
+              /**
+               * Label for the submenu link
+               */
+              label: string;
+              /**
+               * Brief description for the submenu link
+               */
+              brief?: string | null;
+              /**
+               * SVG code for the submenu link icon
+               */
+              icon?: string | null;
+              /**
+               * Choose if the URL is internal or external
+               */
+              urlType?: ('internal' | 'external') | null;
+              /**
+               * URL for the link (e.g., /page or https://example.com)
+               */
+              url?: string | null;
+              /**
+               * Select an internal page
+               */
+              internalUrl?: (string | null) | Page;
+              id?: string | null;
+            }[]
+          | null;
         id?: string | null;
       }[]
     | null;
@@ -2059,26 +2428,6 @@ export interface Header {
  */
 export interface Footer {
   id: string;
-  navItems?:
-    | {
-        link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?:
-            | ({
-                relationTo: 'pages';
-                value: string | Page;
-              } | null)
-            | ({
-                relationTo: 'posts';
-                value: string | Post;
-              } | null);
-          url?: string | null;
-          label: string;
-        };
-        id?: string | null;
-      }[]
-    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -2087,17 +2436,23 @@ export interface Footer {
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
-  navItems?:
+  navigation?:
     | T
     | {
-        link?:
+        label?: T;
+        urlType?: T;
+        url?: T;
+        internalUrl?: T;
+        children?:
           | T
           | {
-              type?: T;
-              newTab?: T;
-              reference?: T;
-              url?: T;
               label?: T;
+              brief?: T;
+              icon?: T;
+              urlType?: T;
+              url?: T;
+              internalUrl?: T;
+              id?: T;
             };
         id?: T;
       };
@@ -2110,20 +2465,6 @@ export interface HeaderSelect<T extends boolean = true> {
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
-  navItems?:
-    | T
-    | {
-        link?:
-          | T
-          | {
-              type?: T;
-              newTab?: T;
-              reference?: T;
-              url?: T;
-              label?: T;
-            };
-        id?: T;
-      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

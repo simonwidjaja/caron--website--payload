@@ -60,6 +60,7 @@ export const ColumnsTwoBlockConfig: Block = {
                   fields: [
                     ...containerLayoutField({
                       namePrefix: 'col1',
+                      includeColumnWidth: true,
                     }),
                   ],
                 },
@@ -73,6 +74,7 @@ export const ColumnsTwoBlockConfig: Block = {
                   fields: [
                     ...containerLayoutField({
                       namePrefix: 'col2',
+                      includeColumnWidth: true,
                     }),
                   ],
                 },

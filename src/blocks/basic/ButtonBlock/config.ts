@@ -1,8 +1,10 @@
+import { advancedGroupField } from '@/fields/cms/advancedGroupField/advancedGroupField'
+import { linkField } from '@/fields/cms/linkField'
 import type { Block } from 'payload'
 
 export const ButtonBlockConfig: Block = {
   slug: 'buttonBlock',
-  interfaceName: 'ButtonBlock',
+  interfaceName: 'ButtonBlockConfig',
   labels: {
     singular: 'Button Block',
     plural: 'Button Blocks',
@@ -11,6 +13,7 @@ export const ButtonBlockConfig: Block = {
     group: 'basic',
   },  
   fields: [
+    advancedGroupField(),
     {
       name: 'label',
       type: 'text',
@@ -81,51 +84,6 @@ export const ButtonBlockConfig: Block = {
         },
       ],
     },
-    {
-      name: 'link',
-      type: 'group',
-      fields: [
-        {
-          name: 'type',
-          type: 'radio',
-          label: 'Link Type',
-          options: [
-            {
-              label: 'Internal',
-              value: 'internal',
-            },
-            {
-              label: 'External',
-              value: 'external',
-            },
-          ],
-          defaultValue: 'internal',
-          required: true,
-        },
-        {
-          name: 'internalLink',
-          type: 'relationship',
-          relationTo: 'pages',
-          label: 'Internal Link',
-          admin: {
-            condition: (data, siblingData) => siblingData?.type === 'internal',
-          },
-        },
-        {
-          name: 'externalLink',
-          type: 'text',
-          label: 'External URL',
-          admin: {
-            condition: (data, siblingData) => siblingData?.type === 'external',
-          },
-        },
-        {
-          name: 'newTab',
-          type: 'checkbox',
-          label: 'Open in New Tab',
-          defaultValue: false,
-        },
-      ],
-    },
+    linkField(),
   ],
 }

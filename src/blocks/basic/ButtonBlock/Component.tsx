@@ -1,36 +1,27 @@
 import React from 'react'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import type { Page } from '@/payload-types'
+import { getLocalizedUrl } from '@/utilities/getLocalizedUrl'
+import { Button } from '@/components/basic/buttons/Button'
+import AdvancedHelper from '@/fields/cms/advancedGroupField/AdvancedHelper'
+import { ButtonBlockConfig } from '@/payload-types'
 
-type ButtonBlockProps = {
-  label: string
-  variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link'
-  size?: 'default' | 'sm' | 'lg' | 'icon'
-  link: {
-    type: 'internal' | 'external'
-    internalLink?: Page | string | number
-    externalLink?: string
-    newTab?: boolean
-  }
+// Extend the generated type to include currentLanguage
+interface ExtendedButtonBlockConfig extends ButtonBlockConfig {
+  currentLanguage?: string
 }
 
-export const ButtonBlock: React.FC<ButtonBlockProps> = ({ 
+// export const ButtonBlock: React.FC<ButtonBlockProps> = ({ 
+export const ButtonBlock: React.FC<ExtendedButtonBlockConfig> = ({ 
+  currentLanguage,
   label,
   variant = 'default',
   size = 'default',
   link,
+  advanced,
 }) => {
-  // Determine href based on link type
-  const href = (() => {
-    if (link.type === 'external') {
-      return link.externalLink || '#'
-    }
-    if (link.type === 'internal' && typeof link.internalLink === 'object') {
-      return `/${link.internalLink.slug}` || '#'
-    }
-    return '#'
-  })()
+
+  // Determine href based on link type and current language
+  const href = getLocalizedUrl(link, currentLanguage)
 
   // Handle external links with newTab
   const linkProps = link.newTab ? {
@@ -39,14 +30,19 @@ export const ButtonBlock: React.FC<ButtonBlockProps> = ({
   } : {}
 
   return (
-    <Button 
-      variant={variant} 
-      size={size}
-      asChild
-    >
-      <Link href={href} {...linkProps}>
-        {label}
-      </Link>
-    </Button>
+    <>
+      <Button 
+        variant={variant} 
+        size={size}
+        id={AdvancedHelper.advancedId(advanced)}
+        className={AdvancedHelper.advancedClassName(advanced)}
+      >
+        <Link href={href} {...linkProps}>
+          {label}
+        </Link>
+      </Button>
+
+      {AdvancedHelper.advancedStyles(advanced)}
+    </>
   )
 }

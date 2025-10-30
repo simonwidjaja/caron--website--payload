@@ -9,7 +9,7 @@ interface SectionDefaultProps {
       className?: string;
     };
   };
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export default function SectionDefault ({ id, className, padding=true, pt, children }: SectionDefaultProps) {
@@ -29,7 +29,7 @@ export default function SectionDefault ({ id, className, padding=true, pt, child
 
       {/* Content */}
       <div className={cn(
-        `SectionDefault-mainColumn flex-auto min-h-[40px] ${pt?.content?.className}`,
+        `SectionDefault-mainColumn flex-auto min-h-[40px] flex flex-col ${pt?.content?.className}`,
         padding ? 'px-3 py-2 md:px-6 md:py-4' : '',
       )}>
         {children}

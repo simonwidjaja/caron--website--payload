@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import React from 'react'
+import SectionDefault from '@/components/sections/SectionDefault'
 import { TextCompositionBlock } from '@/blocks/basic/TextCompositionBlock/Component'
-import { SectionDefaultBlock } from '@/blocks/sections/SectionDefaultBlock/Component'
+import { Toc } from './shared/DsNav'
 
 export const metadata: Metadata = {
   title: 'Design System | Internal',
@@ -11,55 +12,22 @@ export const metadata: Metadata = {
 export default function DesignSystemPage() {
   return (
     <article className="">
-      
-      <SectionDefaultBlock content={[
-        {
-          blockType: 'HeadlineBlock',
-          headline: 'Design System',
-          size: 'huge',
-        },
-      ]} />
 
-      <SectionDefaultBlock content={[
-        {
-          blockType: 'HeadlineBlock',
-          headline: 'Basics',
-          size: 'h2',
-        },
-      ]} />
-
-
-      <SectionDefaultBlock content={[
+      <SectionDefault>
         <TextCompositionBlock
-          key="real-components-h1"
-          metaTitle="Internal Documentation"
-          headline="Real components"
+          metaTitle="Caron Design System"
+          headline="Typography"
           headlineSize="h1"
-          body="Hello world"
-        />,
-        <TextCompositionBlock
-          key="design-system-h2"
-          metaTitle="Internal Documentation"
-          headline="Design System"
-          headlineSize="h2"
-          body="Hello world"
-        />,
-        <TextCompositionBlock
-          key="design-system-h3"
-          metaTitle="Internal Documentation"
-          headline="Design System"
-          headlineSize="h3"
-          body="Hello world"
-        />,
-        <TextCompositionBlock
-          key="design-system-h4"
-          metaTitle="Internal Documentation"
-          headline="Design System"
-          headlineSize="h4"
-          body="Hello world"
-        />
-      ]} >
-      </SectionDefaultBlock>      
+          body="This page demonstrates the typography styles used in the Caron design system. It includes examples of different headline sizes and body text styles."
+        >
+        </TextCompositionBlock>
+      </SectionDefault>
+
+      <SectionDefault></SectionDefault>
+
+      <Toc />
+
+      <SectionDefault></SectionDefault>
 
     </article>
   )

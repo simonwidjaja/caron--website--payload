@@ -1,3 +1,4 @@
+import { advancedGroupField } from '@/fields/cms/advancedGroupField/advancedGroupField'
 import type { Block } from 'payload'
 import {
   FixedToolbarFeature,
@@ -21,6 +22,7 @@ export const RichTextBlockConfig: Block = {
     group: 'basic',
   },
   fields: [
+    advancedGroupField(),
     {
       name: 'content',
       type: 'richText',
@@ -28,7 +30,8 @@ export const RichTextBlockConfig: Block = {
       required: true,
       localized: true,
       editor: lexicalEditor({
-        features: ({ rootFeatures }) => [
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        features: ({ rootFeatures }:any) => [
           ...rootFeatures,
           FixedToolbarFeature(),
           HeadingFeature({

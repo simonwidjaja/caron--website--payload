@@ -1,8 +1,5 @@
 import React, { Fragment } from 'react'
 
-import { ArchiveBlock } from '@/blocks/ArchiveBlock/Component'
-import { CallToActionBlock } from '@/blocks/CallToAction/Component'
-import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { HeadlineBlock } from './basic/HeadlineBlock/Component'
@@ -12,11 +9,11 @@ import { ImageBlock } from './basic/ImageBlock/Component'
 import { SpacerBlock } from './basic/SpacerBlock/Component'
 import { ButtonBlock } from './basic/ButtonBlock/Component'
 import { RichTextBlock } from './basic/RichTextBlock/Component'
+import { SVGPathAnimation } from './wip/SVGPathAnimation/Component'
+import { VideoBlock } from './basic/VideoBlock/Components'
+import { CustomGroupTestField } from './wip/CustomGroupTestField/Components'
 
 const blockComponents = {
-  archive: ArchiveBlock,
-  content: ContentBlock,
-  cta: CallToActionBlock,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
   // Basic
@@ -27,13 +24,17 @@ const blockComponents = {
   spacerBlock: SpacerBlock,
   buttonBlock: ButtonBlock,
   richTextBlock: RichTextBlock,
+  svgPathAnimation: SVGPathAnimation,
+  videoBlock: VideoBlock,
+  customGroupTestField: CustomGroupTestField,
 }
 
 export const RenderBlocks: React.FC<{
+   currentLanguage?: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   blocks: any
 }> = (props) => {
-  const { blocks } = props
+  const { blocks, currentLanguage } = props
 
   const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0
 
@@ -50,7 +51,7 @@ export const RenderBlocks: React.FC<{
             if (Block) {
               return (
                 <Fragment key={index}>
-                  <Block {...block} disableInnerContainer />
+                  <Block {...block} currentLanguage={currentLanguage} disableInnerContainer />
                 </Fragment>
               )
             }

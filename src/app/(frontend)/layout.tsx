@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 
 import { cn } from '@/utilities/ui'
-import { GeistMono } from 'geist/font/mono'
-import { GeistSans } from 'geist/font/sans'
 import React from 'react'
 
 import { AdminBar } from '@/components/AdminBar'
@@ -13,14 +11,29 @@ import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { draftMode } from 'next/headers'
 
-import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
+import GlobalAnimations from '@/components/animations/GlobalAnimations'
+import { Barlow } from 'next/font/google'
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+import './globals.css'
+import Consent from '@/components/Consent/Consent'
+
+const font = Barlow({
+  weight: ['300', '400', '500', '600', '700', '800'],
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+
+type LayoutProps = {
+  children: React.ReactNode
+}
+
+export default async function RootLayout({ children }: LayoutProps) {
   const { isEnabled } = await draftMode()
 
   return (
-    <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
+    <html className={cn(font.className)} suppressHydrationWarning>
       <head>
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
@@ -36,10 +49,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               }}
             />
           )}
-
-          <Header />
           {children}
-          <Footer />
+          <GlobalAnimations />
+          <Consent />
         </Providers>
       </body>
     </html>

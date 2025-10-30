@@ -14,8 +14,9 @@ const blockComponents = {
 
 export const RenderSectionBlocks: React.FC<{
   blocks: Page['layout'][0][]
+  currentLanguage: string
 }> = (props) => {
-  const { blocks } = props
+  const { blocks, currentLanguage } = props
 
   const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0
 
@@ -32,7 +33,7 @@ export const RenderSectionBlocks: React.FC<{
               return (
                 <Fragment key={index}>
                   {/* @ts-expect-error there may be some mismatch between the expected types here */}
-                  <Block {...block} disableInnerContainer />
+                  <Block {...block} currentLanguage={currentLanguage} disableInnerContainer />
                 </Fragment>
               )
             }

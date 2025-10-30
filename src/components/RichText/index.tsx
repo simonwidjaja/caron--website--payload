@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+
 //!!!!!!
 //!!!!!!
 //!!!!!!
@@ -9,62 +12,53 @@
 
 
 
-import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import {
-  DefaultNodeTypes,
-  SerializedBlockNode,
-  SerializedLinkNode,
-  type DefaultTypedEditorState,
-} from '@payloadcms/richtext-lexical'
-import {
-  JSXConvertersFunction,
-  LinkJSXConverter,
   RichText as ConvertRichText,
 } from '@payloadcms/richtext-lexical/react'
 
-import { CodeBlock, CodeBlockProps } from '@/blocks/Code/Component'
-
-import type {
-  BannerBlock as BannerBlockProps,
-  MediaBlock as MediaBlockProps,
-} from '@/payload-types'
-import { BannerBlock } from '@/blocks/Banner/Component'
 import { cn } from '@/utilities/ui'
 
-type NodeTypes =
-  | DefaultNodeTypes
-  | SerializedBlockNode<MediaBlockProps | BannerBlockProps | CodeBlockProps>
 
-const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
-  const { value, relationTo } = linkNode.fields.doc!
-  if (typeof value !== 'object') {
-    throw new Error('Expected value to be an object')
-  }
-  const slug = value.slug
-  return relationTo === 'posts' ? `/posts/${slug}` : `/${slug}`
-}
+// type LinkNode = {
+//   fields: {
+//     doc: {
+//       value: { slug: string }
+//       relationTo: string
+//     }
+//   }
+// }
 
-const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) => ({
+// const internalDocToHref = ({ linkNode }: { linkNode: LinkNode }) => {
+//   const { value, relationTo } = linkNode.fields.doc
+//   if (typeof value !== 'object') {
+//     throw new Error('Expected value to be an object')
+//   }
+//   const slug = value.slug
+//   return relationTo === 'posts' ? `/posts/${slug}` : `/${slug}`
+// }
+
+const jsxConverters: any = ({ defaultConverters }: any) => ({
   ...defaultConverters,
-  ...LinkJSXConverter({ internalDocToHref }),
+  // ...LinkJSXConverter({ internalDocToHref }),
   blocks: {
-    banner: ({ node }) => <BannerBlock className="col-start-2 mb-4" {...node.fields} />,
-    mediaBlock: ({ node }) => (
-      <MediaBlock
-        className="col-start-1 col-span-3"
-        imgClassName="m-0"
-        {...node.fields}
-        captionClassName="mx-auto max-w-[48rem]"
-        enableGutter={false}
-        disableInnerContainer={true}
-      />
-    ),
-    code: ({ node }) => <CodeBlock className="col-start-2" {...node.fields} />,
+    // banner: ({ node }) => <BannerBlock className="col-start-2 mb-4" {...node.fields} />,
+    // mediaBlock: ({ node }) => (
+    //   <MediaBlock
+    //     className="col-start-1 col-span-3"
+    //     imgClassName="m-0"
+    //     {...node.fields}
+    //     captionClassName="mx-auto max-w-[48rem]"
+    //     enableGutter={false}
+    //     disableInnerContainer={true}
+    //   />
+    // ),
+    // code: ({ node }) => <CodeBlock className="col-start-2" {...node.fields} />,
   },
 })
 
 type Props = {
-  data: DefaultTypedEditorState
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  data: any
   enableGutter?: boolean
   enableProse?: boolean
 } & React.HTMLAttributes<HTMLDivElement>

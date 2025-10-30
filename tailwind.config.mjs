@@ -13,6 +13,18 @@ const config = {
   plugins: [tailwindcssAnimate, typography],
   prefix: '',
   safelist: [
+    'cursor-pointer',
+    'hidden',
+    'sm:hidden',
+    'md:hidden',
+    'lg:hidden',
+    'xl:hidden',
+    '2xl:hidden',
+    'max-sm:hidden',
+    'max-md:hidden',
+    'max-lg:hidden',
+    'max-xl:hidden',
+    'max-2xl:hidden',
     'lg:col-span-4',
     'lg:col-span-6',
     'lg:col-span-8',
@@ -28,7 +40,7 @@ const config = {
     //colors
     'bg-accent',
     'text-destructive',
-
+    
     // 1. Padding Classes (p-*, pt-*, pb-*, px-*, py-*)
     {
       // Matches: p-0 to p-30, px-0 to px-30, etc.
@@ -142,6 +154,12 @@ const config = {
                 fontWeight: 'normal',
                 marginBottom: '0.25em',
               },
+              p: {
+                padding: '0',
+                margin: '0',
+              },
+              padding: '0 0 1rem 0',
+              margin: '0',
             },
           ],
         },

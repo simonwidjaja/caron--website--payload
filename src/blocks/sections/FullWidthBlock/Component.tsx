@@ -3,6 +3,7 @@ import { cn } from '@/utilities/ui'
 import React from 'react'
 
 type FullWidthBlockProps = {
+  currentLanguage?: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   content?: any[]
   padding?: boolean
@@ -16,6 +17,7 @@ type FullWidthBlockProps = {
 }
 
 export const FullWidthBlock: React.FC<FullWidthBlockProps> = ({ 
+  currentLanguage,
   content,
   padding = true,
   id,
@@ -47,7 +49,7 @@ export const FullWidthBlock: React.FC<FullWidthBlockProps> = ({
           padding && "py-6"
         )}>
           {content && content.length > 0 && (
-            <RenderBlocks blocks={content} />
+            <RenderBlocks blocks={content} currentLanguage={currentLanguage} />
           )}
         </div>
 

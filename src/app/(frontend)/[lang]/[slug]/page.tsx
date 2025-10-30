@@ -24,13 +24,33 @@ export async function generateStaticParams() {
     },
   })
 
-  const params = pages.docs
-    ?.filter((doc) => {
-      return doc.slug !== 'home'
-    })
-    .map(({ slug }) => {
-      return { slug }
-    })
+  interface PageDoc {
+    id: string;
+    slug?: string | null | undefined;
+  }
+
+  interface StaticParam {
+    lang: string;
+    slug: string;
+  }
+
+  // Generate params for all languages
+  const locales = ['de', 'en'] // Only using configured locales for now
+  const params: StaticParam[] = []
+
+  for (const locale of locales) {
+    // Add home page for each locale
+    params.push({ lang: locale, slug: 'home' })
+    
+    // Add all other pages for each locale
+    pages.docs
+      ?.filter((doc: PageDoc) => doc.slug && doc.slug !== 'home')
+      .forEach(({ slug }: PageDoc) => {
+        if (slug) {
+          params.push({ lang: locale, slug })
+        }
+      })
+  }
 
   return params
 }
@@ -65,14 +85,14 @@ export default async function Page({ params: paramsPromise }: Args) {
   const { layout } = page
 
   return (
-    <article className="pt-16 pb-24">
+    <article className="">
       <PageClient />
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
 
       {draft && <LivePreviewListener />}
 
-      <RenderSectionBlocks blocks={layout} />
+      <RenderSectionBlocks blocks={layout} currentLanguage={lang} />
 
     </article>
   )

@@ -4,8 +4,8 @@ import React from 'react'
 
 import type { Header } from '@/payload-types'
 
-export async function Header() {
-  const headerData: Header = await getCachedGlobal('header', 1)()
-
-  return <HeaderClient data={headerData} />
+export async function Header({ lang }: { lang: string }) {
+  // const headerData: Header = await getCachedGlobal('header', 1)()
+  // return <HeaderClient data={headerData} />
+  return <HeaderClient lang={lang} />
 }

@@ -1,6 +1,8 @@
 import React from 'react'
 
 export type HeadlineProps = {
+  id?: string
+  children?: React.ReactNode
   headline?: string
   size?: 'huge' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
   className?: string
@@ -8,17 +10,19 @@ export type HeadlineProps = {
 
 export default function Headline(props:HeadlineProps){
   const {
+    id,
     headline,
+    children,
     size = 'h2',
     className
   } = props
 
-  if (!headline) return null
+  const content = headline || children;
 
   const getSizeClasses = (size: string) => {
     switch (size) {
       case 'huge':
-        return 'text-6xl font-bold'
+        return 'font-bold'
       case 'h1':
         return 'font-bold'
       case 'h2':
@@ -35,22 +39,22 @@ export default function Headline(props:HeadlineProps){
   }
 
   const sizeClasses = getSizeClasses(size)
-  const baseClassName = `Headline ${sizeClasses} ${className || ''}`
+  const baseClassName = `Headline ${sizeClasses} ${size === 'huge' ? 'huge ' : ''}${className || ''}`.trim()
 
-  // Return the appropriate JSX element directly
-  switch (size) {
-    case 'huge':
-    case 'h1':
-      return <h1 className={baseClassName}>{headline}</h1>
-    case 'h2':
-      return <h2 className={baseClassName}>{headline}</h2>
-    case 'h3':
-      return <h3 className={baseClassName}>{headline}</h3>
-    case 'h4':
-      return <h4 className={baseClassName}>{headline}</h4>
-    case 'h5':
-      return <h5 className={baseClassName}>{headline}</h5>
-    default:
-      return <h2 className={baseClassName}>{headline}</h2>
+  // Map size to HTML tag
+  const tagMap: Record<string, 'h1' | 'h2' | 'h3' | 'h4' | 'h5'> = {
+    'huge': 'h1',
+    'h1': 'h1',
+    'h2': 'h2',
+    'h3': 'h3',
+    'h4': 'h4',
+    'h5': 'h5',
   }
+
+  const Tag = tagMap[size] || 'h2'
+
+  return <Tag 
+    id={id}
+    className={baseClassName}
+  >{content}</Tag>
 }

@@ -4,6 +4,7 @@ import { cn } from '@/utilities/ui'
 import React from 'react'
 
 type SectionDefaultBlockProps = {
+  currentLanguage?: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   content?: any[]
   col1Padding?: boolean
@@ -39,6 +40,7 @@ const getAlignmentClasses = (
 }
 
 export const SectionDefaultBlock: React.FC<SectionDefaultBlockProps> = ({ 
+  currentLanguage,
   content,
   col1Padding = true,
   col1CssClasses,
@@ -55,6 +57,7 @@ export const SectionDefaultBlock: React.FC<SectionDefaultBlockProps> = ({
     >
       <div 
         className={cn(
+          'content',
           'flex flex-col',
           col1Padding && 'p-6',
           getAlignmentClasses(col1VerticalAlign, col1HorizontalAlign),
@@ -65,7 +68,7 @@ export const SectionDefaultBlock: React.FC<SectionDefaultBlockProps> = ({
           content && content.length > 0 && (
             content[0].blockType 
               /* Content is array of plain config objects */
-              ? <RenderBlocks blocks={content} />
+              ? <RenderBlocks blocks={content} currentLanguage={currentLanguage} />
               /* Content is array of react components (code usage) */
               : content.map((item, index) => (
                   <React.Fragment key={index}>

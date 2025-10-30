@@ -1,5 +1,6 @@
 import Image, { type PayloadImageSize } from '@/components/basic/media/Image'
-import type { Media as MediaType } from '@/payload-types'
+import type { Media as MediaType, AdvancedGroupField } from '@/payload-types'
+import AdvancedHelper from '@/fields/cms/advancedGroupField/AdvancedHelper'
 import React from 'react'
 
 type ImageBlockProps = {
@@ -8,6 +9,7 @@ type ImageBlockProps = {
   size?: PayloadImageSize
   maxWidth?: number | null
   maxHeight?: number | null
+  advanced?: AdvancedGroupField
 }
 
 export const ImageBlock: React.FC<ImageBlockProps> = ({ 
@@ -16,6 +18,7 @@ export const ImageBlock: React.FC<ImageBlockProps> = ({
   size = 'large',
   maxWidth,
   maxHeight,
+  advanced,
 }) => {
   // Only render if we have a valid media object
   if (!image || typeof image !== 'object') {
@@ -32,16 +35,20 @@ export const ImageBlock: React.FC<ImageBlockProps> = ({
   }
 
   return (
-    <div 
-      className="image-block w-full" 
-      style={Object.keys(containerStyle).length > 0 ? containerStyle : undefined}
-    >
-      <Image
-        media={image}
-        size={size}
-        alt={alt}
-        imgClassName="w-full h-auto object-cover"
-      />
-    </div>
+    <>
+      <div 
+        id={AdvancedHelper.advancedId(advanced)}
+        className={`image-block w-full ${AdvancedHelper.advancedClassName(advanced)}`}
+        style={Object.keys(containerStyle).length > 0 ? containerStyle : undefined}
+      >
+        <Image
+          media={image}
+          size={size}
+          alt={alt}
+          imgClassName="w-full h-auto object-cover"
+        />
+      </div>
+      {AdvancedHelper.advancedStyles(advanced)}
+    </>
   )
 }
