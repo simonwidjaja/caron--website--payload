@@ -6,7 +6,6 @@ import {
   DialogPanel,
   Disclosure,
   DisclosureButton,
-  DisclosurePanel,
   Popover,
   PopoverButton,
   PopoverGroup,
@@ -32,6 +31,8 @@ const navData = navDataImport;
 
 
 const callsToAction = [
+  { name: 'Was wir für Sie tun können', href: '#', icon: PlayCircleIcon },
+  // { name: 'Kontakt', href: '#', icon: PhoneIcon },
   { name: 'Was wir für Sie tun können', href: '#', icon: PlayCircleIcon },
   // { name: 'Kontakt', href: '#', icon: PhoneIcon },
 ]
@@ -183,6 +184,25 @@ export function HeaderClient({ lang }: { lang: string }) {
                             </div>
 
                           </div>
+
+                          {/* Call to actions (bottom links) */}
+                          <div className="bg-gray-50 rounded-3xl">
+                            <div className="mx-auto px-6 lg:px-8">
+                              <div className="grid grid-cols-1 divide-x divide-gray-900/5">
+                                {callsToAction.map((item) => (
+                                  <a
+                                    key={item.name}
+                                    href={item.href}
+                                    className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-800"
+                                  >
+                                    <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400 dark:text-gray-500" />
+                                    {item.name}
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+
 
                           {/* Call to actions (bottom links) */}
                           <div className="bg-gray-50 rounded-3xl">
