@@ -6,6 +6,7 @@ import {
   DialogPanel,
   Disclosure,
   DisclosureButton,
+  DisclosurePanel,
   Popover,
   PopoverButton,
   PopoverGroup,
