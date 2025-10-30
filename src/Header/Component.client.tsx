@@ -17,8 +17,9 @@ import {
   Bars3Icon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon, RectangleGroupIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image'
+import Link from 'next/link'
 import brandIcon from '../../public/static/images/brand.svg'
 import GlobalConfig from '@/GlobalConfig'
 import { navData as navDataImport } from './wip/nav.a'
@@ -61,10 +62,10 @@ export function HeaderClient({ lang }: { lang: string }) {
     <header className="container relative isolate z-10">
       <nav aria-label="Global" className="mx-auto flex items-center justify-between p-6 lg:px-3">
         <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">{GlobalConfig.brand.name}</span>
             <Image src={brandIcon} alt={GlobalConfig.brand.name} className="h-8 w-auto mt-3" priority />
-          </a>
+          </Link>
         </div>
 
         {/* --------------------------- */}

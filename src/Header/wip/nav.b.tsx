@@ -1,10 +1,7 @@
 import {
-  Bars3Icon,
   ChartPieIcon,
   CursorArrowRaysIcon,
   FingerPrintIcon,
-  SquaresPlusIcon,
-  XMarkIcon,
 } from '@heroicons/react/24/outline'
 
 export const navData = [
