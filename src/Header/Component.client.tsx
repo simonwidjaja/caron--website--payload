@@ -6,7 +6,6 @@ import {
   DialogPanel,
   Disclosure,
   DisclosureButton,
-  DisclosurePanel,
   Popover,
   PopoverButton,
   PopoverGroup,
@@ -15,10 +14,6 @@ import {
 import {
   ArrowLongRightIcon,
   Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon, RectangleGroupIcon } from '@heroicons/react/20/solid'
@@ -36,9 +31,8 @@ const navData = navDataImport;
 
 
 const callsToAction = [
-  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-  { name: 'Contact sales', href: '#', icon: PhoneIcon },
-  { name: 'View all products', href: '#', icon: RectangleGroupIcon },
+  { name: 'Was wir für Sie tun können', href: '#', icon: PlayCircleIcon },
+  // { name: 'Kontakt', href: '#', icon: PhoneIcon },
 ]
 
 
@@ -56,10 +50,7 @@ export function HeaderClient({ lang }: { lang: string }) {
   }
 
   useEffect(() => {
-    // 1. Register the event listener when the component mounts
     document.body.addEventListener('click', handleBodyClick);
-
-    // 2. Clean up the event listener when the component unmounts
     return () => {
       document.body.removeEventListener('click', handleBodyClick);
     };
@@ -198,6 +189,25 @@ export function HeaderClient({ lang }: { lang: string }) {
                             </div>
 
                           </div>
+
+                          {/* Call to actions (bottom links) */}
+                          <div className="bg-gray-50 rounded-3xl">
+                            <div className="mx-auto px-6 lg:px-8">
+                              <div className="grid grid-cols-1 divide-x divide-gray-900/5">
+                                {callsToAction.map((item) => (
+                                  <a
+                                    key={item.name}
+                                    href={item.href}
+                                    className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-800"
+                                  >
+                                    <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400 dark:text-gray-500" />
+                                    {item.name}
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+
                         </PopoverPanel>
                       </>
                     )
@@ -215,6 +225,7 @@ export function HeaderClient({ lang }: { lang: string }) {
           </a>
         </div>
       </nav>
+
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
         <div className="fixed inset-0 z-50" />
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-gray-900 dark:sm:ring-gray-100/10">
