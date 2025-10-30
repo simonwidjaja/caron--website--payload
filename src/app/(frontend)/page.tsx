@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation'
 
 export default function RootPage() {
-  // Redirect to the default language (German)
-  redirect('/de/start')
+  // Redirect root to home page (handled by middleware as /de/home)
+  redirect('/home')
 }

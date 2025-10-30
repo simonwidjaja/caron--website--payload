@@ -68,6 +68,7 @@ export default buildConfig({
   localization: {
     locales: ['de', 'en'],
     defaultLocale: 'de',
+    fallback: true,
   },
   plugins: [
     ...plugins,

@@ -1,58 +1,10 @@
 import type { Metadata } from 'next'
-
-import { PayloadRedirects } from '@/components/PayloadRedirects'
-import configPromise from '@payload-config'
-import { getPayload } from 'payload'
-import { draftMode } from 'next/headers'
-import React, { cache } from 'react'
-
-import { RenderSectionBlocks } from '@/blocks/RenderSectionBlocks'
 import { generateMeta } from '@/utilities/generateMeta'
-import PageClient from './page.client'
-import { LivePreviewListener } from '@/components/LivePreviewListener'
+import { SharedPage } from '@/components/SharedPage'
+import { generateLocalizedStaticParams, queryPageBySlug } from '@/utilities/pageHelpers'
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
-  const pages = await payload.find({
-    collection: 'pages',
-    draft: false,
-    limit: 1000,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      slug: true,
-    },
-  })
-
-  interface PageDoc {
-    id: string;
-    slug?: string | null | undefined;
-  }
-
-  interface StaticParam {
-    lang: string;
-    slug: string;
-  }
-
-  // Generate params for all languages
-  const locales = ['de', 'en'] // Only using configured locales for now
-  const params: StaticParam[] = []
-
-  for (const locale of locales) {
-    // Add home page for each locale
-    params.push({ lang: locale, slug: 'home' })
-    
-    // Add all other pages for each locale
-    pages.docs
-      ?.filter((doc: PageDoc) => doc.slug && doc.slug !== 'home')
-      .forEach(({ slug }: PageDoc) => {
-        if (slug) {
-          params.push({ lang: locale, slug })
-        }
-      })
-  }
-
-  return params
+  return generateLocalizedStaticParams()
 }
 
 type Args = {
@@ -63,39 +15,14 @@ type Args = {
 }
 
 export default async function Page({ params: paramsPromise }: Args) {
-  const { isEnabled: draft } = await draftMode()
   const { lang = 'de' } = await paramsPromise
   const { slug = 'home' } = await paramsPromise
   const url = '/' + slug
 
-  const page = await queryPageBySlug({
-    lang,
-    slug,
-  })
+  // Ensure lang is either 'de' or 'en', fallback to 'de' if 'all'
+  const locale = (lang === 'de' || lang === 'en') ? lang : 'de'
 
-  // // Remove this code once your website is seeded
-  // if (!page && slug === 'home') {
-  //   page = homeStatic
-  // }
-
-  if (!page) {
-    return <PayloadRedirects url={url} />
-  }
-
-  const { layout } = page
-
-  return (
-    <article className="">
-      <PageClient />
-      {/* Allows redirects for valid pages too */}
-      <PayloadRedirects disableNotFound url={url} />
-
-      {draft && <LivePreviewListener />}
-
-      <RenderSectionBlocks blocks={layout} currentLanguage={lang} />
-
-    </article>
-  )
+  return <SharedPage lang={locale} slug={slug} url={url} includeLayout={false} />
 }
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
@@ -108,25 +35,3 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
 
   return generateMeta({ doc: page })
 }
-
-const queryPageBySlug = cache(async ({ lang, slug }: { lang: "de" | "en" | "all" | undefined, slug: string }) => {
-  const { isEnabled: draft } = await draftMode()
-
-  const payload = await getPayload({ config: configPromise })
-
-  const result = await payload.find({
-    collection: 'pages',
-    draft,
-    limit: 1,
-    pagination: false,
-    overrideAccess: draft,
-    locale: lang,
-    where: {
-      slug: {
-        equals: slug,
-      },
-    },
-  })
-
-  return result.docs?.[0] || null
-})
