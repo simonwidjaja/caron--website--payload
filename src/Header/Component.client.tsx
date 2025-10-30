@@ -15,10 +15,6 @@ import {
 import {
   ArrowLongRightIcon,
   Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon, RectangleGroupIcon } from '@heroicons/react/20/solid'
@@ -36,9 +32,8 @@ const navData = navDataImport;
 
 
 const callsToAction = [
-  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-  { name: 'Contact sales', href: '#', icon: PhoneIcon },
-  { name: 'View all products', href: '#', icon: RectangleGroupIcon },
+  { name: 'Was wir für Sie tun können', href: '#', icon: PlayCircleIcon },
+  // { name: 'Kontakt', href: '#', icon: PhoneIcon },
 ]
 
 
@@ -56,10 +51,7 @@ export function HeaderClient({ lang }: { lang: string }) {
   }
 
   useEffect(() => {
-    // 1. Register the event listener when the component mounts
     document.body.addEventListener('click', handleBodyClick);
-
-    // 2. Clean up the event listener when the component unmounts
     return () => {
       document.body.removeEventListener('click', handleBodyClick);
     };
@@ -74,17 +66,10 @@ export function HeaderClient({ lang }: { lang: string }) {
             <Image src={brandIcon} alt={GlobalConfig.brand.name} className="h-8 w-auto mt-3" priority />
           </a>
         </div>
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(true)}
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-gray-400"
-          >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon aria-hidden="true" className="size-6" />
-          </button>
-        </div>
 
+        {/* --------------------------- */}
+        {/* Desktop navigation */}
+        {/* --------------------------- */}
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
 
           {
@@ -198,6 +183,25 @@ export function HeaderClient({ lang }: { lang: string }) {
                             </div>
 
                           </div>
+
+                          {/* Call to actions (bottom links) */}
+                          <div className="bg-gray-50 rounded-3xl">
+                            <div className="mx-auto px-6 lg:px-8">
+                              <div className="grid grid-cols-1 divide-x divide-gray-900/5">
+                                {callsToAction.map((item) => (
+                                  <a
+                                    key={item.name}
+                                    href={item.href}
+                                    className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-800"
+                                  >
+                                    <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400 dark:text-gray-500" />
+                                    {item.name}
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+
                         </PopoverPanel>
                       </>
                     )
@@ -214,14 +218,32 @@ export function HeaderClient({ lang }: { lang: string }) {
             Kontakt <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
+
+
+        {/* Mobile menu button  */}
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(true)}
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-gray-400"
+          >
+            <span className="sr-only">Open main menu</span>
+            <Bars3Icon aria-hidden="true" className="size-6" />
+          </button>
+        </div>
+
       </nav>
+
+      {/* --------------------------- */}
+      {/* Mobile navigation */}
+      {/* --------------------------- */}
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
         <div className="fixed inset-0 z-50" />
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-gray-900 dark:sm:ring-gray-100/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">{GlobalConfig.brand.name}</span>
-              <Image src={brandIcon} alt={GlobalConfig.brand.name} className="h-8 w-auto" priority />
+              <Image src={brandIcon} alt={GlobalConfig.brand.name} className="h-5 w-auto" priority />
             </a>
             <button
               type="button"
@@ -235,49 +257,59 @@ export function HeaderClient({ lang }: { lang: string }) {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10 dark:divide-white/10">
               <div className="space-y-2 py-6">
-                <Disclosure as="div" className="-mx-3">
-                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5">
-                    Product
-                    <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
-                  </DisclosureButton>
-                  {/* <DisclosurePanel className="mt-2 space-y-2">
-                    {[...products, ...callsToAction].map((item) => (
-                      <DisclosureButton
-                        key={item.name}
-                        as="a"
-                        href={item.href}
-                        className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
+                <div className='mt-2'>
+                  <LanguageSwitcher />
+                </div>
+                {navData.map((firstLevelItem) => {
+                  if (!firstLevelItem.items) {
+                    // Simple nav item without dropdown
+                    return (
+                      <a
+                        key={firstLevelItem.name}
+                        href={getLocalizedUrlFromHref(firstLevelItem.href, lang)}
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
                       >
-                        {item.name}
+                        {firstLevelItem.name}
+                      </a>
+                    )
+                  }
+
+                  // Dropdown nav item
+                  return (
+                    <Disclosure as="div" key={firstLevelItem.name} className="-mx-3">
+                      <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5">
+                        {firstLevelItem.name}
+                        <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
                       </DisclosureButton>
-                    ))}
-                  </DisclosurePanel> */}
-                </Disclosure>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
-                >
-                  Features
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
-                >
-                  Marketplace
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
-                >
-                  Company
-                </a>
+                      <DisclosurePanel className="mt-2 space-y-2">
+                        {firstLevelItem.items.map((secondLevelItem) => (
+                          <div key={secondLevelItem.name}>
+                            <div className="block pl-6 pr-3 py-2 text-sm font-normal text-gray-300">
+                              {secondLevelItem.name}
+                            </div>
+                            {secondLevelItem.items.map((item) => (
+                              <DisclosureButton
+                                key={item.name}
+                                as="a"
+                                href={getLocalizedUrlFromHref(item.href, lang)}
+                                className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
+                              >
+                                {item.name}
+                              </DisclosureButton>
+                            ))}
+                          </div>
+                        ))}
+                      </DisclosurePanel>
+                    </Disclosure>
+                  )
+                })}
               </div>
               <div className="py-6">
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
                 >
-                  Log in
+                  Kontakt <span aria-hidden="true">&rarr;</span>
                 </a>
               </div>
             </div>
