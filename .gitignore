@@ -6,6 +6,11 @@ node_modules
 .next
 .vercel
 
+# Google Cloud Storage service account keys
+gcs-service-account.json
+*-service-account.json
+gcs-credentials-base64.txt
+
 # Payload default media upload directory
 public/media/
 
